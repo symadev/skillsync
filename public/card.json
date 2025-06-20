@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "logo": "/src/assets/images/cloud-computing_5993857.png",
+    "title": "Instant Downloads",
+    "description": "Download your professionally crafted resume in various formats like PDF and Word, ready for any application."
+  },
+  {
+    "id": 2,
+    "logo": "/src/assets/images/communication.png",
+    "title": "Intelligent AI Suggestions",
+    "description": "Get real-time AI-powered content suggestions to optimize your resume for applicant tracking systems (ATS)."
+  },
+  {
+    "id": 3,
+    "logo": "/src/assets/images/curriculum-vitae_17892910.png",
+    "title": "Stunning Portfolio Showcase",
+    "description": "Easily integrate and showcase your online portfolio, projects, and achievements to impress recruiters."
+  }
+]
