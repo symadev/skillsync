@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/images/resume.icon.png'
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
                         <li><a>Testimonials</a></li>
                         <li><a>Contacts</a></li>
 
-                        <li><a>Login</a></li>
+                        <li> <Link to ="/login">Login</Link></li>
                     </ul>
                 </div>
 
@@ -30,7 +31,7 @@ const Navbar = () => {
                     <li> <a>Ai Tools</a></li>
                     <li><a>Testimonials</a></li>
                     <li><a>Contacts</a></li>
-                    <li><a>Login</a></li>
+                    <li> <Link to ="/login">Login</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

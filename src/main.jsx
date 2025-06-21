@@ -4,9 +4,12 @@ import './index.css'
 
 import router from './Component/Routes.jsx'
 import { RouterProvider } from 'react-router-dom'
+import AuthProvider from '../src/Component/Provider/AuthContext.jsx' 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+    <AuthProvider> {/* এখন সব রাউট ও কম্পোনেন্টকে AuthContext এ access দিবে */}
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </StrictMode>
 )
