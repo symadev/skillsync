@@ -14,7 +14,7 @@ const Ai = () => {
     <div className="bg-black text-white py-16 px-6 md:px-20">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="text-3xl  md:text-4xl font-bold mb-4">
           Leverage Our <span className="text-white">AI Tools</span>
         </h1>
         <h2 className="text-2xl font-semibold mt-6 mb-3">
