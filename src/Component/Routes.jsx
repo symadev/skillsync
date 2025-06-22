@@ -8,6 +8,8 @@ import Login from "./Login";
 import Register from "./Register";
 import Dashboard from "./DashBoard/Dashboard";
 
+import Profile from "./DashBoard/Profile";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +29,17 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element:<Dashboard></Dashboard>
+        element:<Dashboard></Dashboard>,
+         children: [
+        {
+        path: "profile",
+        element:<Profile></Profile>
       },
+      ],
+        
+      },
+      
+       
     ],
   },
 ]);
