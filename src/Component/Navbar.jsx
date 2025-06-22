@@ -34,8 +34,8 @@ const Navbar = () => {
                     <li> <Link to ="/login">Login</Link></li>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn btn-outline hover:bg-orange-400 rounded-full shadow-lg">Build Your Resume</a>
+            <div className="navbar-end"><Link to="/dashboard">
+                <a className="btn btn-outline hover:bg-orange-400 rounded-full shadow-lg">Build Your Resume</a></Link>
             </div>
         </div>
     );
