@@ -9,6 +9,8 @@ import Register from "./Register";
 import Dashboard from "./DashBoard/Dashboard";
 
 import Profile from "./DashBoard/Profile";
+import Settings from "./DashBoard/Settings";
+
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
         {
         path: "profile",
         element:<Profile></Profile>
+      },
+        {
+        path: "settings",
+        element:<Settings></Settings>
       },
       ],
         

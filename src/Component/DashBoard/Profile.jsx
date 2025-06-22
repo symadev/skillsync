@@ -14,7 +14,7 @@ const Profile= () => {
       {/* Resume Score + Completion + AI Coach */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Resume Score */}
-        <div className="bg-[#111] rounded-2xl p-6 text-center shadow-inner">
+        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400]  rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Resume Completion</h4>
           <div className="relative w-32 h-32 mx-auto">
             <svg className="w-full h-full transform -rotate-90">
@@ -27,7 +27,7 @@ const Profile= () => {
         </div>
 
         {/* Portfolio Completion */}
-        <div className="bg-[#111] rounded-2xl p-6 text-center shadow-inner">
+        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400]  rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Portfolio Completion</h4>
           <div className="relative w-32 h-32 mx-auto">
             <svg className="w-full h-full transform -rotate-90">
@@ -40,7 +40,7 @@ const Profile= () => {
         </div>
 
         {/* AI Coach Suggestions */}
-        <div className="bg-gradient-to-br from-[#2c0f00] to-[#ff6a00] p-6 rounded-2xl shadow-lg text-white">
+        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400] btn-outline p-6 rounded-2xl shadow-lg text-white">
           <h4 className="text-lg font-semibold mb-4">AI Coach Suggestions</h4>
           <div className="space-y-4">
             <SuggestionCard text="Refine your skill highlights" />
@@ -51,14 +51,14 @@ const Profile= () => {
       </div>
 
       {/* Achievement Score + User Reviews */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-[#111] rounded-2xl p-6 text-center shadow-inner">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400]  rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Achievement Score</h4>
           <p className="text-6xl font-extrabold text-orange-400">92%</p>
           <p className="text-sm mt-2 text-gray-400">Based on profile strength & interaction</p>
         </div>
 
-        <div className="bg-[#111] rounded-2xl p-6 shadow-inner">
+        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400]  rounded-2xl p-6 shadow-inner">
           <h4 className="text-sm font-semibold mb-4">User Reviews</h4>
           <div className="space-y-4">
             <ReviewCard name="Jane Doe" text="Amazing AI suggestions! Helped a lot." />
