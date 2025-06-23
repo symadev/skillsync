@@ -21,7 +21,7 @@ const Profile = () => {
 
       {/* Resume Score + Completion + AI Coach */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400] rounded-2xl p-6 text-center shadow-inner">
+        <div className="bg-[#0a0400] rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Resume Completion</h4>
           <div className="relative w-32 h-32 mx-auto">
             <svg className="w-full h-full transform -rotate-90">
@@ -33,7 +33,7 @@ const Profile = () => {
           <p className="mt-3 text-sm text-orange-400">Your resume is almost ready</p>
         </div>
 
-        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400] rounded-2xl p-6 text-center shadow-inner">
+        <div className="bg-[#0a0400] rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Portfolio Completion</h4>
           <div className="relative w-32 h-32 mx-auto">
             <svg className="w-full h-full transform -rotate-90">
@@ -45,7 +45,7 @@ const Profile = () => {
           <p className="mt-3 text-sm text-orange-400">Keep going, you're doing great!</p>
         </div>
 
-        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400] btn-outline p-6 rounded-2xl shadow-lg text-white">
+        <div className="bg-[#0a0400] btn-outline p-6 rounded-2xl shadow-lg text-white">
           <h4 className="text-lg font-semibold mb-4">AI Coach Suggestions</h4>
           <div className="space-y-4">
             <SuggestionCard text="Refine your skill highlights" />
@@ -57,7 +57,7 @@ const Profile = () => {
 
       {/* Achievement Score Chart + User Reviews */}
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400] flex-1 rounded-2xl p-6 shadow-inner">
+        <div className="bg-[#0a0400] flex-1 rounded-2xl p-6 shadow-inner">
           <h4 className="text-sm font-semibold mb-4">Achievement Score Over Time</h4>
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -76,7 +76,7 @@ const Profile = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-gradient-to-br from-[#2c0f00] to-[#0a0400] flex-1 rounded-2xl p-6 shadow-inner">
+        <div className="bg-[#0a0400] flex-1 rounded-2xl p-6 shadow-inner">
           <h4 className="text-sm font-semibold mb-4">User Reviews</h4>
           <div className="space-y-4">
             <ReviewCard name="Jane Doe" text="Amazing AI suggestions! Helped a lot." />
