@@ -18,7 +18,7 @@ const Dashboard = () => {
         <ul className="flex flex-col text-2xl font-semibold gap-1 mt-4">
           <SidebarLink to="/dashboard/profile" icon={<FaUser />} text="Profile" />
           <SidebarLink to="/dashboard/resume" icon={<FaFileAlt />} text="Resume Builder" />
-          <SidebarLink to="/dashboard/portfolio" icon={<FaHome />} text="Portfolio Builder" />
+          <SidebarLink to="/dashboard/Templates" icon={<FaHome />} text="Templates" />
           <SidebarLink to="/dashboard/ai-coach" icon={<FaRobot />} text="AI Assistant" />
           <SidebarLink to="/dashboard/settings" icon={<FaCog />} text="Settings" />
         </ul>

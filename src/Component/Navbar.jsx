@@ -19,7 +19,7 @@ const Navbar = () => {
                         <li><a>Testimonials</a></li>
                         <li><a>Contacts</a></li>
 
-                        <li> <Link to ="/login">Login</Link></li>
+                        <li> <Link to ="/login">Login/Sign Up</Link></li>
                     </ul>
                 </div>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
                     <li> <a>Ai Tools</a></li>
                     <li><a>Testimonials</a></li>
                     <li><a>Contacts</a></li>
-                    <li> <Link to ="/login">Login</Link></li>
+                    <li> <Link to ="/login">Login/Sign Up</Link></li>
                 </ul>
             </div>
             <div className="navbar-end"><Link to="/dashboard">
