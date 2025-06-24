@@ -1,5 +1,5 @@
 import { FaEye, FaDownload, FaLink, FaStar } from 'react-icons/fa';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
   { name: 'Week 1', score: 70 },
@@ -60,19 +60,13 @@ const Profile = () => {
         <div className="bg-[#0a0400] flex-1 rounded-2xl p-6 shadow-inner">
           <h4 className="text-sm font-semibold mb-4">Achievement Score Over Time</h4>
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-              <defs>
-                <linearGradient id="colorScore" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#FFA500" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="#FFA500" stopOpacity={0} />
-                </linearGradient>
-              </defs>
+            <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
               <XAxis dataKey="name" stroke="#ccc" />
               <YAxis stroke="#ccc" />
-              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
               <Tooltip />
-              <Area type="monotone" dataKey="score" stroke="#FFA500" fillOpacity={1} fill="url(#colorScore)" />
-            </AreaChart>
+              <Bar dataKey="score" fill="#d64500" radius={[6, 6, 0, 0]} />
+            </BarChart>
           </ResponsiveContainer>
         </div>
 

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 const Settings = () => {
-  const [fullName, setFullName] = useState('Jenny P.'); // Pre-fill for demonstration
-  const [email, setEmail] = useState('jenny.p@example.com'); // Pre-fill for demonstration
+  const [fullName, setFullName] = useState('Jenny P.');
+  const [email, setEmail] = useState('jenny.p@example.com');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [fileName, setFileName] = useState('No file chosen');
-  const [previewUrl, setPreviewUrl] = useState(''); // Initial state for profile pic
-  const [darkMode, setDarkMode] = useState(true); // Default to dark mode for the black theme
+  const [previewUrl, setPreviewUrl] = useState('');
+  const [darkMode, setDarkMode] = useState(true);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -26,7 +26,6 @@ const Settings = () => {
   const saveChanges = () => {
     if (fullName && email) {
       alert('Profile updated successfully!');
-      // Here you would typically send data to a backend API
     } else {
       alert('Please fill in all required fields (Full Name, Email).');
     }
@@ -39,7 +38,6 @@ const Settings = () => {
         return;
       }
       alert('Password updated successfully!');
-      // Here you would typically send data to a backend API
       setCurrentPassword('');
       setNewPassword('');
       setConfirmNewPassword('');
@@ -50,137 +48,208 @@ const Settings = () => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark-mode', !darkMode); // For global theme change if needed
+    document.documentElement.classList.toggle('dark-mode', !darkMode);
   };
 
   return (
-    // Outer container for the whole page background, now solid black
-    <div className={`min-h-screen flex items-start justify-center p-6 ${darkMode ? 'bg-black text-gray-100' : 'bg-gray-100 text-gray-800'}`}>
-      {/* Main content container mimicking the card-like structure */}
-      <div className={`w-full max-w-4xl rounded-lg shadow-xl overflow-hidden ${darkMode ? 'bg-[#0a0400]' : 'bg-white'} `}>
-        
-        {/* Header - Centered text */}
-        <div className={`py-6 px-8 ${darkMode ? 'bg-black text-orange-400' : 'bg-gray-50 text-gray-800'} '}`}>
-          <h1 className="text-3xl font-semibold text-center">Profile Settings</h1>
+    <div
+      className={`min-h-screen flex items-start justify-center p-6 ${
+        darkMode
+          ? 'bg-gradient-to-br from-black via-[#1a0900] to-black text-gray-100'
+          : 'bg-gray-100 text-gray-800'
+      }`}
+    >
+      <div
+        className={`w-full max-w-4xl  shadow-2xl overflow-hidden ${
+          darkMode
+            ? 'bg-gradient-to-br from-black via-[#1a0900] to-black'
+            : 'bg-white'
+        }`}
+      >
+        {/* Header */}
+        <div
+          className={`py-6 px-8 text-center ${
+            darkMode
+              ? ''
+              : 'bg-gray-50 text-gray-800'
+          }`}
+        >
+          <h1 className="text-4xl font-extrabold tracking-wide">Profile Settings</h1>
         </div>
 
-
-
-
-   {/* Profile Photo Section - Grid view for content */}
-        {/* REMOVED: border-b and its conditional classes */}
-        <section className={`p-8`}>
-          <h2 className="text-xl font-medium mb-5 text-orange-400 justify-start">Profile Photo</h2>
-          {/* Changed from flex to grid, and adjusted alignment for grid */}
-          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-center justify-items-center md:justify-items-start gap-4 md:gap-6">
-            {/* Profile image placeholder/preview */}
-            <div className="w-24 h-24 rounded-full border-2 border-orange-500 flex items-center justify-center overflow-hidden bg-black md:col-start-1">
+        {/* Profile Photo */}
+        <section className="p-8">
+          <h2 className="text-xl font-semibold mb-6 text-orange-400">Profile Photo</h2>
+          <div className="grid grid-col md:flex-row items-center md:items-start gap-8">
+            <div className="w-28 h-28 rounded-full border-4 border-orange-500 flex items-center justify-center overflow-hidden bg-black shrink-0">
               {previewUrl ? (
-                <img src={previewUrl} alt="Profile Preview" className="w-full h-full object-cover rounded-full" />
+                <img
+                  src={previewUrl}
+                  alt="Profile Preview"
+                  className="w-full h-full object-cover rounded-full"
+                />
               ) : (
-                <span className="text-orange-300 text-4xl font-bold">JP</span> // Initials placeholder
+                <span className="text-orange-300 text-5xl font-extrabold select-none">JP</span>
               )}
             </div>
-            {/* File input and label */}
-            <label className="  space-x-2 cursor-pointer bg-gradient-to-r from-orange-500 to-red-500 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 shadow-md md:col-start-1">
-              <input type="file" className="hidden" accept="image/*" onChange={handleFileUpload} />
-              <span>Choose File</span>
-              <span className="text-sm text-gray-200">({fileName})</span>
+            <label
+              className="cursor-pointer bg-gradient-to-r mr-52 btn from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 px-5 rounded-md shadow-lg flex items-center select-none transition-transform transform hover:scale-105"
+              title="Upload Profile Picture"
+            >
+              <input
+                type="file"
+                className="hidden"
+                accept="image/*"
+                onChange={handleFileUpload}
+              />
+              Choose File
+              <span className="ml-3 text-sm text-gray-200 truncate max-w-xs">
+                ({fileName})
+              </span>
             </label>
           </div>
         </section>
 
-
-
-
-        {/* Update Information Section */}
-        <section className={`p-8 border-b ${darkMode ? 'border-orange-700' : 'border-gray-200'}`}>
-          <h2 className="text-xl font-medium mb-5 text-orange-400">Update Information</h2>
-          <div className="space-y-4">
+        {/* Update Information */}
+        <section className="p-8">
+          <h2 className="text-xl font-semibold mb-6 text-orange-400">Update Information</h2>
+          <div className="space-y-6">
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium mb-2 text-gray-300">Profile</label>
+              <label
+                htmlFor="fullName"
+                className="block text-sm font-medium mb-2 text-gray-300"
+              >
+                Full Name
+              </label>
               <input
                 type="text"
                 id="fullName"
-                className={`w-full p-3 rounded-md ${darkMode ? 'bg-black border border-orange-500 text-white placeholder-gray-500' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-400'} focus:outline-none focus:ring-2 focus:ring-orange-600`}
+                className={`w-full p-4 rounded-lg ${
+                  darkMode
+                    ? 'bg-black text-white placeholder-gray-500 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                    : 'bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                } transition-shadow shadow-sm`}
                 placeholder="Your full name"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
+                autoComplete="name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium mb-2 text-gray-300"
+              >
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
-                className={`w-full p-3 rounded-md ${darkMode ? 'bg-black border border-orange-500 text-white placeholder-gray-500' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-400'} focus:outline-none focus:ring-2 focus:ring-orange-600`}
+                className={`w-full p-4 rounded-lg ${
+                  darkMode
+                    ? 'bg-black text-white placeholder-gray-500 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                    : 'bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                } transition-shadow shadow-sm`}
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
               />
             </div>
           </div>
           <button
             onClick={saveChanges}
-            className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 hover:bg-orange-700 text-white font-semibold py-2.5 px-6 rounded-md transition-colors duration-200 shadow-md"
+            className="mt-8 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-transform transform hover:scale-105"
           >
             Save Changes
           </button>
         </section>
 
-        {/* Change Password Section */}
-        <section className={`p-8 border-b ${darkMode ? 'border-orange-700' : 'border-gray-200'}`}>
-          <h2 className="text-xl font-medium mb-5 text-orange-400">Change Password</h2>
-          <div className="space-y-4">
+        {/* Change Password */}
+        <section className="p-8">
+          <h2 className="text-xl font-semibold mb-6 text-orange-400">Change Password</h2>
+          <div className="space-y-6">
             <div>
-              <label htmlFor="currentPassword" className="block text-sm font-medium mb-2 text-gray-300">Current Password</label>
+              <label
+                htmlFor="currentPassword"
+                className="block text-sm font-medium mb-2 text-gray-300"
+              >
+                Current Password
+              </label>
               <input
                 type="password"
                 id="currentPassword"
-                className={`w-full p-3 rounded-md ${darkMode ? 'bg-black border border-orange-500 text-white placeholder-gray-500' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-400'} focus:outline-none focus:ring-2 focus:ring-orange-600`}
+                className={`w-full p-4 rounded-lg ${
+                  darkMode
+                    ? 'bg-black text-white placeholder-gray-500 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                    : 'bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                } transition-shadow shadow-sm`}
                 placeholder="Enter current password"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
+                autoComplete="current-password"
               />
             </div>
             <div>
-              <label htmlFor="newPassword" className="block text-sm font-medium mb-2 text-gray-300">New Password</label>
+              <label
+                htmlFor="newPassword"
+                className="block text-sm font-medium mb-2 text-gray-300"
+              >
+                New Password
+              </label>
               <input
                 type="password"
                 id="newPassword"
-                className={`w-full p-3 rounded-md ${darkMode ? 'bg-black border border-orange-500 text-white placeholder-gray-500' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-400'} focus:outline-none focus:ring-2 focus:ring-orange-600`}
+                className={`w-full p-4 rounded-lg ${
+                  darkMode
+                    ? 'bg-black text-white placeholder-gray-500 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                    : 'bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                } transition-shadow shadow-sm`}
                 placeholder="Create a new password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
+                autoComplete="new-password"
               />
             </div>
             <div>
-              <label htmlFor="confirmNewPassword" className="block text-sm font-medium mb-2 text-gray-300">Confirm New Password</label>
+              <label
+                htmlFor="confirmNewPassword"
+                className="block text-sm font-medium mb-2 text-gray-300"
+              >
+                Confirm New Password
+              </label>
               <input
                 type="password"
                 id="confirmNewPassword"
-                className={`w-full p-3 rounded-md ${darkMode ? 'bg-black border border-orange-500 text-white placeholder-gray-500' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-400'} focus:outline-none focus:ring-2 focus:ring-orange-600`}
+                className={`w-full p-4 rounded-lg ${
+                  darkMode
+                    ? 'bg-black text-white placeholder-gray-500 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                    : 'bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-orange-600 focus:ring-2 focus:outline-none'
+                } transition-shadow shadow-sm`}
                 placeholder="Confirm your new password"
                 value={confirmNewPassword}
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
+                autoComplete="new-password"
               />
             </div>
           </div>
           <button
             onClick={updatePassword}
-            className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 hover:bg-orange-700 text-white font-semibold py-2.5 px-6 rounded-md transition-colors duration-200 shadow-md"
+            className="mt-8 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-xl transition-transform transform hover:scale-105"
           >
             Update Password
           </button>
         </section>
 
-        {/* Dark Mode Toggle Section */}
+        {/* Dark Mode Toggle */}
         <section className="p-8 flex justify-between items-center">
-          <span className="text-xl font-medium text-orange-400 flex items-center gap-2">
+          <span className="text-xl font-semibold text-orange-400 flex items-center gap-3 select-none">
             ☀️ Dark Mode
           </span>
-          {/* Custom styled toggle switch */}
-          <label htmlFor="darkModeToggle" className="relative inline-flex items-center cursor-pointer">
+          <label
+            htmlFor="darkModeToggle"
+            className="relative inline-flex items-center cursor-pointer"
+          >
             <input
               type="checkbox"
               id="darkModeToggle"
@@ -188,8 +257,15 @@ const Settings = () => {
               checked={darkMode}
               onChange={toggleDarkMode}
             />
-            {/* Slider track */}
-            <div className={`w-12 h-6 ${darkMode ? 'bg-black peer-checked:bg-orange-500' : 'bg-gray-300 peer-checked:bg-orange-500'} rounded-full peer peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-orange-300 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white`}></div>
+            <div
+              className={`w-14 h-7 rounded-full transition-colors duration-300 peer-focus:ring-4 peer-focus:ring-orange-300 ${
+                darkMode ? 'bg-black peer-checked:bg-orange-500' : 'bg-gray-300 peer-checked:bg-orange-500'
+              }`}
+            >
+              <span
+                className={`absolute left-0 top-0.5 bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 peer-checked:translate-x-7`}
+              />
+            </div>
           </label>
         </section>
       </div>
