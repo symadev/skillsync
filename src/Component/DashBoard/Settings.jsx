@@ -55,7 +55,7 @@ const Settings = () => {
     <div
       className={`min-h-screen flex items-start justify-center p-6 ${
         darkMode
-          ? 'bg-gradient-to-br from-black via-[#1a0900] to-black text-gray-100'
+          ? 'bg-gradient-to-br from-black via-[#1a0900] to-black text-orange-500'
           : 'bg-gray-100 text-gray-800'
       }`}
     >

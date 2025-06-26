@@ -3,13 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useContext } from 'react';
 import { AuthContext } from './Provider/AuthContext';
-import Swal from 'sweetalert2';
-import axios from 'axios';
+
+import { toast } from 'react-toastify';
+
+
+import UseAxiosPublic from './AdminRoutes/UseAxiosPublic';
 
 const Register = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = UseAxiosPublic()
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
@@ -20,22 +24,24 @@ const Register = () => {
           role: 'user',
           createdAt: new Date()
         };
-        axios.post('http://localhost:5000/user', newUser)
-          .then(() => {
-            reset();
-            Swal.fire({
+        axiosPublic .post('/users', newUser )
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            console.log('user added to the database')
+                            reset();
+             toast.success({
               title: "Registration Successful",
               icon: "success",
               confirmButtonColor: "#ff9900",
-            });
+            })};
             navigate('/');
           })
           .catch(() => {
-            Swal.fire('Error', 'Failed to save user data', 'error');
+             toast.error('Error', 'Failed to save user data', 'error');
           });
       })
       .catch(() => {
-        Swal.fire('Error', 'Something went wrong during registration', 'error');
+        toast.error('Error', 'Something went wrong during registration', 'error');
       });
   };
 

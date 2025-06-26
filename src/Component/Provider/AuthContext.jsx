@@ -9,7 +9,8 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { app } from "../Firebase/Firebase";
-import axios from "axios"; // Make sure axios is installed
+
+import UseAxiosPublic from "../AdminRoutes/UseAxiosPublic";
 
 export const AuthContext = createContext(null);
 
@@ -19,6 +20,7 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+    const axiosPublic = UseAxiosPublic()
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -48,23 +50,23 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
 
       if (currentUser) {
-        const userInfo = { email: currentUser.email };
-
-        axios
-          .post("http://localhost:5000/jwt", userInfo)
-          .then((res) => {
-            localStorage.setItem("access-token", res.data.token);
-          })
-          .catch((err) => {
-            console.error("JWT error:", err);
-          });
-      } else {
-        localStorage.removeItem("access-token");
+       const userINfo = {email:currentUser.email}
+      axiosPublic.post('/jwt',userINfo)
+        .then (res=>{
+          if(res.data.token){
+            localStorage.setItem('access-token', res.data.token)
+            //needed two arguments
+          }
+          else {
+            //do something:remove token (if the token store in the client sight(like,localstorage,chasing,memory))
+            localStorage.removeItem('access-token')
+          }
+        })
       }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [axiosPublic]);
 
   const authInfo = {
     user,

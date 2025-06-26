@@ -1,6 +1,6 @@
 // Dashboard.jsx
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaUser, FaFileAlt, FaRobot, FaCog, FaMoon } from "react-icons/fa";
+import { FaHome, FaUser, FaFileAlt, FaRobot, FaCog, FaMoon, FaFileArchive } from "react-icons/fa";
 import logo from "../../assets/images/icon-logo.png"; // Replace with your SkillSync logo
 
 const Dashboard = () => {
@@ -18,9 +18,10 @@ const Dashboard = () => {
         <ul className="flex flex-col text-2xl font-semibold gap-1 mt-4">
           <SidebarLink to="/dashboard/profile" icon={<FaUser />} text="Profile" />
           <SidebarLink to="/dashboard/resume" icon={<FaFileAlt />} text="Resume Builder" />
-          <SidebarLink to="/dashboard/Templates" icon={<FaHome />} text="Templates" />
+          <SidebarLink to="/dashboard/Templates" icon={<FaFileArchive/>} text="Templates" />
           <SidebarLink to="/dashboard/ai-coach" icon={<FaRobot />} text="AI Assistant" />
           <SidebarLink to="/dashboard/settings" icon={<FaCog />} text="Settings" />
+          <SidebarLink to="/dashboard/User Admin" icon={<FaUser />} text="Admin Management"/>
         </ul>
        {/* Dark Mode Toggle */}
         <div className="mt-auto px-6 py-6">

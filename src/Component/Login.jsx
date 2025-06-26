@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+
 import { AuthContext } from './Provider/AuthContext';
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -17,11 +19,11 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
-        Swal.fire("Login Successful", "", "success");
+         toast.success("Login Successful", "", "success");
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        Swal.fire("Login Failed", error.message, "error");
+        toast.error("Login Failed", error.message, "error");
       });
   };
 
