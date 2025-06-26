@@ -2,17 +2,6 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/resume.icon.png';
 
 const Navbar = () => {
-  const menuItems = (
-    <>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/features">Features</Link></li>
-      <li><Link to="/ai-tools">AI Tools</Link></li>
-      <li><Link to="/testimonials">Testimonials</Link></li>
-      <li><Link to="/contacts">Contacts</Link></li>
-      <li><Link to="/login">Login/Sign Up</Link></li>
-    </>
-  );
-
   return (
     <div className="navbar bg-black text-white px-4 sticky top-0 z-50 h-24">
       {/* Navbar Start */}
@@ -35,7 +24,12 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black"
           >
-            {menuItems}
+            <li><a href="/">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#ai-tools">AI Tools</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contacts">Contact</a></li>
+            <li><Link to="/login">Login/Sign Up</Link></li>
           </ul>
         </div>
         {/* Logo */}
@@ -48,7 +42,12 @@ const Navbar = () => {
       {/* Navbar Center (Desktop Menu) */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-[16px] font-semibold">
-          {menuItems}
+          <li><a href="/">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#ai-tools">AI Tools</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contacts">Contact</a></li>
+          <li><Link to="/login">Login/Sign Up</Link></li>
         </ul>
       </div>
 

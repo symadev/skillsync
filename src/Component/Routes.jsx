@@ -14,6 +14,7 @@ import Resume from "./DashBoard/Resume";
 import AiAssistant from "./DashBoard/AiAssistant";
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
         path: "register",
         element:<Register></Register>
       },
+    
       {
         path: "dashboard",
         element:<Dashboard></Dashboard>,

@@ -6,23 +6,34 @@ import CtaSection from "./CtaSection";
 import PdfImage from "./PdfImage";
 import Resume from "./Resume";
 
-
-
-
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Resume></Resume>
-            <PdfImage></PdfImage>
-            <Card></Card>
-            <Ai></Ai>
-            <CardOfTestimonial></CardOfTestimonial>
-           <CtaSection></CtaSection>
-    
-        
-          
-            
+
+            <section id="resume">
+                <Resume></Resume>
+            </section>
+
+            <section id="pdf-image">
+                <PdfImage></PdfImage>
+            </section>
+
+            <section id="features" className="scroll-mt-24">
+                <Card></Card>
+            </section>
+
+            <section id="ai-tools" className="scroll-mt-24">
+                <Ai></Ai>
+            </section>
+
+            <section id="testimonials" className="scroll-mt-24">
+                <CardOfTestimonial></CardOfTestimonial>
+            </section>
+
+            <section id="contacts" className="scroll-mt-24">
+                <CtaSection></CtaSection>
+            </section>
         </div>
     );
 };
