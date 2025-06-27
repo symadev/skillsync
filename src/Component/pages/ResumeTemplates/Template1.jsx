@@ -1,4 +1,3 @@
-
 import { useResume } from "../../Provider/ResumeContext";
 
 const Template1 = ({ primaryColor = "blue" }) => {
@@ -17,32 +16,38 @@ const Template1 = ({ primaryColor = "blue" }) => {
   const colorClass = `border-${primaryColor}-700`;
 
   return (
-    <div className={`max-w-3xl mx-auto p-8 border-4 ${colorClass} bg-white text-black`} id="resume-output">
+    <div
+      className={`w-full max-w-3xl mx-auto bg-white text-black shadow-lg rounded-lg border-4 ${colorClass} px-8 py-10 space-y-6`}
+      id="resume-output"
+    >
       {/* Header */}
-      <div className="flex justify-between items-start border-b-2 pb-4 mb-4">
-        <div className="flex items-center gap-4">
+      <div className="flex justify-between items-center border-b pb-6">
+        <div className="flex items-center gap-5">
           {profileImage && (
             <img
               src={profileImage}
               alt="Profile"
-              className="w-16 h-16 rounded-full object-cover border border-gray-400"
+              className="w-20 h-20 rounded-full object-cover border border-gray-400"
             />
           )}
-          <h1 className="text-3xl font-bold uppercase leading-tight">{name || "Your Name"}</h1>
-        </div>
-        <div className="text-right text-sm">
-          <p>{email || "youremail@example.com"}</p>
-          <p>{phone || "+8801XXXXXXXXX"}</p>
+          <div>
+            <h1 className="text-3xl font-bold uppercase">{name || "Your Name"}</h1>
+            <p className="text-sm">{email || "youremail@example.com"}</p>
+            <p className="text-sm">{phone || "+8801XXXXXXXXX"}</p>
+          </div>
         </div>
       </div>
 
       {/* Summary */}
-      <p className="text-sm mb-6">{summary || "Professional summary goes here..."}</p>
+      <div>
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 mb-2`}>Professional Summary</h2>
+        <p className="text-sm">{summary || "Professional summary goes here..."}</p>
+      </div>
 
       {/* Skills */}
-      <div className="mb-6">
-        <h2 className="font-bold text-lg text-gray-700 mb-2">Skills</h2>
-        <ul className="list-disc list-inside grid grid-cols-2 gap-1">
+      <div>
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 mb-2`}>Skills</h2>
+        <ul className="list-disc list-inside grid grid-cols-2 gap-1 text-sm">
           {skills?.map((skill, i) => (
             <li key={i}>{skill}</li>
           ))}
@@ -50,17 +55,17 @@ const Template1 = ({ primaryColor = "blue" }) => {
       </div>
 
       {/* Experience */}
-      <div className="mb-6">
-        <h2 className="font-bold text-lg text-gray-700 mb-2">Work History</h2>
+      <div>
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 mb-2`}>Work History</h2>
         {experience?.map((exp, i) => (
-          <div key={i} className="mb-3">
+          <div key={i} className="mb-4">
             <p className="font-semibold">
-              {exp.title || "Job Title"} | {exp.company || "Company"} |{" "}
-              <span className="text-sm italic">
-                {exp.startDate} - {exp.endDate}
+              {exp.title || "Job Title"} | {exp.company || "Company"}{" "}
+              <span className="italic text-sm">
+                ({exp.startDate} - {exp.endDate})
               </span>
             </p>
-            <ul className="list-disc list-inside text-sm ml-4">
+            <ul className="list-disc list-inside text-sm ml-5">
               {exp.details?.map((d, j) => (
                 <li key={j}>{d}</li>
               ))}
@@ -71,10 +76,12 @@ const Template1 = ({ primaryColor = "blue" }) => {
 
       {/* Education */}
       <div>
-        <h2 className="font-bold text-lg text-gray-700 mb-2">Education</h2>
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 mb-2`}>Education</h2>
         {education?.map((edu, i) => (
-          <div key={i}>
-            <p className="font-semibold">{edu.degree || "Degree"} – {edu.institution || "Institution"}</p>
+          <div key={i} className="mb-2">
+            <p className="font-semibold">
+              {edu.degree || "Degree"} – {edu.institution || "Institution"}
+            </p>
             <p className="text-sm italic">{edu.year || "Year"}</p>
           </div>
         ))}

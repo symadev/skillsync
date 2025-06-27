@@ -1,23 +1,21 @@
 import Template1 from "../../Component/pages/ResumeTemplates/Template1";
 import Template2 from "../../Component/pages/ResumeTemplates/Template2";
+
 import TemplateCard from "../../Component/pages/TemplateCard";
 
 const templateData = [
   {
     id: 1,
     title: "Modern Blue",
-    type: "modern",
-    preview: "/public/template-preview/1.png",
     component: Template1,
   },
   {
-    id: 2,
-    title: "Professional Clean",
-    type: "professional",
-    preview: "/public/template-preview/2.png",
+    id: 1,
+    title: "Modern Blue",
     component: Template2,
-  },
+  }
 ];
+ 
 
 const Templates = () => {
     return (

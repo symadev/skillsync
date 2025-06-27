@@ -7,6 +7,7 @@ export const useResume = () => useContext(ResumeContext);
 
 const ResumeProvider = ({ children }) => {
   const [templateId, setTemplateId] = useState(null);
+  const [primaryColor, setPrimaryColor] = useState("blue"); // ✅ Add this line
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,21 +16,22 @@ const ResumeProvider = ({ children }) => {
     education: [],
     experience: [],
     skills: [],
+    profileImage: "",
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-orange-600 text-white">
-      <ResumeContext.Provider
-        value={{
-          templateId,
-          setTemplateId,
-          formData,
-          setFormData,
-        }}
-      >
-        {children}
-      </ResumeContext.Provider>
-    </div>
+    <ResumeContext.Provider
+      value={{
+        templateId,
+        setTemplateId,
+        formData,
+        setFormData,
+        primaryColor,       // ✅ Added
+        setPrimaryColor,    // ✅ Added
+      }}
+    >
+      {children}
+    </ResumeContext.Provider>
   );
 };
 
