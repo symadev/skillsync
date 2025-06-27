@@ -14,23 +14,23 @@ const Dashboard = () => {
           <span className="text-xl font-bold text-orange-500">SkillSync</span>
         </div>
 
-       {/* Navigation Links */}
+        {/* Navigation Links */}
         <ul className="flex flex-col text-2xl font-semibold gap-1 mt-4">
           <SidebarLink to="/dashboard/profile" icon={<FaUser />} text="Profile" />
           <SidebarLink to="/dashboard/resume" icon={<FaFileAlt />} text="Resume Builder" />
-          <SidebarLink to="/dashboard/Templates" icon={<FaFileArchive/>} text="Templates" />
+
           <SidebarLink to="/dashboard/ai-coach" icon={<FaRobot />} text="AI Assistant" />
           <SidebarLink to="/dashboard/settings" icon={<FaCog />} text="Settings" />
-          <SidebarLink to="/dashboard/User Admin" icon={<FaUser />} text="Admin Management"/>
+          <SidebarLink to="/dashboard/User Admin" icon={<FaUser />} text="Management" />
         </ul>
-       {/* Dark Mode Toggle */}
+        {/* Dark Mode Toggle */}
         <div className="mt-auto px-6 py-6">
-         <button className="relative px-5 py-2 rounded-full text-white font-semibold transition-all duration-300 group">
-  <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-  <span className="relative z-10 flex items-center gap-2 bg-black rounded-full px-5 py-2">
-    <FaMoon className="text-white" /> Dark Mode
-  </span>
-</button>
+          <button className="relative px-5 py-2 rounded-full text-white font-semibold transition-all duration-300 group">
+            <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="relative z-10 flex items-center gap-2 bg-black rounded-full px-5 py-2">
+              <FaMoon className="text-white" /> Dark Mode
+            </span>
+          </button>
 
         </div>
       </aside>
@@ -49,10 +49,9 @@ const SidebarLink = ({ to, icon, text }) => {
       <NavLink
         to={to}
         className={({ isActive }) =>
-          `flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-            isActive
-              ? 'bg-gradient-to-r from-[#ff6a00] via-[#d64500] to-[#1a1a1a] text-white shadow-md'
-              : 'text-white hover:bg-[#1a1a1a] hover:text-orange-400'
+          `flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${isActive
+            ? 'bg-gradient-to-r from-[#ff6a00] via-[#d64500] to-[#1a1a1a] text-white shadow-md'
+            : 'text-white hover:bg-[#1a1a1a] hover:text-orange-400'
           }`
         }
       >

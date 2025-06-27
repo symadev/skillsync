@@ -15,6 +15,8 @@ import AiAssistant from "./DashBoard/AiAssistant";
 import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
 
 import HomeMain from "./pages/HomeMain";
+import Templates from "./pages/Templates";
+
 
 
 
@@ -50,8 +52,14 @@ const router = createBrowserRouter([
       },
         {
         path: "resume",
-        element:<HomeMain></HomeMain>
+        element:<HomeMain></HomeMain>,
+         
       },
+
+      {
+      path: "templates",
+      element: <Templates/> 
+    },
         {
         path: "ai-coach",
         element:<AiAssistant></AiAssistant>
