@@ -12,6 +12,9 @@ import Profile from "./DashBoard/Profile";
 import Settings from "./DashBoard/Settings";
 import Resume from "./DashBoard/Resume";
 import AiAssistant from "./DashBoard/AiAssistant";
+import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
+
+import HomeMain from "./pages/HomeMain";
 
 
 
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
     
       {
         path: "dashboard",
-        element:<Dashboard></Dashboard>,
+        element:<AdminRoutes><Dashboard></Dashboard></AdminRoutes>,
          children: [
         {
         path: "profile",
@@ -47,7 +50,7 @@ const router = createBrowserRouter([
       },
         {
         path: "resume",
-        element:<Resume></Resume>
+        element:<HomeMain></HomeMain>
       },
         {
         path: "ai-coach",
