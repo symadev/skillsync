@@ -1,6 +1,7 @@
 import Template1 from "../../Component/pages/ResumeTemplates/Template1";
 import Template2 from "../../Component/pages/ResumeTemplates/Template2";
 import TemplateCard from "../../Component/pages/TemplateCard";
+import Template3 from "./ResumeTemplates/Template3";
 
 const templateData = [
   {
@@ -12,6 +13,11 @@ const templateData = [
     id: 2,
     title: "Clean Gray",
     component: Template2,
+  },
+  {
+    id: 2,
+    title: "Simple Black",
+    component: Template3,
   }
 ];
 

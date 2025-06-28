@@ -13,50 +13,57 @@ import projectData from "../../../Data/projectData";
 
 const Template1 = ({ primaryColor = "blue" }) => {
   const { formData } = useResume();
+  const {
+
+  } = formData;
+
+
+
+
 
   return (
     <div
-      className={`w-full bg-white text-black shadow-lg rounded-lg border-4 border-${primaryColor}-700 px-6 py-8 space-y-6`}
+      className={`w-full bg-white text-black shadow-lg rounded-lg border-4 border-${primaryColor}-700 px-2 py-4 space-y-2`}
       id="resume-output"
     >
       {/* Personal Info */}
-      <div className={`text-center space-y-1 text-${primaryColor}-700`}>
+      <div className={`space-y-1 `}>
         <PersonalInfoCard {...personalInfo} />
       </div>
 
       {/* Skills */}
       <div className="space-y-2">
-        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
           Skills
-        </h2>
+        </h3>
         <Skills {...skillsData} />
       </div>
 
       {/* Projects */}
       <div className="space-y-2">
-        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
           Projects
-        </h2>
+        </h3>
         <Projects {...projectData} />
       </div>
 
       {/* Work History */}
       <div className="space-y-2">
-        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
           Work History
-        </h2>
+        </h3>
         <Work {...workData} />
       </div>
 
       {/* Education */}
       <div className="space-y-2">
-        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
           Education
-        </h2>
+        </h3>
         <Education {...educationInfo} />
       </div>
     </div>
   );
 };
-  
+
 export default Template1;

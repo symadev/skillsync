@@ -16,7 +16,7 @@ const TemplateCard = ({ template }) => {
   const PreviewComponent = template.component;
 
   return (
-    <div className="shadow m-4 text-black">
+    <div className=" shadow p-2 text-black">
       {/* ✅ Live Component Preview */}
       <div className="h-[350px] overflow-auto border rounded p-2">
         <PreviewComponent primaryColor={selectedColor} />
@@ -26,7 +26,7 @@ const TemplateCard = ({ template }) => {
 
       {/* 🎨 Color Selection */}
       <div className="mt-2 flex gap-2">
-        {["blue", "green", "purple", "orange"].map((color) => (
+        {["blue", "green", "purple", "orange","yellow"].map((color) => (
           <span
             key={color}
             className={`w-5 h-5 rounded-full cursor-pointer border-2 ${
@@ -38,7 +38,7 @@ const TemplateCard = ({ template }) => {
       </div>
 
       <button
-        className="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-black transition"
+        className="mt-4 w-full bg-orange-600 text-white py-2 rounded hover:bg-black transition"
         onClick={handleApply}
       >
         Use This Template
@@ -54,6 +54,7 @@ const getColorClass = (color) => {
     green: "bg-green-600",
     purple: "bg-purple-600",
     orange: "bg-orange-600",
+    yellow: "bg-yellow-300",
   };
   return colors[color] || "bg-gray-300";
 };

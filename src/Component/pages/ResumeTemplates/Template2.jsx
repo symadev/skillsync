@@ -6,17 +6,16 @@ import Skills from "../AllInfo/Skills";
 import Projects from "../AllInfo/Projects";
 import PersonalInfoCard from "../AllInfo/PersonalInfoCard";
 import personalInfo from "../../../Data/PersonalInfoData";
+import projectData from "../../../Data/projectData";
+import workData from "../../../Data/workData";
+import Work from "../AllInfo/Work";
+import educationInfo from "../../../Data/educationInfo";
+import skillsData from "../../../Data/skills";
 
 const Template2 = ({ primaryColor = "purple" }) => {
   const { formData } = useResume();
   const {
-    
-    summary,
-    skills,
-    experience,
-    education,
-    
-    projects,
+ 
   } = formData;
 
   const colorStyles = {
@@ -43,25 +42,46 @@ const Template2 = ({ primaryColor = "purple" }) => {
   return (
     <div className="max-w-3xl mx-auto bg-white text-black p-6 shadow-lg" id="resume-output">
       <div className={`${colors.headerBg} text-white p-6 rounded-t-md`}>
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start text-start">
          
       {/* Personal Info */}
-      <div className="text-center space-y-1 text-white">
+      <div className={`space-y-1 text-white`}>
         <PersonalInfoCard {...personalInfo} />
       </div>
         </div>
       </div>
 
-      <div className="p-4">
-        <h2 className={`text-xl font-bold mb-2 ${colors.text}`}>Professional Summary</h2>
-        <p className="text-sm">{summary || "Write a short summary about yourself..."}</p>
+      
+      {/* Skills */}
+      <div className="space-y-2">
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Skills
+        </h3>
+        <Skills {...skillsData} />
       </div>
 
-      <div className="p-4 space-y-4">
-        <Skills skills={skills} primaryColor={primaryColor} />
-        <Projects projects={projects} primaryColor={primaryColor} />
-       
-        <Education education={education} primaryColor={primaryColor} />
+      {/* Projects */}
+      <div className="space-y-2">
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Projects
+        </h3>
+        <Projects {...projectData} />
+      </div>
+
+      {/* Work History */}
+      <div className="space-y-2">
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Work History
+        </h3>
+        <Work {...workData} />
+      </div>
+
+      {/* Education */}
+      <div className="space-y-2">
+        <h3 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Education
+        </h3>
+        <Education {...educationInfo} />
       </div>
     </div>
   );

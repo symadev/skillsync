@@ -1,5 +1,6 @@
 // src/context/ResumeContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
+import profileImage from "../../assets/images/elsa.png";
 
 // Import demo data for now
 import personalInfo from "../../Data/PersonalInfoData";
