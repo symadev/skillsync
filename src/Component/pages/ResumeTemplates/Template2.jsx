@@ -46,7 +46,7 @@ const Template2 = ({ primaryColor = "purple" }) => {
         <div className="flex justify-between items-start">
          
       {/* Personal Info */}
-      <div className="text-center space-y-1">
+      <div className="text-center space-y-1 text-white">
         <PersonalInfoCard {...personalInfo} />
       </div>
         </div>

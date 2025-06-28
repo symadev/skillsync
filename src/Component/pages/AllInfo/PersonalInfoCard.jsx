@@ -1,6 +1,6 @@
 const PersonalInfoCard = ({ name, email, phone, city, postCode, country }) => {
   return (
-    <div className="bg-white rounded-lg p-3 w-full max-w-xs mx-auto border border-gray-200 text-left">
+    <div className=" rounded-lg p-3 w-full max-w-xs mx-auto  text-left">
       <div className="space-y-1">
         <h2 className="text-sm font-bold text-gray-800">{name}</h2>
         <p className="text-[10px] text-gray-600">{city}, {postCode}, {country}</p>
