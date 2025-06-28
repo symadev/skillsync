@@ -1,7 +1,7 @@
 import { useResume } from "../../Provider/ResumeContext";
 
 import Education from "../AllInfo/Education";
-import WorkHistory from "../AllInfo/WorkHistory";
+
 import Skills from "../AllInfo/Skills";
 import Projects from "../AllInfo/Projects";
 import PersonalInfoCard from "../AllInfo/PersonalInfoCard";
@@ -60,7 +60,7 @@ const Template2 = ({ primaryColor = "purple" }) => {
       <div className="p-4 space-y-4">
         <Skills skills={skills} primaryColor={primaryColor} />
         <Projects projects={projects} primaryColor={primaryColor} />
-        <WorkHistory experience={experience} primaryColor={primaryColor} />
+       
         <Education education={education} primaryColor={primaryColor} />
       </div>
     </div>

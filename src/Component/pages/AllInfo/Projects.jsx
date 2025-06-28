@@ -1,13 +1,37 @@
-const Projects = ({ projects = [], primaryColor = "blue" }) => {
+const Projects = ({ title, description, githubLink, liveDemoLink }) => {
   return (
-    <div>
-      <h2 className={`text-xl font-bold text-${primaryColor}-700 mb-2`}>Projects</h2>
-      {projects.map((project, i) => (
-        <div key={i} className="mb-3">
-          <p className="font-semibold">{project.title || "Project Title"}</p>
-          <p className="text-sm">{project.description || "Project description..."}</p>
-        </div>
-      ))}
+    <div className="rounded-lg p-3 w-full max-w-xs mx-auto   text-left">
+      <div className="space-y-1">
+        {/* Title */}
+        <h2 className="text-sm font-bold text-gray-800">Project</h2>
+
+        {/* Project Title */}
+        <p className="text-[10px] font-semibold text-gray-700">{title}</p>
+
+        {/* Description */}
+        <p className="text-[10px] italic text-gray-600 mt-1">{description}</p>
+      </div>
+
+      {/* Links */}
+      <div className="mt-2 text-[10px] text-gray-700 space-x-2">
+        <a
+          href={githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          GitHub Repo
+        </a>
+        <span>|</span>
+        <a
+          href={liveDemoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          Live Demo
+        </a>
+      </div>
     </div>
   );
 };

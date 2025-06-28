@@ -9,13 +9,14 @@ import educationInfo from "../../../Data/educationInfo";
 import Work from "../AllInfo/Work";
 import workData from "../../../Data/workData";
 import skillsData from "../../../Data/skills";
+import projectData from "../../../Data/projectData";
 
 const Template1 = ({ primaryColor = "blue" }) => {
   const { formData } = useResume();
   const {
-  
+
     skills,
-   
+
     projects,
   } = formData;
 
@@ -29,23 +30,25 @@ const Template1 = ({ primaryColor = "blue" }) => {
         <PersonalInfoCard {...personalInfo} />
       </div>
 
-     
+
 
       {/* Skills */}
       <div className="text-center space-y-1">
-      <Skills  {...skillsData}/>
+        <Skills  {...skillsData} />
       </div>
-     
+
 
       {/* Projects */}
-      {projects && projects.length > 0 && (
-        <Projects projects={projects} primaryColor={primaryColor} />
-      )}
+      <div className="text-center space-y-1">
+        <Projects {...projectData} />
+
+      </div>
+
 
       {/* Work History */}
-   
+
       <div className="text-center space-y-1">
-       <Work {...workData} />
+        <Work {...workData} />
       </div>
 
       {/* Personal Info */}
