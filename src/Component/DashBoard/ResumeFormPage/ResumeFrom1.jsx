@@ -118,7 +118,7 @@ const ResumeForm1 = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Left Side - Form */}
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl p-8 border border-orange-500/20">
+          <div className="bg-black rounded-xl shadow-2xl p-8 border border-orange-500/20">
             <div className="mb-8">
               <h1 className="text-3xl font-bold text-white mb-2">
                 What's the best way for employers to contact you?
@@ -168,7 +168,7 @@ const ResumeForm1 = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
+                  className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
                   placeholder="Enter your name"
                 />
               </div>
@@ -182,7 +182,7 @@ const ResumeForm1 = () => {
                   name="surname"
                   value={formData.surname}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
+                  className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
                   placeholder="Enter your surname"
                 />
               </div>
@@ -196,7 +196,7 @@ const ResumeForm1 = () => {
                   name="city"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
+                  className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
                   placeholder="Enter your city"
                 />
               </div>
@@ -210,7 +210,7 @@ const ResumeForm1 = () => {
                   name="postcode"
                   value={formData.postcode}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
+                  className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
                   placeholder="Enter postcode"
                 />
               </div>
@@ -224,7 +224,7 @@ const ResumeForm1 = () => {
                   name="country"
                   value={formData.country}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
+                  className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
                   placeholder="Enter your country"
                 />
               </div>
@@ -238,7 +238,7 @@ const ResumeForm1 = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
+                  className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400"
                   placeholder="Enter phone number"
                 />
               </div>
@@ -253,7 +253,7 @@ const ResumeForm1 = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gradient-to-r from-gray-700 to-gray-800 border-2 border-gray-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400 pr-10"
+                    className="w-full px-4 py-3  bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg focus:border-orange-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-400 pr-10"
                     placeholder="Enter your email"
                   />
                   <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">

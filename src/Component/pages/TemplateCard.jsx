@@ -30,7 +30,7 @@ const TemplateCard = ({ template }) => {
           <span
             key={color}
             className={`w-5 h-5 rounded-full cursor-pointer border-2 ${
-              selectedColor === color ? "border-yellow-100" : "border-transparent"
+              selectedColor === color ? "border-black" : "border-transparent"
             } ${getColorClass(color)}`}
             onClick={() => setSelectedColor(color)}
           />
