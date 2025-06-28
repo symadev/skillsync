@@ -10,7 +10,7 @@ import Dashboard from "./DashBoard/Dashboard";
 
 import Profile from "./DashBoard/Profile";
 import Settings from "./DashBoard/Settings";
-import Resume from "./DashBoard/Resume";
+
 import AiAssistant from "./DashBoard/AiAssistant";
 import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
 
