@@ -48,11 +48,11 @@ const Template6 = ({ primaryColor = "orange" }) => {
       <div className="flex items-start gap-6 mb-8 pb-6 border-b border-gray-200">
         {/* Profile Picture */}
         <div className="flex-shrink-0">
-          <div className="w-24 h-24 bg-gray-300   rounded-full overflow-hidden">
+          <div className="w-24 h-24 bg-gray-300   border-4 border-gray-600  rounded-full overflow-hidden">
             <img 
               src={profileImage } 
               alt="Profile" 
-              className="w-full h-full object-cover border border-gray-600"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
@@ -106,6 +106,12 @@ const Template6 = ({ primaryColor = "orange" }) => {
         <div className="space-y-4">
           <Projects {...projectData} />
         </div>
+
+         <div className="absolute top-4 right-4">
+        <div className="bg-orange-500 text-white px-4 py-2 rounded-md font-bold text-sm">
+          RECOMMENDED
+        </div>
+      </div>
       </div>
 
     </div>

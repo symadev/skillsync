@@ -26,7 +26,7 @@ const TemplateCard = ({ template }) => {
 
       {/* 🎨 Color Selection */}
       <div className="mt-2 flex gap-2">
-        {["blue", "green", "purple", "orange","yellow"].map((color) => (
+        {["blue", "green", "purple", "orange","gray"].map((color) => (
           <span
             key={color}
             className={`w-5 h-5 rounded-full cursor-pointer border-2 ${
@@ -54,7 +54,7 @@ const getColorClass = (color) => {
     green: "bg-green-600",
     purple: "bg-purple-600",
     orange: "bg-orange-600",
-    yellow: "bg-yellow-300",
+    gray: "bg-gray-600",
   };
   return colors[color] || "bg-gray-300";
 };

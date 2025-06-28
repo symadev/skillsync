@@ -15,22 +15,22 @@ const templateData = [
   },
   {
     id: 2,
-    title: "Clean Gray",
+    title: "Simple Blue",
     component: Template2,
   },
   {
     id: 3,
-    title: "Simple Black",
+    title: "Creative Black",
     component: Template3,
   },
   {
     id: 4,
-    title: "Mordern Black",
+    title: "Modern Orange",
     component: Template4,
   },
   {
     id: 5,
-    title: "Classic Black",
+    title: "Classic Purple",
     component: Template5,
   },
   {
