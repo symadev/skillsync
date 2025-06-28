@@ -2,7 +2,7 @@ const PersonalInfoCard = ({ name, email, phone, city, postCode, country,  primar
   return (
     <div className= {`rounded-lg  w-full max-w-xs mx-auto  text-left`}>
       <div className="space-y-1">
-        <h1 className={` font-bold   text-${primaryColor}-700`}>{name}</h1>
+        <h1 className={` font-bold  text-2xl text-${primaryColor}-700`}>{name}</h1>
         <p className="text-[10px] ">{city}, {postCode}, {country}</p>
         <p className="text-[10px] ">Phone: {phone}</p>
         <p className="text-[10px] ">Email: {email}</p>
