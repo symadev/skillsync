@@ -10,15 +10,15 @@ const TemplateCard = ({ template }) => {
   const handleApply = () => {
     setTemplateId(template.id);
     setPrimaryColor(selectedColor);
-    navigate("/form");
+    navigate("/dashboard/templates/from1");
   };
 
   const PreviewComponent = template.component;
 
   return (
-    <div className=" shadow p-2 text-black border-black">
+    <div className=" shadow p-2 text-orange-500 border-black">
       {/* ✅ Live Component Preview */}
-      <div className="h-[500px] overflow-auto border rounded p-2">
+      <div className="h-[400px] overflow-auto border rounded p-2">
         <PreviewComponent primaryColor={selectedColor} />
       </div>
 
@@ -30,7 +30,7 @@ const TemplateCard = ({ template }) => {
           <span
             key={color}
             className={`w-5 h-5 rounded-full cursor-pointer border-2 ${
-              selectedColor === color ? "border-black" : "border-transparent"
+              selectedColor === color ? "border-yellow-100" : "border-transparent"
             } ${getColorClass(color)}`}
             onClick={() => setSelectedColor(color)}
           />

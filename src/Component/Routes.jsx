@@ -16,6 +16,7 @@ import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
 
 import HomeMain from "./pages/HomeMain";
 import Templates from "./pages/Templates";
+import ResumeForm1 from "./DashBoard/ResumeFormPage/ResumeFrom1";
 
 
 
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
       path: "templates",
       element: <Templates/> 
+    },
+      {
+      path: "templates/from1",
+      element: <ResumeForm1></ResumeForm1>
     },
         {
         path: "ai-coach",
