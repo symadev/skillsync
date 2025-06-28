@@ -13,50 +13,50 @@ import projectData from "../../../Data/projectData";
 
 const Template1 = ({ primaryColor = "blue" }) => {
   const { formData } = useResume();
-  const {
-
-    skills,
-
-    projects,
-  } = formData;
 
   return (
     <div
-      className={`w-full max-w-3xl mx-auto bg-white text-black shadow-lg rounded-lg border-4 border-${primaryColor}-700 px-6 py-8 space-y-6`}
+      className={`w-full bg-white text-black shadow-lg rounded-lg border-4 border-${primaryColor}-700 px-6 py-8 space-y-6`}
       id="resume-output"
     >
       {/* Personal Info */}
-      <div className="text-center space-y-1">
+      <div className={`text-center space-y-1 text-${primaryColor}-700`}>
         <PersonalInfoCard {...personalInfo} />
       </div>
 
-
-
       {/* Skills */}
-      <div className="text-center space-y-1">
-        <Skills  {...skillsData} />
+      <div className="space-y-2">
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Skills
+        </h2>
+        <Skills {...skillsData} />
       </div>
-
 
       {/* Projects */}
-      <div className="text-center space-y-1">
+      <div className="space-y-2">
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Projects
+        </h2>
         <Projects {...projectData} />
-
       </div>
 
-
       {/* Work History */}
-
-      <div className="text-center space-y-1">
+      <div className="space-y-2">
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Work History
+        </h2>
         <Work {...workData} />
       </div>
 
-      {/* Personal Info */}
-      <div className="text-center space-y-1">
+      {/* Education */}
+      <div className="space-y-2">
+        <h2 className={`text-xl font-bold text-${primaryColor}-700 border-b-2 border-${primaryColor}-700 pb-1`}>
+          Education
+        </h2>
         <Education {...educationInfo} />
       </div>
     </div>
   );
 };
-
+  
 export default Template1;

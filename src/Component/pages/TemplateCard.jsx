@@ -16,9 +16,9 @@ const TemplateCard = ({ template }) => {
   const PreviewComponent = template.component;
 
   return (
-    <div className="border rounded shadow p-4 bg-white text-black">
+    <div className="shadow m-4 text-black">
       {/* ✅ Live Component Preview */}
-      <div className="h-[500px] overflow-auto border rounded p-2">
+      <div className="h-[350px] overflow-auto border rounded p-2">
         <PreviewComponent primaryColor={selectedColor} />
       </div>
 

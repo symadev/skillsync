@@ -1,9 +1,9 @@
 const Projects = ({ title, description, githubLink, liveDemoLink }) => {
   return (
-    <div className="rounded-lg p-3 w-full max-w-xs mx-auto   text-left">
+    <div className="rounded-lg w-full max-w-xs mx-auto   text-left">
       <div className="space-y-1">
         {/* Title */}
-        <h2 className="text-sm font-bold text-gray-800">Project</h2>
+       
 
         {/* Project Title */}
         <p className="text-[10px] font-semibold text-gray-700">{title}</p>
