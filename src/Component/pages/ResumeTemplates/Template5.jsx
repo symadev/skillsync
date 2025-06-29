@@ -107,12 +107,7 @@ const Template5 = ({ primaryColor = "green" }) => {
 
       </div>
 
-      {/* Recommended Badge */}
-      <div className="absolute top-4 right-4">
-        <div className="bg-orange-500 text-white px-4 py-2 rounded-md font-bold text-sm">
-          RECOMMENDED
-        </div>
-      </div>
+      
     </div>
   );
 };

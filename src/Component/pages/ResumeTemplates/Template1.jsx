@@ -25,9 +25,11 @@ const Template1 = ({ primaryColor = "blue" }) => {
 
   return (
     <div
-      className={`w-full bg-white text-black shadow-lg rounded-lg border-4 border-${primaryColor}-700 px-2 py-4 space-y-2`}
+      className={`w-full bg-white text-black border-4 border-${primaryColor}-700 px-4 py-4 space-y-3`}
       id="resume-output"
+      style={{ minHeight: "600px", width: "100%" }}
     >
+
       {/* Personal Info */}
       <div className={`space-y-1`}>
         <PersonalInfoCard

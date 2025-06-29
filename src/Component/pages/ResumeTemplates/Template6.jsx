@@ -108,9 +108,7 @@ const Template6 = ({ primaryColor = "orange" }) => {
         </div>
 
          <div className="absolute top-4 right-4">
-        <div className="bg-orange-500 text-white px-4 py-2 rounded-md font-bold text-sm">
-          RECOMMENDED
-        </div>
+       
       </div>
       </div>
 

@@ -16,17 +16,25 @@ const TemplateCard = ({ template }) => {
   const PreviewComponent = template.component;
 
   return (
-    <div className=" shadow p-2 text-orange-500 border-black">
-      {/* ✅ Live Component Preview */}
-      <div className="h-[400px] overflow-auto border rounded p-2">
-        <PreviewComponent primaryColor={selectedColor} />
+    <div className="w-[350px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-300">
+      {/* ✅ Preview Area */}
+      <div className="relative h-[480px] overflow-hidden">
+        <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-semibold">
+          RECOMMENDED
+        </div>
+        <div className="h-full overflow-y-auto p-2 bg-white">
+          <PreviewComponent primaryColor={selectedColor} />
+        </div>
       </div>
 
-      <h3 className="mt-4 font-bold text-lg">{template.title}</h3>
+      {/* ✅ Title */}
+      <div className="px-4 py-2 text-lg font-bold text-center text-gray-700 border-t">
+        {template.title}
+      </div>
 
-      {/* 🎨 Color Selection */}
-      <div className="mt-2 flex gap-2">
-        {["blue", "green", "purple", "orange","gray"].map((color) => (
+      {/* 🎨 Color Picker */}
+      <div className="px-4 py-2 flex justify-center gap-2 border-t">
+        {["blue", "green", "purple", "orange", "gray"].map((color) => (
           <span
             key={color}
             className={`w-5 h-5 rounded-full cursor-pointer border-2 ${
@@ -37,8 +45,9 @@ const TemplateCard = ({ template }) => {
         ))}
       </div>
 
+      {/* 🟠 Action Button */}
       <button
-        className="mt-4 w-full bg-orange-600 text-white py-2 rounded hover:bg-black transition"
+        className="w-full bg-orange-600 hover:bg-black transition text-white py-2 rounded-b"
         onClick={handleApply}
       >
         Use This Template
@@ -47,7 +56,7 @@ const TemplateCard = ({ template }) => {
   );
 };
 
-// ✅ Helper function for Tailwind-safe class
+// ✅ Color Helper
 const getColorClass = (color) => {
   const colors = {
     blue: "bg-blue-600",
