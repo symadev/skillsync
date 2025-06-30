@@ -7,7 +7,8 @@ const skillsData = [
   "MongoDB",
   "Express.js",
   "HTML/CSS",
-  "REST API"
+  "REST API",
+   "AWS", "Docker", "GraphQL"
 ];
 
 export default skillsData;
