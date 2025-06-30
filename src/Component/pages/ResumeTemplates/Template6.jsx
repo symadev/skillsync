@@ -1,117 +1,111 @@
 import { useResume } from "../../Provider/ResumeContext";
+
 import Education from "../AllInfo/Education";
 import Skills from "../AllInfo/Skills";
 import Projects from "../AllInfo/Projects";
 import PersonalInfoCard from "../AllInfo/PersonalInfoCard";
+import Work from "../AllInfo/Work";
+
 import personalInfo from "../../../Data/PersonalInfoData";
 import projectData from "../../../Data/projectData";
 import workData from "../../../Data/workData";
-import Work from "../AllInfo/Work";
-import profileImage from "../../../assets/images/image.png"
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
+import defaultProfileImage from "../../../assets/images/image.png";
+
 const Template6 = ({ primaryColor = "orange" }) => {
   const { formData } = useResume();
-  const {} = formData;
-    const { profileImage: uploadedImage } = formData;
+
+  // Destructure formData with fallback values
+  const {
+    profileImage = defaultProfileImage,
+    name = "",
+    email = "",
+    phone = "",
+    skills = [],
+    projects = [],
+    experience = [],
+    education = [],
+  } = formData || {};
+
+  const skillsToShow = skills.length > 0 ? skills : skillsData;
+  const projectsToShow = projects.length > 0 ? projects : projectData;
+  const experienceToShow = experience.length > 0 ? experience : workData;
+  const educationToShow = education.length > 0 ? education : educationInfo;
+  const personalInfoToShow = name || email || phone ? formData : personalInfo;
 
   const colorStyles = {
     purple: {
-      accent: "text-purple-600",
-      border: "border-purple-600",
-      divider: "border-purple-200",
+      headerBg: "bg-purple-700",
+      text: "text-purple-700",
+      border: "border-purple-700",
     },
     green: {
-      accent: "text-green-600",
-      border: "border-green-600",
-      divider: "border-green-200",
+      headerBg: "bg-green-700",
+      text: "text-green-700",
+      border: "border-green-700",
     },
     blue: {
-      accent: "text-blue-600",
-      border: "border-blue-600",
-      divider: "border-blue-200",
+      headerBg: "bg-blue-700",
+      text: "text-blue-700",
+      border: "border-blue-700",
     },
     orange: {
-      accent: "text-orange-600",
+      headerBg: "bg-orange-600",
+      text: "text-orange-600",
       border: "border-orange-600",
-      divider: "border-orange-200",
     },
   };
 
   const colors = colorStyles[primaryColor] || colorStyles.orange;
 
   return (
-    <div className="max-w-4xl mx-auto bg-white text-black border border-gray-300 p-8" id="resume-output">
-      
-      {/* Header Section */}
-      <div className="flex items-start gap-6 mb-8 pb-6 border-b border-gray-200">
-        {/* Profile Picture */}
-        <div className="flex-shrink-0">
-          <div className="w-24 h-24 bg-gray-300   border-2 border-gray-600  rounded-full overflow-hidden">
-            <img 
-              src={profileImage } 
-              alt="Profile" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+    <div className="max-w-4xl mx-auto bg-white text-black p-6 shadow-lg" id="resume-output">
+      {/* Header */}
+      <div className={`${colors.headerBg} text-white p-6 rounded-t-md flex items-center gap-6`}>
+        {/* Profile Image */}
+        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white flex-shrink-0">
+          <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
         </div>
-        
-        {/* Name and Contact Info */}
-        <div className="flex-1">
-          
-          <div className="text-gray-600 space-y-1">
-            <PersonalInfoCard {...personalInfo} />
-          </div>
+
+        {/* Personal Info */}
+        <div className="flex-1 text-white">
+          <PersonalInfoCard {...personalInfoToShow} />
         </div>
       </div>
 
-     
-
-      {/* Education Section */}
-      <div className="mb-8">
-        <h2 className={`text-2xl font-light ${colors.accent} mb-4 pb-2 border-b ${colors.divider}`}>
-          Education
-        </h2>
-        <div className="space-y-3">
-          <Education {...educationInfo} />
+      {/* Skills */}
+      {skillsToShow.length > 0 && (
+        <div className="space-y-2 mt-6">
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Skills</h3>
+          <Skills skills={skillsToShow} />
         </div>
-      </div>
+      )}
 
-      {/* Skills Section */}
-      <div className="mb-8">
-        <h2 className={`text-2xl font-light ${colors.accent} mb-4 pb-2 border-b ${colors.divider}`}>
-          Skills
-        </h2>
-        <div className="space-y-2">
-          <Skills {...skillsData} />
+      {/* Projects */}
+      {projectsToShow.length > 0 && (
+        <div className="space-y-2 mt-6">
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Projects</h3>
+          <Projects projects={projectsToShow} />
         </div>
-      </div>
+      )}
 
-      {/* Work History Section */}
-      <div className="mb-8">
-        <h2 className={`text-2xl font-light ${colors.accent} mb-4 pb-2 border-b ${colors.divider}`}>
-          Work History
-        </h2>
-        <div className="space-y-6">
-          <Work {...workData} />
+      {/* Work History */}
+      {experienceToShow.length > 0 && (
+        <div className="space-y-2 mt-6">
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Work History</h3>
+          <Work experience={experienceToShow} />
         </div>
-      </div>
+      )}
 
-      {/* Projects Section */}
-      <div className="mb-8">
-        <h2 className={`text-2xl font-light ${colors.accent} mb-4 pb-2 border-b ${colors.divider}`}>
-          Projects
-        </h2>
-        <div className="space-y-4">
-          <Projects {...projectData} />
+      {/* Education */}
+      {educationToShow.length > 0 && (
+        <div className="space-y-2 mt-6">
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Education</h3>
+          <Education education={educationToShow} />
         </div>
-
-         <div className="absolute top-4 right-4">
-       
-      </div>
-      </div>
-
+      )}
     </div>
   );
 };

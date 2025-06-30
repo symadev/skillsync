@@ -3,16 +3,32 @@ import Education from "../AllInfo/Education";
 import Skills from "../AllInfo/Skills";
 import Projects from "../AllInfo/Projects";
 import PersonalInfoCard from "../AllInfo/PersonalInfoCard";
+import Work from "../AllInfo/Work";
+
 import personalInfo from "../../../Data/PersonalInfoData";
 import projectData from "../../../Data/projectData";
 import workData from "../../../Data/workData";
-import Work from "../AllInfo/Work";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
 const Template5 = ({ primaryColor = "green" }) => {
   const { formData } = useResume();
-  const {} = formData;
+  const {
+    name = "",
+    surname = "",
+    phone = "",
+    email = "",
+    postcode = "",
+    country = "",
+    city = "",
+    summary = "",
+    Motivation = "",
+    profileImage = "",
+    skills = [],
+    projects = [],
+    experience = [],
+    education = [],
+  } = formData;
 
   const colorStyles = {
     purple: {
@@ -47,67 +63,74 @@ const Template5 = ({ primaryColor = "green" }) => {
 
   const colors = colorStyles[primaryColor] || colorStyles.green;
 
+  // Fallback demo data logic
+  const personalInfoToShow =
+    name || email || phone ? formData : personalInfo;
+  const skillsToShow = skills.length > 0 ? skills : skillsData;
+  const projectsToShow = projects.length > 0 ? projects : [projectData];
+  const experienceToShow = experience.length > 0 ? experience : [workData];
+  const educationToShow = education.length > 0 ? education : [educationInfo];
+
   return (
     <div className="max-w-4xl mx-auto bg-white text-black shadow-lg" id="resume-output">
       {/* Header Section */}
       <div className={`${colors.headerBg} text-white px-8 py-6`}>
         <div className="text-center">
-          
-         
-            <PersonalInfoCard {...personalInfo} />
-             <div className="border-t border-white mt-3 pt-3">
-          </div>
+          <PersonalInfoCard {...personalInfoToShow} />
+          <div className="border-t border-white mt-3 pt-3"></div>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="px-8 py-6 space-y-8">
-        
-       
-
         {/* Education Section */}
-        <div className="space-y-4">
-          <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
-            Education
-          </h3>
-          <div className="border-l-4 border-gray-200 pl-6">
-            <Education {...educationInfo} />
+        {educationToShow.length > 0 && (
+          <div className="space-y-4">
+            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+              Education
+            </h3>
+            <div className="border-l-4 border-gray-200 pl-6">
+              <Education education={educationToShow} />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Skills Section */}
-        <div className="space-y-4">
-          <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
-            Skills
-          </h3>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-            <Skills {...skillsData} />
+        {skillsToShow.length > 0 && (
+          <div className="space-y-4">
+            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+              Skills
+            </h3>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+              <Skills skills={skillsToShow} />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Work History Section */}
-        <div className="space-y-4">
-          <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
-            Work History
-          </h3>
-          <div className="space-y-6">
-            <Work {...workData} />
+        {experienceToShow.length > 0 && (
+          <div className="space-y-4">
+            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+              Work History
+            </h3>
+            <div className="space-y-6">
+              <Work experience={experienceToShow} />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Projects Section */}
-        <div className="space-y-4">
-          <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
-            Projects
-          </h3>
+        {projectsToShow.length > 0 && (
           <div className="space-y-4">
-            <Projects {...projectData} />
+            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+              Projects
+            </h3>
+            <div className="space-y-4">
+              <Projects projects={projectsToShow} />
+            </div>
           </div>
-        </div>
-
+        )}
       </div>
-
-      
     </div>
   );
 };

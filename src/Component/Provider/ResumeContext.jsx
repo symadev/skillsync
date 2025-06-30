@@ -19,10 +19,11 @@ const ResumeProvider = ({ children }) => {
 
   const [formData, setFormData] = useState({
     name: "",
+    surname: '',
     email: "",
     phone: "",
     city: "",
-    postCode: "",
+    postcode: "",
     country: "",
     summary: "",
     profileImage: "",
