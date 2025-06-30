@@ -9,19 +9,30 @@ const ResumeForm5 = () => {
   const [currentStep] = useState(5);
   const totalSteps = 6;
 
-  const [localFormData, setLocalFormData] = useState(globalFormData);
+  const [localFormData, setLocalFormData] = useState({
+    ...globalFormData,
+    education: globalFormData.education || [
+      {
+        institution: "",
+        degree: "",
+        field: "",
+        location: "",
+        graduationDate: ""
+      }
+    ]
+  });
+
   const [profileImage, setProfileImage] = useState(globalFormData.profileImage || null);
 
   useEffect(() => {
     setGlobalFormData({ ...localFormData, profileImage });
   }, [localFormData, profileImage]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setLocalFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleInputChange = (e, index, field) => {
+    const { value } = e.target;
+    const updatedEducation = [...localFormData.education];
+    updatedEducation[index][field] = value;
+    setLocalFormData(prev => ({ ...prev, education: updatedEducation }));
   };
 
   const handleImageUpload = (e) => {
@@ -35,16 +46,13 @@ const ResumeForm5 = () => {
     }
   };
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+  const handleGoBack = () => navigate(-1);
 
   const handleDownload = () => {
     console.log('Download Resume as PDF (Implement export logic here)');
   };
 
   const progressPercentage = (currentStep / totalSteps) * 100;
-
   const selectedTemplate = templateData.find(template => template.id === templateId);
   const TemplateComponent = selectedTemplate?.component;
 
@@ -81,36 +89,41 @@ const ResumeForm5 = () => {
         {/* Education Form */}
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
           <h2 className="text-2xl font-bold mb-6 text-orange-400">Education Details</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              name="educationDegree"
-              value={localFormData.educationDegree}
-              onChange={handleInputChange}
-              className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="Degree (e.g., B.Sc Computer Science)"
-            />
-            <input
-              name="educationInstitution"
-              value={localFormData.educationInstitution}
-              onChange={handleInputChange}
-              className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="Institution (e.g., University Name)"
-            />
-            <input
-              name="educationStart"
-              value={localFormData.educationStart}
-              onChange={handleInputChange}
-              className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="Start Year (e.g., 2020)"
-            />
-            <input
-              name="educationEnd"
-              value={localFormData.educationEnd}
-              onChange={handleInputChange}
-              className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="End Year (e.g., 2024)"
-            />
-          </div>
+
+          {localFormData.education.map((edu, index) => (
+            <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input
+                value={edu.degree}
+                onChange={(e) => handleInputChange(e, index, "degree")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Degree (e.g., BSc)"
+              />
+              <input
+                value={edu.field}
+                onChange={(e) => handleInputChange(e, index, "field")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Field (e.g., Engineering)"
+              />
+              <input
+                value={edu.institution}
+                onChange={(e) => handleInputChange(e, index, "institution")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Institution (e.g., Northern University)"
+              />
+              <input
+                value={edu.location}
+                onChange={(e) => handleInputChange(e, index, "location")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Location (e.g., Khulna)"
+              />
+              <input
+                value={edu.graduationDate}
+                onChange={(e) => handleInputChange(e, index, "graduationDate")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Graduation Year (e.g., 2025)"
+              />
+            </div>
+          ))}
 
           {/* Profile Image Upload */}
           <input

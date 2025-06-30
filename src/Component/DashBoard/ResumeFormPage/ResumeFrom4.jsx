@@ -1,4 +1,4 @@
-// ResumeForm3.jsx
+// ResumeForm4.jsx
 import { useState, useEffect } from 'react';
 import { useResume } from "../../Provider/ResumeContext";
 import templateData from "../../../Data/templateData";
@@ -10,18 +10,35 @@ const ResumeForm4 = () => {
   const [currentStep, setCurrentStep] = useState(3);
   const totalSteps = 6;
 
-  const [localFormData, setLocalFormData] = useState(globalFormData);
+  const [localFormData, setLocalFormData] = useState({
+    ...globalFormData,
+    experience: globalFormData.experience || [
+      {
+        jobTitle: "",
+        company: "",
+        location: "",
+        dateRange: "",
+        responsibilities: [""]
+      }
+    ]
+  });
 
   useEffect(() => {
     setGlobalFormData({ ...localFormData });
   }, [localFormData]);
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setLocalFormData(prev => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value
-    }));
+  const handleInputChange = (e, index, field) => {
+    const { value } = e.target;
+    const updatedExperience = [...localFormData.experience];
+    updatedExperience[index][field] = value;
+    setLocalFormData(prev => ({ ...prev, experience: updatedExperience }));
+  };
+
+  const handleResponsibilitiesChange = (e, index) => {
+    const { value } = e.target;
+    const updatedExperience = [...localFormData.experience];
+    updatedExperience[index].responsibilities = value.split('\n');
+    setLocalFormData(prev => ({ ...prev, experience: updatedExperience }));
   };
 
   const selectedTemplate = templateData.find(template => template.id === templateId);
@@ -29,7 +46,7 @@ const ResumeForm4 = () => {
 
   const handleGoBack = () => navigate(-1);
 
-  const handleNext = () => navigate("/resume/education");
+  const handleNext = () => navigate("/dashboard/templates/from5");
 
   const handlePreview = () => console.log('Preview resume');
 
@@ -68,110 +85,41 @@ const ResumeForm4 = () => {
         {/* Form Box */}
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
           <h2 className="text-2xl font-bold mb-6 text-orange-400">Work Experience</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[{
-              name: "jobTitle",
-              placeholder: "What was your title?",
-            }, {
-              name: "employer",
-              placeholder: "Who did you work for?",
-            }, {
-              name: "location",
-              placeholder: "Location (e.g. Chittagong, Bangladesh)",
-            }].map(({ name, placeholder }) => (
+
+          {localFormData.experience.map((job, index) => (
+            <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
-                key={name}
-                name={name}
-                value={localFormData[name] || ''}
-                onChange={handleInputChange}
+                value={job.jobTitle}
+                onChange={(e) => handleInputChange(e, index, "jobTitle")}
                 className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder={placeholder}
+                placeholder="Job Title"
               />
-            ))}
-
-            <label className="flex items-center space-x-2">
               <input
-                type="checkbox"
-                name="remote"
-                checked={localFormData.remote || false}
-                onChange={handleInputChange}
-                className="accent-orange-500"
+                value={job.company}
+                onChange={(e) => handleInputChange(e, index, "company")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Company"
               />
-              <span>Remote</span>
-            </label>
-
-            {/* Start and End Dates */}
-            <div className="grid grid-cols-2 gap-4">
-              <select
-                name="startMonth"
-                value={localFormData.startMonth || ''}
-                onChange={handleInputChange}
-                className="bg-gray-800 px-4 py-3 rounded-lg text-white"
-              >
-                <option value="">Start Month</option>
-                {[
-                  "January", "February", "March", "April", "May", "June",
-                  "July", "August", "September", "October", "November", "December"
-                ].map(month => (
-                  <option key={month} value={month}>{month}</option>
-                ))}
-              </select>
-
               <input
-                type="number"
-                name="startYear"
-                value={localFormData.startYear || ''}
-                onChange={handleInputChange}
-                placeholder="Start Year"
-                className="bg-gray-800 px-4 py-3 rounded-lg text-white"
+                value={job.location}
+                onChange={(e) => handleInputChange(e, index, "location")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Location"
+              />
+              <input
+                value={job.dateRange}
+                onChange={(e) => handleInputChange(e, index, "dateRange")}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Date Range (e.g. May 2021 - Current)"
+              />
+              <textarea
+                value={job.responsibilities.join('\n')}
+                onChange={(e) => handleResponsibilitiesChange(e, index)}
+                className="bg-gray-800 px-4 py-3 rounded-lg text-white w-full col-span-2 h-40 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Enter each responsibility on a new line"
               />
             </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <select
-                name="endMonth"
-                value={localFormData.endMonth || ''}
-                onChange={handleInputChange}
-                className="bg-gray-800 px-4 py-3 rounded-lg text-white"
-              >
-                <option value="">End Month</option>
-                {[
-                  "January", "February", "March", "April", "May", "June",
-                  "July", "August", "September", "October", "November", "December"
-                ].map(month => (
-                  <option key={month} value={month}>{month}</option>
-                ))}
-              </select>
-
-              <input
-                type="number"
-                name="endYear"
-                value={localFormData.endYear || ''}
-                onChange={handleInputChange}
-                placeholder="End Year"
-                className="bg-gray-800 px-4 py-3 rounded-lg text-white"
-              />
-            </div>
-
-            <label className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                name="currentlyWorking"
-                checked={localFormData.currentlyWorking || false}
-                onChange={handleInputChange}
-                className="accent-orange-500"
-              />
-              <span>I currently work here</span>
-            </label>
-
-            <textarea
-              name="workDescription"
-              value={localFormData.workDescription || ''}
-              onChange={handleInputChange}
-              className="bg-gray-800 px-4 py-3 rounded-lg text-white w-full col-span-2 h-40 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
-              placeholder="Describe your role and achievements..."
-            />
-          </div>
+          ))}
 
           <div className="flex gap-4 mt-8">
             <button

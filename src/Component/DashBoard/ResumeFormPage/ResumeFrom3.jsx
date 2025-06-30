@@ -45,7 +45,7 @@ const ResumeForm3 = () => {
   };
 
   const handleNext = () => {
-    console.log('Next: Skills Section');
+   navigate("/dashboard/templates/from4");
   };
 
   const progressPercentage = (currentStep / totalSteps) * 100;

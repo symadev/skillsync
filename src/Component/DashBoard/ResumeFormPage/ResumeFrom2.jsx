@@ -36,7 +36,7 @@ const ResumeForm2 = () => {
   };
 
   const handleNext = () => {
-    console.log("Next: Projects section");
+    navigate("/dashboard/templates/from3");
   };
 
   const handleSkillClick = (skill) => {
@@ -129,7 +129,7 @@ const ResumeForm2 = () => {
                   onChange={(e) => setNewSkill(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Enter new skill..."
-                  className="flex-1 px-3 py-2 bg-white text-gray-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="flex-1 px-3 py-2 bg-orange-500 text-white rounded-lg border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   autoFocus
                 />
                 <button
@@ -155,9 +155,9 @@ const ResumeForm2 = () => {
             {allSkills.map((skill) => (
               <div
                 key={skill}
-                className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-200"
+                className="flex items-center justify-between p-4 bg-orange-600 rounded-lg shadow-sm border border-orange-400"
               >
-                <span className="text-gray-800 font-medium">{skill}</span>
+                <span className="text-white font-medium">{skill}</span>
                 <button
                   onClick={() => handleSkillClick(skill)}
                   className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
@@ -182,7 +182,7 @@ const ResumeForm2 = () => {
 
           <button
             onClick={handleNext}
-            className="mt-8 bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold text-black transition-all duration-200 hover:shadow-lg transform hover:scale-105"
+            className="mt-8 bg-gradient-to-r from-orange-500 via-red-500 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200 hover:shadow-lg transform hover:scale-105"
           >
             Next: Projects Section
           </button>
