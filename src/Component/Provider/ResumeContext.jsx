@@ -27,13 +27,12 @@ const ResumeProvider = ({ children }) => {
     country: "",
     summary: "",
     profileImage: "",
-    education: {},
-    experience: {},
+    education: [],     // ✅ FIXED: must be array
+    experience: [],    // ✅ FIXED: must be array
     skills: [],
-    projects: {},
+    projects: [],      // ✅ FIXED: must be array
   });
 
-  // ✅ Load demo data initially — for template preview only
   useEffect(() => {
     setFormData(prev => ({
       ...prev,
@@ -42,8 +41,7 @@ const ResumeProvider = ({ children }) => {
       experience: workData,
       skills: skillsData,
       projects: projectData,
-      profileImage: profileImage, // default imported image
-
+      profileImage: profileImage,
       summary: "Motivated Sales Associate with 5 years of experience boosting sales and customer loyalty.",
     }));
   }, []);

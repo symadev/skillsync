@@ -39,6 +39,12 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
     orange: "border-orange-600",
   }[primaryColor] || "border-purple-700";
 
+  // 🛠 Debug: Log the structure to ensure all data is correct
+  console.log("[Template1] formData:", {
+    name, surname, postcode, email, phone, city, Motivation, country,
+    summary, skills, projects, experience, education, profileImage
+  });
+
   return (
     <div
       className={`w-full bg-white text-black border-4 ${colorBorder} px-4 py-4 space-y-3`}
@@ -62,7 +68,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       </div>
 
       {/* Skills */}
-      {skills && skills.length > 0 && (
+      {Array.isArray(skills) && skills.length > 0 && (
         <div className="space-y-2">
           <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
             Skills
@@ -72,7 +78,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       )}
 
       {/* Projects */}
-      {projects && projects.length > 0 && (
+      {Array.isArray(projects) && projects.length > 0 && (
         <div className="space-y-2">
           <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
             Projects
@@ -82,7 +88,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       )}
 
       {/* Work History */}
-      {experience && experience.length > 0 && (
+      {Array.isArray(experience) && experience.length > 0 && (
         <div className="space-y-2">
           <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
             Work History
@@ -92,7 +98,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       )}
 
       {/* Education */}
-      {education && education.length > 0 && (
+      {Array.isArray(education) && education.length > 0 && (
         <div className="space-y-2">
           <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
             Education

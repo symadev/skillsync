@@ -1,46 +1,68 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { useResume } from "../../Provider/ResumeContext";
 import templateData from "../../../Data/templateData";
 import { useNavigate } from "react-router-dom";
+import html2pdf from "html2pdf.js";
 
 const ResumeForm5 = () => {
-  const { templateId, primaryColor, formData: globalFormData, setFormData: setGlobalFormData } = useResume();
+  const {
+    templateId,
+    primaryColor,
+    formData: globalFormData,
+    setFormData: setGlobalFormData,
+  } = useResume();
   const navigate = useNavigate();
   const [currentStep] = useState(5);
   const totalSteps = 6;
 
   const [localFormData, setLocalFormData] = useState({
     ...globalFormData,
-    education: globalFormData.education || [
-      {
-        institution: "",
-        degree: "",
-        field: "",
-        location: "",
-        graduationDate: ""
-      }
-    ]
+    education:
+      globalFormData.education && globalFormData.education.length > 0
+        ? globalFormData.education
+        : [
+            {
+              institution: "",
+              degree: "",
+              field: "",
+              location: "",
+              graduationDate: "",
+            },
+          ],
   });
 
-  const [profileImage, setProfileImage] = useState(globalFormData.profileImage || null);
+  const [profileImage, setProfileImage] = useState(
+    globalFormData.profileImage || null
+  );
 
+  // Sync local form data + image to global context
   useEffect(() => {
     setGlobalFormData({ ...localFormData, profileImage });
-  }, [localFormData, profileImage]);
+  }, [localFormData, profileImage, setGlobalFormData]);
 
   const handleInputChange = (e, index, field) => {
     const { value } = e.target;
     const updatedEducation = [...localFormData.education];
     updatedEducation[index][field] = value;
-    setLocalFormData(prev => ({ ...prev, education: updatedEducation }));
+    setLocalFormData((prev) => ({ ...prev, education: updatedEducation }));
+  };
+
+  const handleAddEducation = () => {
+    setLocalFormData((prev) => ({
+      ...prev,
+      education: [
+        ...prev.education,
+        { institution: "", degree: "", field: "", location: "", graduationDate: "" },
+      ],
+    }));
   };
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e) => {
-        setProfileImage(e.target.result);
+      reader.onload = (ev) => {
+        setProfileImage(ev.target.result);
       };
       reader.readAsDataURL(file);
     }
@@ -48,12 +70,28 @@ const ResumeForm5 = () => {
 
   const handleGoBack = () => navigate(-1);
 
+  // Using html2pdf.js to download the resume preview as PDF
   const handleDownload = () => {
-    console.log('Download Resume as PDF (Implement export logic here)');
+    const element = document.getElementById("resume-output");
+    if (!element) return;
+
+    const opt = {
+      margin: 0.3,
+      filename: "resume.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, logging: false, dpi: 192, letterRendering: true },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+
+    html2pdf()
+      .set(opt)
+      .from(element)
+      .save()
+      .catch((err) => console.error("PDF generation error:", err));
   };
 
   const progressPercentage = (currentStep / totalSteps) * 100;
-  const selectedTemplate = templateData.find(template => template.id === templateId);
+  const selectedTemplate = templateData.find((t) => t.id === templateId);
   const TemplateComponent = selectedTemplate?.component;
 
   return (
@@ -64,15 +102,27 @@ const ResumeForm5 = () => {
           onClick={handleGoBack}
           className="flex items-center gap-2 text-orange-400 hover:text-white transition duration-200 font-medium"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
           </svg>
           Go Back
         </button>
 
         <div className="w-full lg:w-2/3">
           <div className="mb-2 flex justify-between text-sm font-medium">
-            <span>Step {currentStep} of {totalSteps}</span>
+            <span>
+              Step {currentStep} of {totalSteps}
+            </span>
             <span>{Math.round(progressPercentage)}% Complete</span>
           </div>
           <div className="w-full bg-gray-700 rounded-full h-3">
@@ -87,11 +137,16 @@ const ResumeForm5 = () => {
       {/* Form & Preview */}
       <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Education Form */}
-        <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-orange-400">Education Details</h2>
+        <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg overflow-y-auto max-h-[80vh]">
+          <h2 className="text-2xl font-bold mb-6 text-orange-400">
+            Education Details
+          </h2>
 
           {localFormData.education.map((edu, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              key={index}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 border-b border-orange-700 pb-6"
+            >
               <input
                 value={edu.degree}
                 onChange={(e) => handleInputChange(e, index, "degree")}
@@ -125,11 +180,20 @@ const ResumeForm5 = () => {
             </div>
           ))}
 
+          <button
+            type="button"
+            onClick={handleAddEducation}
+            className="mb-6 w-full bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-lg font-semibold transition"
+          >
+            + Add Another Education
+          </button>
+
           {/* Profile Image Upload */}
           <input
             type="file"
             onChange={handleImageUpload}
             className="mt-6 text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-orange-600 file:text-white hover:file:bg-orange-700"
+            accept="image/*"
           />
 
           {/* Download Button */}
@@ -142,14 +206,16 @@ const ResumeForm5 = () => {
         </div>
 
         {/* Live Preview */}
-        <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
+        <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg overflow-auto max-h-[80vh]">
           <h2 className="text-xl font-bold mb-6 text-orange-400">Final Preview</h2>
           {TemplateComponent ? (
-            <TemplateComponent
-              primaryColor={primaryColor}
-              formData={localFormData}
-              profileImage={profileImage}
-            />
+            <div id="resume-output" className="overflow-auto">
+              <TemplateComponent
+                primaryColor={primaryColor}
+                formData={localFormData}
+                profileImage={profileImage}
+              />
+            </div>
           ) : (
             <p className="text-gray-300">No template selected yet.</p>
           )}
