@@ -8,7 +8,7 @@ const skillsData = [
   "Express.js",
   "HTML/CSS",
   "REST API",
-   "AWS", "Docker", "GraphQL"
+   
 ];
 
 export default skillsData;

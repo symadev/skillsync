@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useResume } from "../../Provider/ResumeContext";
 import { useNavigate } from "react-router-dom";
-import skillsData from "../../../Data/skillsData";
+import skillsData from "../../../Data/skills";
 import templateData from "../../../Data/templateData";
 
 const ResumeForm2 = () => {
@@ -10,6 +10,23 @@ const ResumeForm2 = () => {
   const navigate = useNavigate();
   const currentStep = 2;
   const totalSteps = 6;
+
+  // Additional skills to be merged with skillsData
+  const additionalSkills = [
+    "JavaScript", "React", "Node.js", "Python", "HTML/CSS", "TypeScript",
+    "MongoDB", "Express.js", "Git", "AWS", "Docker", "GraphQL",
+    "Vue.js", "Angular", "PHP", "MySQL", "PostgreSQL", "Redis",
+    "Kubernetes", "Jenkins", "Linux", "Java", "C++", "Go"
+  ];
+
+  // Combine existing skillsData with additional skills, removing duplicates
+  const [allSkills, setAllSkills] = useState(() => {
+    const combined = [...new Set([...skillsData, ...additionalSkills])];
+    return combined.sort();
+  });
+
+  const [newSkill, setNewSkill] = useState("");
+  const [showAddSkill, setShowAddSkill] = useState(false);
 
   const selectedTemplate = templateData.find((template) => template.id === templateId);
   const TemplateComponent = selectedTemplate?.component;
@@ -28,6 +45,29 @@ const ResumeForm2 = () => {
         ...prev,
         skills: [...prev.skills, skill],
       }));
+    } else {
+      // Remove skill if already selected
+      setFormData((prev) => ({
+        ...prev,
+        skills: prev.skills.filter(s => s !== skill),
+      }));
+    }
+  };
+
+  const handleAddNewSkill = () => {
+    if (newSkill.trim() && !allSkills.includes(newSkill.trim())) {
+      const updatedSkills = [...allSkills, newSkill.trim()].sort();
+      setAllSkills(updatedSkills);
+      setNewSkill("");
+      setShowAddSkill(false);
+      // Automatically select the newly added skill
+      handleSkillClick(newSkill.trim());
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddNewSkill();
     }
   };
 
@@ -54,7 +94,7 @@ const ResumeForm2 = () => {
           </div>
           <div className="w-full bg-gray-700 rounded-full h-3">
             <div
-              className="bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-400 h-3 rounded-full"
+              className="bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-400 h-3 rounded-full transition-all duration-300"
               style={{ width: `${progressPercentage}%` }}
             ></div>
           </div>
@@ -65,27 +105,86 @@ const ResumeForm2 = () => {
       <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
           <h2 className="text-2xl font-bold mb-6 text-orange-400">Select Your Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {skillsData.map((skill) => (
+          <p className="text-gray-300 mb-4 text-sm">
+            Click on the plus icon to add skills to your resume. Selected skills: {formData.skills.length}
+          </p>
+          
+          {/* Add New Skill Section */}
+          <div className="mb-6">
+            {!showAddSkill ? (
               <button
-                key={skill}
-                onClick={() => handleSkillClick(skill)}
-                className={`px-4 py-2 rounded-lg font-medium text-left ${
-                  formData.skills.includes(skill)
-                    ? "bg-orange-600 text-white"
-                    : "bg-gray-800 text-orange-300 hover:bg-orange-700 hover:text-white"
-                }`}
+                onClick={() => setShowAddSkill(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-all duration-200"
               >
-                {skill}
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                </svg>
+                Add Custom Skill
               </button>
+            ) : (
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={newSkill}
+                  onChange={(e) => setNewSkill(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Enter new skill..."
+                  className="flex-1 px-3 py-2 bg-white text-gray-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  autoFocus
+                />
+                <button
+                  onClick={handleAddNewSkill}
+                  className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200"
+                >
+                  Add
+                </button>
+                <button
+                  onClick={() => {
+                    setShowAddSkill(false);
+                    setNewSkill("");
+                  }}
+                  className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all duration-200"
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
+          </div>
+          
+          <div className="space-y-3 max-h-80 overflow-y-auto">
+            {allSkills.map((skill) => (
+              <div
+                key={skill}
+                className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-200"
+              >
+                <span className="text-gray-800 font-medium">{skill}</span>
+                <button
+                  onClick={() => handleSkillClick(skill)}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+                    formData.skills.includes(skill)
+                      ? "bg-green-500 text-white"
+                      : "bg-blue-500 hover:bg-blue-600 text-white"
+                  }`}
+                >
+                  {formData.skills.includes(skill) ? (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             ))}
           </div>
 
           <button
             onClick={handleNext}
-            className="mt-8 bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold text-black transition"
+            className="mt-8 bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold text-black transition-all duration-200 hover:shadow-lg transform hover:scale-105"
           >
-            Next
+            Next: Projects Section
           </button>
         </div>
 
@@ -97,6 +196,9 @@ const ResumeForm2 = () => {
           ) : (
             <p className="text-gray-300">No template selected yet.</p>
           )}
+          <div className="mt-4 text-sm text-gray-400">
+            Preview updates automatically as you select skills
+          </div>
         </div>
       </div>
     </div>
