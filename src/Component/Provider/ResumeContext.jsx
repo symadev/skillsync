@@ -1,6 +1,6 @@
 // src/context/ResumeContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
-import profileImage from "../../assets/images/elsa.png";
+import profileImage from "../../assets/images/image.png";
 
 // Import demo data for now
 import personalInfo from "../../Data/PersonalInfoData";
@@ -41,6 +41,8 @@ const ResumeProvider = ({ children }) => {
       experience: workData,
       skills: skillsData,
       projects: projectData,
+      profileImage: profileImage, // default imported image
+
       summary: "Motivated Sales Associate with 5 years of experience boosting sales and customer loyalty.",
     }));
   }, []);

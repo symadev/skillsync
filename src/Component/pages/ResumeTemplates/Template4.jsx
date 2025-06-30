@@ -10,7 +10,7 @@ import Work from "../AllInfo/Work";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
-import profileImage from "../../../assets/images/elsa.png"
+import profileImage from "../../../assets/images/image.png"
 
 const Template4 = ({ primaryColor = "purple" }) => {
     const { formData } = useResume();

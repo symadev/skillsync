@@ -1,4 +1,4 @@
-const PersonalInfoCard = ({ name, email, phone, city, postCode, country,  primaryColor}) => {
+const PersonalInfoCard = ({ name, email, phone, city, postCode, country,  primaryColor,Motivation}) => {
   return (
     <div className= {`rounded-lg  w-full max-w-xs mx-auto  text-left`}>
       <div className="space-y-1">
@@ -10,9 +10,7 @@ const PersonalInfoCard = ({ name, email, phone, city, postCode, country,  primar
 
       <div className="mt-2">
         <p className="text-[10px] text-black leading-tight">
-          Motivated Sales Associate with 5 years of experience boosting sales and customer
-          loyalty through individualized service. Expert at learning customer needs and
-          directing them to the right products.
+          {Motivation}
         </p>
       </div>
     </div>

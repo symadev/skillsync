@@ -1,6 +1,6 @@
 import { useResume } from "../../Provider/ResumeContext";
 
-import profileImage from "../../../assets/images/elsa.png"
+import profileImage from "../../../assets/images/image.png"
 
 import Education from "../AllInfo/Education";
 import Skills from "../AllInfo/Skills";

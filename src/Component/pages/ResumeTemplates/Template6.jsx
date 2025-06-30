@@ -7,7 +7,7 @@ import personalInfo from "../../../Data/PersonalInfoData";
 import projectData from "../../../Data/projectData";
 import workData from "../../../Data/workData";
 import Work from "../AllInfo/Work";
-import profileImage from "../../../assets/images/elsa.png"
+import profileImage from "../../../assets/images/image.png"
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
@@ -48,7 +48,7 @@ const Template6 = ({ primaryColor = "orange" }) => {
       <div className="flex items-start gap-6 mb-8 pb-6 border-b border-gray-200">
         {/* Profile Picture */}
         <div className="flex-shrink-0">
-          <div className="w-24 h-24 bg-gray-300   border-4 border-gray-600  rounded-full overflow-hidden">
+          <div className="w-24 h-24 bg-gray-300   border-2 border-gray-600  rounded-full overflow-hidden">
             <img 
               src={profileImage } 
               alt="Profile" 

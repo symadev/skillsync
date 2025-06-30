@@ -18,7 +18,7 @@ const TemplateCard = ({ template }) => {
   return (
     <div className="w-[350px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-300">
       {/* ✅ Preview Area */}
-      <div className="relative h-[480px] overflow-hidden">
+      <div className="relative h-[300px] overflow-hidden">
         <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-semibold">
           RECOMMENDED
         </div>

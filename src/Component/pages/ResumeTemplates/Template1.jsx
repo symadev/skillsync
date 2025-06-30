@@ -1,27 +1,29 @@
-import { useResume } from "../../Provider/ResumeContext";
-
 import Education from "../AllInfo/Education";
 import Skills from "../AllInfo/Skills";
 import Projects from "../AllInfo/Projects";
 import PersonalInfoCard from "../AllInfo/PersonalInfoCard";
 import Work from "../AllInfo/Work";
 
-const Template1 = ({ primaryColor = "blue" }) => {
-  const { formData } = useResume();
+const Template1 = ({ primaryColor, formData = {} }) => {
   const {
-    name,
-    email,
-    phone,
-    city,
-    postCode,
-    country,
-    profileImage,
-    education,
-    experience,
-    skills,
-    projects,
-    summary,
+    name = '',
+    surname = '',
+    postcode = '',
+    email = '',
+    phone = '',
+    city = '',
+    Motivation='',
+
+    country = '',
+    summary = '',
+    skills = [],
+    projects = [],
+    experience = [],
+    education = [],
+    profileImage = ''
   } = formData;
+
+
 
   return (
     <div
@@ -29,15 +31,15 @@ const Template1 = ({ primaryColor = "blue" }) => {
       id="resume-output"
       style={{ minHeight: "600px", width: "100%" }}
     >
-
       {/* Personal Info */}
       <div className={`space-y-1`}>
         <PersonalInfoCard
-          name={name}
+          name={`${name} ${surname}`}
           email={email}
           phone={phone}
           city={city}
-          postCode={postCode}
+           Motivation={Motivation}
+          postcode={postcode}
           country={country}
           profileImage={profileImage}
           summary={summary}
