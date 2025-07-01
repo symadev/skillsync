@@ -24,20 +24,16 @@ const Register = () => {
           role: 'user',
           createdAt: new Date()
         };
-        axiosPublic .post('/users', newUser )
+        axiosPublic.post('/users', newUser )
                     .then(res => {
                         if (res.data.insertedId) {
                             console.log('user added to the database')
                             reset();
-             toast.success({
-              title: "Registration Successful",
-              icon: "success",
-              confirmButtonColor: "#ff9900",
-            })};
+              toast.success("Registration Successful", "", "success");};
             navigate('/');
           })
           .catch(() => {
-             toast.error('Error', 'Failed to save user data', 'error');
+             toast.error('Error', 'Failed to registration', 'error');
           });
       })
       .catch(() => {
