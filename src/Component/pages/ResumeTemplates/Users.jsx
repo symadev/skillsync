@@ -78,18 +78,18 @@ const Users = () => {
 
         {/* Controls */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-          <button className="bg-orange-700 text-white px-4 py-2 rounded hover:bg-orange-700">➕ Add New User</button>
+          
           <input
             type="text"
             placeholder="Search by name or email"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="bg-orange-700 text-white w-80 px-2 py-2 rounded hover:bg-orange-400"
+            className="bg-gradient-to-r from-orange-700 to-orange-400 w-80 px-2 py-2 rounded hover:bg-orange-400"
           />
           <select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value)}
-            className="px-4 py-2 bg-orange-700 text-white rounded hover:bg-orange-400"
+            className="px-4 py-2 bg-gradient-to-r from-orange-700 to-orange-400 text-white rounded hover:bg-orange-400"
           >
             <option value="">All Roles</option>
             <option value="admin">Admin</option>

@@ -50,6 +50,11 @@ const router = createBrowserRouter([
         element:<AdminRoutes><Dashboard></Dashboard></AdminRoutes>,
          children: [
         {
+       
+        index: true, //  This makes DashboardHome the default
+        element:<Profile></Profile>
+      },
+      {
         path: "profile",
         element:<Profile></Profile>
       },
