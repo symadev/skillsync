@@ -3,6 +3,7 @@ import { useResume } from "../../Provider/ResumeContext";
 import templateData from "../../../Data/templateData";
 import { useNavigate } from "react-router-dom";
 import html2pdf from "html2pdf.js";
+import UseAxiosSecure from "../../AdminRoutes/UseAxiosSecure";
 
 const ResumeForm5 = () => {
   const {
@@ -13,6 +14,7 @@ const ResumeForm5 = () => {
   } = useResume();
   const navigate = useNavigate();
   const [currentStep] = useState(5);
+  const axiosSecure = UseAxiosSecure();
   const totalSteps = 6;
 
   const [localFormData, setLocalFormData] = useState({
@@ -103,27 +105,31 @@ const ResumeForm5 = () => {
       body.style.backgroundColor = "#ffffff";
   };
 
-  const handleDownload = () => {
-    const element = document.getElementById("resume-output");
-    if (!element) return;
+const handleDownload = async () => {
+  const element = document.getElementById("resume-output");
+  if (!element) return;
 
-    //  Clean up problematic colors before rendering
-    fixGlobalOKLCH();
+  fixGlobalOKLCH();
 
-    const opt = {
-      margin: 0.3,
-      filename: "resume.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2, logging: false, dpi: 192, letterRendering: true },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
-
-    html2pdf()
-      .set(opt)
-      .from(element)
-      .save()
-      .catch((err) => console.error("PDF generation error:", err));
+  const opt = {
+    margin: 0.3,
+    filename: "resume.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2, logging: false, dpi: 192, letterRendering: true },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
   };
+
+  try {
+    // 👇 Send tracking data before download
+    await axiosSecure.post('/track-download', { email: user.email });
+
+    // 👇 Generate and save PDF
+    await html2pdf().set(opt).from(element).save();
+  } catch (err) {
+    console.error("PDF generation error or tracking error:", err);
+  }
+};
+
 
   const progressPercentage = (currentStep / totalSteps) * 100;
   const selectedTemplate = templateData.find((t) => t.id === templateId);
