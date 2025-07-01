@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ResumeProgressProvider } from './Component/Provider/ResumeProgressContext.jsx';
 
 const queryClient = new QueryClient();
 
@@ -18,10 +19,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <ResumeProgressProvider>
         <ResumeProvider> {/* 🆕 এই ResumeProvider দিয়ে wrap করো */}
           <RouterProvider router={router} />
           <ToastContainer position="top-right" autoClose={3000} theme="dark" />
         </ResumeProvider>
+        </ResumeProgressProvider>
       </AuthProvider>
     </QueryClientProvider>
   </StrictMode>

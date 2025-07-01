@@ -2,12 +2,21 @@ import { useState, useEffect } from 'react';
 import { useResume } from "../../Provider/ResumeContext";
 import templateData from "../../../Data/templateData";
 import { useNavigate } from "react-router-dom";
+import { useResumeProgress } from '../../Provider/ResumeProgressContext';
 
 const ResumeForm1 = () => {
   const { templateId, primaryColor, formData: globalFormData, setFormData: setGlobalFormData } = useResume();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 6;
+
+  // Inside ResumeForm1 component
+const { setProgress } = useResumeProgress();
+
+useEffect(() => {
+  const calculated = (currentStep / totalSteps) * 100;
+  setProgress(calculated); // set in global context
+}, [currentStep, totalSteps]);
 
   const [localFormData, setLocalFormData] = useState(globalFormData);
   const [profileImage, setProfileImage] = useState(globalFormData.profileImage || null);

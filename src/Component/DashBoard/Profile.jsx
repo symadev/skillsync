@@ -17,6 +17,7 @@ import {
   Legend,
 } from "recharts";
 import UseProfileStats from "../Provider/useProfileStats";
+import { useResumeProgress } from "../Provider/ResumeProgressContext";
  // ঠিক path দিও
 
 const dummyGraphData = [
@@ -28,6 +29,7 @@ const dummyGraphData = [
 
 const Profile = () => {
   const { stats, isLoading } = UseProfileStats();
+  const { progress } = useResumeProgress();
 
   if (isLoading) {
     return <div className="text-center text-white py-10">Loading...</div>;
@@ -47,25 +49,25 @@ const Profile = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="bg-[#0a0400] rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Resume Completion</h4>
-          <div className="relative w-32 h-32 mx-auto">
-            <svg className="w-full h-full transform -rotate-90">
-              <circle cx="64" cy="64" r="56" stroke="#333" strokeWidth="12" fill="none" />
-              <circle
-                cx="64"
-                cy="64"
-                r="56"
-                stroke="#FFA500"
-                strokeWidth="12"
-                fill="none"
-                strokeDasharray="352"
-                strokeDashoffset={352 - (stats.achievementScore || 0) * 3.52} // % → stroke offset
-              />
-            </svg>
-            <span className="absolute inset-0 flex items-center justify-center text-3xl font-bold">
-              {stats.achievementScore || 0}%
-            </span>
-          </div>
-          <p className="mt-3 text-sm text-orange-400">Your resume is almost ready</p>
+           <div className="relative w-32 h-32 mx-auto">
+        <svg className="w-full h-full transform -rotate-90">
+          <circle cx="64" cy="64" r="56" stroke="#333" strokeWidth="12" fill="none" />
+          <circle
+            cx="64"
+            cy="64"
+            r="56"
+            stroke="#FFA500"
+            strokeWidth="12"
+            fill="none"
+            strokeDasharray="352"
+            strokeDashoffset={`${352 - (progress / 100) * 352}`}
+          />
+        </svg>
+        <span className="absolute inset-0 flex items-center justify-center text-3xl font-bold">
+          {Math.round(progress)}%
+        </span>
+      </div>
+         <p className="mt-3 text-sm text-orange-400">Your resume is {Math.round(progress)}% complete</p>
         </div>
 
         {/* Chart */}
