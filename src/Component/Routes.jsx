@@ -9,7 +9,7 @@ import Register from "./Register";
 import Dashboard from "./DashBoard/Dashboard";
 
 import Profile from "./DashBoard/Profile";
-import Settings from "./DashBoard/Settings";
+
 
 import AiAssistant from "./DashBoard/AiAssistant";
 import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
@@ -21,6 +21,8 @@ import ResumeForm2 from "./DashBoard/ResumeFormPage/ResumeFrom2";
 import ResumeForm3 from "./DashBoard/ResumeFormPage/ResumeFrom3";
 import ResumeForm4 from "./DashBoard/ResumeFormPage/ResumeFrom4";
 import ResumeForm5 from "./DashBoard/ResumeFormPage/ResumeForm5";
+import Users from "./pages/ResumeTemplates/Users";
+
 
 
 
@@ -51,10 +53,7 @@ const router = createBrowserRouter([
         path: "profile",
         element:<Profile></Profile>
       },
-        {
-        path: "settings",
-        element:<Settings></Settings>
-      },
+    
         {
         path: "resume",
         element:<HomeMain></HomeMain>,
@@ -88,6 +87,10 @@ const router = createBrowserRouter([
         {
         path: "ai-coach",
         element:<AiAssistant></AiAssistant>
+      },
+        {
+        path: "userAdmin",
+        element:<Users></Users>
       },
       ],
         

@@ -9,12 +9,15 @@ const HomeMain = () => {
     <div className="hero min-h-screen bg-black px-6 lg:px-24">
       <div className="hero-content flex-col-reverse lg:flex-row-reverse gap-10 items-center">
         <motion.img
-          initial={{ opacity: 0, scale: 0.8, x: 100 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 1 }}
           src={image}
-          className="max-w-sm rounded-lg shadow-2xl"
           alt="Resume Builder Illustration"
+          className="max-w-sm w-full rounded-lg shadow-2xl"
+          animate={{ y: [0, -10, 0] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
 
         <div className="text-center lg:text-left max-w-xl space-y-6">
@@ -28,9 +31,9 @@ const HomeMain = () => {
 
           <button
             onClick={() => navigate("/dashboard/templates")}
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 via-red-500 to-yellow-400 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out"
+            className="px-6 py-3 bg-gradient-to-r from-orange-500 via-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out rounded-none flex items-center justify-center gap-2"
           >
-            🚀 Choose Template
+            Choose Template →
           </button>
 
         </div>

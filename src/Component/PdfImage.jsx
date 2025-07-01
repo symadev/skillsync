@@ -1,40 +1,44 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import pdfImage from "../assets/images/Resume folder-rafiki.png";
+import image from "../assets/images/Resume folder-rafiki.png";
 
-const PdfImage = () => {
+const PdfImage= () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="bg-black text-white py-20 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+    <div className="hero min-h-screen bg-black px-6 lg:px-24">
+      <div className="hero-content flex-col-reverse lg:flex-row-reverse gap-10 items-center">
+        <motion.img
+          src={image }
+          alt="Resume Builder Illustration"
+          className="max-w-sm w-full rounded-lg shadow-2xl"
+          animate={{ y: [0, -10, 0] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
-        {/* Left Image with motion */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <motion.img
-            src={pdfImage}
-            alt="PDF Export"
-            className="max-w-[400px] w-full drop-shadow-xl"
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        </div>
+        <div className="text-center lg:text-left max-w-xl space-y-6">
+          <h1 className="text-4xl lg:text-5xl font-bold leading-tight bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-300 text-transparent bg-clip-text">
+            Build Your Resume Effortlessly
+          </h1>
 
-        {/* Right Content */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-300 inline-block text-transparent bg-clip-text mb-4">
-            Easily export your Resume to PDF
-          </h2>
-          <p className="text-gray-300 text-lg mb-6">
-            Create a resume online with our Templates and export a pixel-perfect PDF resume. As most employers’ preferred CV format, a PDF resume is ideal for applying through careers pages and job boards.
+          <p className="text-lg text-orange-400">
+            Create a professional resume in minutes with our easy-to-use templates.
           </p>
-          <button className="px-6 py-2 border border-orange-400 text-orange-400 hover:bg-orange-500 hover:text-white transition rounded-md">
-            Sign Up
+
+          <button
+            onClick={() => navigate("/dashboard/templates")}
+            className="px-6 py-3 bg-gradient-to-r from-orange-500 via-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out rounded flex items-center justify-center gap-2"
+          >
+            Choose Template →
           </button>
+
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
