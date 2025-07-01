@@ -35,7 +35,6 @@ const ResumeForm5 = () => {
     globalFormData.profileImage || null
   );
 
-  // Sync local form data + image to global context
   useEffect(() => {
     setGlobalFormData({ ...localFormData, profileImage });
   }, [localFormData, profileImage, setGlobalFormData]);
@@ -52,7 +51,13 @@ const ResumeForm5 = () => {
       ...prev,
       education: [
         ...prev.education,
-        { institution: "", degree: "", field: "", location: "", graduationDate: "" },
+        {
+          institution: "",
+          degree: "",
+          field: "",
+          location: "",
+          graduationDate: "",
+        },
       ],
     }));
   };
@@ -70,10 +75,40 @@ const ResumeForm5 = () => {
 
   const handleGoBack = () => navigate(-1);
 
-  // Using html2pdf.js to download the resume preview as PDF
+  // 🔧 Fix unsupported `oklch()` color styles
+  const fixGlobalOKLCH = () => {
+    const elements = document.querySelectorAll("*");
+    elements.forEach((el) => {
+      const style = getComputedStyle(el);
+      if (style.color?.includes("oklch")) {
+        el.style.color = "#000000";
+      }
+      if (style.backgroundColor?.includes("oklch")) {
+        el.style.backgroundColor = "#ffffff";
+      }
+      if (style.borderColor?.includes("oklch")) {
+        el.style.borderColor = "#cccccc";
+      }
+    });
+
+    const html = document.documentElement;
+    const body = document.body;
+    if (getComputedStyle(html).color.includes("oklch"))
+      html.style.color = "#000000";
+    if (getComputedStyle(html).backgroundColor.includes("oklch"))
+      html.style.backgroundColor = "#ffffff";
+    if (getComputedStyle(body).color.includes("oklch"))
+      body.style.color = "#000000";
+    if (getComputedStyle(body).backgroundColor.includes("oklch"))
+      body.style.backgroundColor = "#ffffff";
+  };
+
   const handleDownload = () => {
     const element = document.getElementById("resume-output");
     if (!element) return;
+
+    //  Clean up problematic colors before rendering
+    fixGlobalOKLCH();
 
     const opt = {
       margin: 0.3,
@@ -96,7 +131,6 @@ const ResumeForm5 = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
-      {/* Header & Progress */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-4 p-6">
         <button
           onClick={handleGoBack}
@@ -134,9 +168,7 @@ const ResumeForm5 = () => {
         </div>
       </div>
 
-      {/* Form & Preview */}
       <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Education Form */}
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg overflow-y-auto max-h-[80vh]">
           <h2 className="text-2xl font-bold mb-6 text-orange-400">
             Education Details
@@ -173,7 +205,9 @@ const ResumeForm5 = () => {
               />
               <input
                 value={edu.graduationDate}
-                onChange={(e) => handleInputChange(e, index, "graduationDate")}
+                onChange={(e) =>
+                  handleInputChange(e, index, "graduationDate")
+                }
                 className="bg-gray-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder="Graduation Year (e.g., 2025)"
               />
@@ -188,7 +222,6 @@ const ResumeForm5 = () => {
             + Add Another Education
           </button>
 
-          {/* Profile Image Upload */}
           <input
             type="file"
             onChange={handleImageUpload}
@@ -196,7 +229,6 @@ const ResumeForm5 = () => {
             accept="image/*"
           />
 
-          {/* Download Button */}
           <button
             onClick={handleDownload}
             className="mt-6 w-full bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold text-black transition"
@@ -205,7 +237,6 @@ const ResumeForm5 = () => {
           </button>
         </div>
 
-        {/* Live Preview */}
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg overflow-auto max-h-[80vh]">
           <h2 className="text-xl font-bold mb-6 text-orange-400">Final Preview</h2>
           {TemplateComponent ? (
