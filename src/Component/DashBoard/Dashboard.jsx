@@ -1,6 +1,6 @@
 // Dashboard.jsx
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaUser, FaFileAlt, FaRobot,  FaMoon, } from "react-icons/fa";
+import { FaHome, FaUser, FaFileAlt, FaRobot, FaMoon, } from "react-icons/fa";
 import logo from "../../assets/images/icon-logo.png"; // Replace with your SkillSync logo
 
 const Dashboard = () => {
@@ -18,18 +18,16 @@ const Dashboard = () => {
         <ul className="flex flex-col text-2xl font-semibold gap-1 mt-4">
           <SidebarLink to="/dashboard/profile" icon={<FaUser />} text="Profile" />
           <SidebarLink to="/dashboard/resume" icon={<FaFileAlt />} text="Resume Builder" />
-
           <SidebarLink to="/dashboard/ai-coach" icon={<FaRobot />} text="AI Assistant" />
-         
-          <SidebarLink to="/dashboard/userAdmin" icon={<FaUser />} text=" User Management" />
-
-          
-           <div className="divider before:bg-orange-500 after:bg-orange-500"></div>
-
-          <li>
-            <SidebarLink to="/" icon={<FaHome />} text="Home" />
-          </li>
+          <SidebarLink to="/dashboard/userAdmin" icon={<FaUser />} text="User Management" />
         </ul>
+
+        <div className="divider before:bg-orange-500 after:bg-orange-500"></div>
+
+        <ul className="flex flex-col text-2xl font-semibold gap-1">
+          <SidebarLink to="/" icon={<FaHome />} text="Home" />
+        </ul>
+
         {/* Dark Mode Toggle */}
         <div className="mt-auto px-6 py-6">
           <button className="relative px-5 py-2 rounded-full text-white font-semibold transition-all duration-300 group">

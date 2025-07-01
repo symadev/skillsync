@@ -47,7 +47,7 @@ const Profile = () => {
 
       {/* Resume Completion + Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="bg-[#0a0400] rounded-2xl p-6 text-center shadow-inner">
+        <div className="bg-black rounded-2xl p-6 text-center shadow-inner">
           <h4 className="text-sm font-semibold mb-2">Resume Completion</h4>
            <div className="relative w-32 h-32 mx-auto">
         <svg className="w-full h-full transform -rotate-90">
@@ -71,7 +71,7 @@ const Profile = () => {
         </div>
 
         {/* Chart */}
-        <div className="bg-[#0a0400] flex-1 rounded-2xl p-6 shadow-inner lg:col-span-2">
+        <div className="bg-black flex-1 rounded-2xl p-6 shadow-inner lg:col-span-2">
           <h4 className="text-sm font-semibold mb-4">Achievement Score Over Time</h4>
           <ResponsiveContainer width="100%" height={300}>
             <ComposedChart data={dummyGraphData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>

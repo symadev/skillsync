@@ -4,6 +4,10 @@ import templateData from "../../../Data/templateData";
 import { useNavigate } from "react-router-dom";
 import html2pdf from "html2pdf.js";
 import UseAxiosSecure from "../../AdminRoutes/UseAxiosSecure";
+import UseAuth from "../../AdminRoutes/UseAuth";
+
+
+
 
 const ResumeForm5 = () => {
   const {
@@ -12,6 +16,7 @@ const ResumeForm5 = () => {
     formData: globalFormData,
     setFormData: setGlobalFormData,
   } = useResume();
+  const { user } = UseAuth();
   const navigate = useNavigate();
   const [currentStep] = useState(5);
   const axiosSecure = UseAxiosSecure();
@@ -120,15 +125,17 @@ const handleDownload = async () => {
   };
 
   try {
-    // 👇 Send tracking data before download
+    // First generate the PDF and download it
+    await html2pdf().set(opt).from(element).save();
+
+    //  Then track the download
     await axiosSecure.post('/track-download', { email: user.email });
 
-    // 👇 Generate and save PDF
-    await html2pdf().set(opt).from(element).save();
   } catch (err) {
-    console.error("PDF generation error or tracking error:", err);
+    console.error("PDF generation or tracking error:", err.response?.data || err.message);
   }
 };
+
 
 
   const progressPercentage = (currentStep / totalSteps) * 100;
