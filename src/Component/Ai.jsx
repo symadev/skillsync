@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Ai = () => {
   const [jobTitle, setJobTitle] = useState("");
@@ -56,13 +57,14 @@ const Ai = () => {
           />
         </div>
 
-        <button
+        <Link to ="/dashboard/ai-coach"
+
           type="submit"
           className="w-full bg-gradient-to-r from-orange-600 to-orange-400 hover:from-orange-700 hover:to-orange-500 text-white font-semibold py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           <span>📝</span>
           <span>Generate Suggestions</span>
-        </button>
+        </Link>
       </form>
     </div>
   );

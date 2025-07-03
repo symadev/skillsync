@@ -16,27 +16,28 @@ const Footer = () => {
             </p>
             {/* Social Icons */}
             <div className="flex space-x-3 sm:space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"
+              <a href="https://www.facebook.com/syma.sultana.75" target="_blank" rel="noopener noreferrer" title="Facebook"
                 className="bg-gradient-to-r from-orange-400 to-orange-600 p-2 sm:p-2.5 rounded-lg hover:from-orange-500 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
                 <FaFacebookF className="text-white sm:w-5 sm:h-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter"
+              <a href="https://x.com/symadev_E2002" target="_blank" rel="noopener noreferrer" title="Twitter (X)"
                 className="bg-gradient-to-r from-orange-400 to-orange-600 p-2 sm:p-2.5 rounded-lg hover:from-orange-500 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
                 <FaTwitter className="text-white sm:w-5 sm:h-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+              <a href="https://www.linkedin.com/in/symasultana/" target="_blank" rel="noopener noreferrer" title="LinkedIn"
                 className="bg-gradient-to-r from-orange-400 to-orange-600 p-2 sm:p-2.5 rounded-lg hover:from-orange-500 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
                 <FaLinkedinIn className="text-white sm:w-5 sm:h-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"
+              <a href="https://www.instagram.com/midnighttwinkle_/" target="_blank" rel="noopener noreferrer" title="Instagram"
                 className="bg-gradient-to-r from-orange-400 to-orange-600 p-2 sm:p-2.5 rounded-lg hover:from-orange-500 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
                 <FaInstagram className="text-white sm:w-5 sm:h-5" />
               </a>
-              <a href="mailto:support@resumebuilder.com" title="Email"
+              <a href="mailto:symasultana02@gmail.com" title="Email"
                 className="bg-gradient-to-r from-orange-400 to-orange-600 p-2 sm:p-2.5 rounded-lg hover:from-orange-500 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
                 <Mail size={18} className="text-white sm:w-5 sm:h-5" />
               </a>
             </div>
+
           </div>
 
           {/* Quick Links */}
@@ -72,7 +73,7 @@ const Footer = () => {
               <div className="flex items-center">
                 <Mail className="text-orange-400 mr-2 sm:mr-3 flex-shrink-0" size={16} title="Email Icon" />
                 <a href="mailto:support@resumebuilder.com" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm sm:text-base">
-                  support@resumebuilder.com
+                  symasultana02@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
@@ -80,14 +81,14 @@ const Footer = () => {
                   <span className="text-orange-400 text-xs sm:text-sm">📞</span>
                 </div>
                 <a href="tel:+15551234567" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm sm:text-base">
-                  +1 (555) 123-4567
+                  +8801794621507
                 </a>
               </div>
               <div className="flex items-start">
                 <div className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-orange-400 text-xs sm:text-sm">📍</span>
                 </div>
-                <span className="text-gray-300 text-sm sm:text-base">San Francisco, CA</span>
+                <span className="text-gray-300 text-sm sm:text-base">Khulna, Bangladesh</span>
               </div>
               <div className="pt-2 sm:pt-3">
                 <a href="/help" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm sm:text-base block">Help Center</a>

@@ -22,22 +22,13 @@ const Dashboard = () => {
           <SidebarLink to="/dashboard/userAdmin" icon={<FaUser />} text="User Management" />
         </ul>
 
-        <div className="divider before:bg-orange-500 after:bg-orange-500"></div>
+     <div className="divider before:bg-orange-500 after:bg-orange-500 before:h-px   ml-4  after:h-px w-1/2 mx-auto"></div>
 
         <ul className="flex flex-col text-2xl font-semibold gap-1">
           <SidebarLink to="/" icon={<FaHome />} text="Home" />
         </ul>
 
-        {/* Dark Mode Toggle */}
-        <div className="mt-auto px-6 py-6">
-          <button className="relative px-5 py-2 rounded-full text-white font-semibold transition-all duration-300 group">
-            <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-            <span className="relative z-10 flex items-center gap-2 bg-black rounded-full px-5 py-2">
-              <FaMoon className="text-white" /> Dark Mode
-            </span>
-          </button>
-
-        </div>
+       
       </aside>
 
       {/* Main Content */}
