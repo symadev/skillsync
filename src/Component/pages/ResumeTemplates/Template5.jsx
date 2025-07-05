@@ -73,11 +73,13 @@ const Template5 = ({ primaryColor = "green" }) => {
 
   return (
     <div className="max-w-4xl mx-auto bg-white text-black shadow-lg" id="resume-output">
-      {/* Header Section */}
-      <div className={`${colors.headerBg} text-white px-8 py-6`}>
-        <div className="text-center">
-          <PersonalInfoCard {...personalInfoToShow} />
-          <div className="border-t border-white mt-3 pt-3"></div>
+     {/* Header */}
+      <div className={`${colors.headerBg} text-white p-6 rounded-md`}>
+        <div className="flex justify-between items-start text-start">
+          {/* Personal Info */}
+          <div className="space-y-1 text-white">
+            <PersonalInfoCard {...personalInfoToShow} />
+          </div>
         </div>
       </div>
 

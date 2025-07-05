@@ -77,7 +77,7 @@ const Template4 = ({ primaryColor = "purple" }) => {
                         <img
                             src={uploadedImage ? uploadedImage : profileImage}
                             alt="Profile"
-                            className={`w-20 h-20 rounded-full object-cover border-4 ${colors.text} shadow`}
+                            className={`w-28 h-28 rounded-full object-cover border-4 ${colors.text} shadow`}
                         />
                         <h1 className={`font-bold text-sm ${colors.text}`}>{`${finalName} ${finalSurname}`}</h1>
                         <p className="text-[10px] text-black">Phone: {finalPhone}</p>
@@ -95,7 +95,7 @@ const Template4 = ({ primaryColor = "purple" }) => {
                     {/* Skills */}
                     {skillsToShow.length > 0 && (
                         <div className="space-y-4">
-                            <h3 className={`text-lg font-bold ${colors.text} border-b-2 ${colors.border} pb-2`}>
+                            <h3 className={`text-lg font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
                                 Skills
                             </h3>
                             <Skills skills={skillsToShow} />
@@ -108,7 +108,7 @@ const Template4 = ({ primaryColor = "purple" }) => {
                     {/* Work History */}
                     {experienceToShow.length > 0 && (
                         <div className="space-y-3">
-                            <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-2`}>
+                            <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
                                 Work History
                             </h3>
                             <Work experience={experienceToShow} />
@@ -118,7 +118,7 @@ const Template4 = ({ primaryColor = "purple" }) => {
                     {/* Projects */}
                     {projectsToShow.length > 0 && (
                         <div className="space-y-3">
-                            <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-2`}>
+                            <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
                                 Projects
                             </h3>
                             <Projects projects={projectsToShow} />
@@ -128,7 +128,7 @@ const Template4 = ({ primaryColor = "purple" }) => {
                     {/* Education */}
                     {educationToShow.length > 0 && (
                         <div className="space-y-3">
-                            <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-2`}>
+                            <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
                                 Education
                             </h3>
                             <Education education={educationToShow} />

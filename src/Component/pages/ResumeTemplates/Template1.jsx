@@ -51,26 +51,30 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       id="resume-output"
       style={{ minHeight: "600px", width: "100%" }}
     >
-      {/* Personal Info */}
-      <div className="space-y-1">
-        <PersonalInfoCard
-          name={`${name} ${surname}`}
-          email={email}
-          phone={phone}
-          city={city}
-          postcode={postcode}
-          country={country}
-          profileImage={profileImage || defaultProfileImage}
-          summary={summary}
-          Motivation={Motivation}
-          primaryColor={primaryColor}
-        />
+      <div className="text-center space-y-3 px-4">
+        {/* Name */}
+        <h1 className="text-2xl font-bold" style={{ color: primaryColor || '#007BFF' }}>
+          {name} {surname}
+        </h1>
+
+        {/* Location + Contact Info */}
+        <p className="text-gray-600 text-sm">
+          {city}, {postcode} {country} | {phone} | {email}
+        </p>
+
+       
+        {/* Additional Motivation (Optional) */}
+        {Motivation && (
+          <p className="text-justify  text-gray-600 text-sm leading-relaxed">
+            {Motivation}
+          </p>
+        )}
       </div>
 
       {/* Skills */}
       {Array.isArray(skills) && skills.length > 0 && (
         <div className="space-y-2">
-          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
+          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
             Skills
           </h3>
           <Skills skills={skills} />
@@ -80,7 +84,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       {/* Projects */}
       {Array.isArray(projects) && projects.length > 0 && (
         <div className="space-y-2">
-          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
+          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
             Projects
           </h3>
           <Projects projects={projects} />
@@ -90,7 +94,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       {/* Work History */}
       {Array.isArray(experience) && experience.length > 0 && (
         <div className="space-y-2">
-          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
+          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
             Work History
           </h3>
           <Work experience={experience} />
@@ -100,7 +104,7 @@ const Template1 = ({ primaryColor = "purple", formData = {} }) => {
       {/* Education */}
       {Array.isArray(education) && education.length > 0 && (
         <div className="space-y-2">
-          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-1`}>
+          <h3 className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
             Education
           </h3>
           <Education education={education} />

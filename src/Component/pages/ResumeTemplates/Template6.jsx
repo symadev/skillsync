@@ -62,31 +62,40 @@ const Template6 = ({ primaryColor = "orange" }) => {
 
   return (
     <div className="max-w-4xl mx-auto bg-white text-black p-6 shadow-lg" id="resume-output">
-      {/* Header */}
-      <div className={`${colors.headerBg} text-white p-6 rounded-t-md flex items-center gap-6`}>
+      {/* Header Section */}
+      <div className="bg-gray-100 text-black rounded-md p-4 flex items-center gap-3">
         {/* Profile Image */}
-        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white flex-shrink-0">
-          <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+        <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
+          <img
+            src={profileImage}
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
         </div>
 
         {/* Personal Info */}
-        <div className="flex-1 text-white">
-          <PersonalInfoCard {...personalInfoToShow} />
+        <div className="flex-1">
+          <PersonalInfoCard {...personalInfoToShow} primaryColor={primaryColor} />
         </div>
       </div>
 
-      {/* Skills */}
-      {skillsToShow.length > 0 && (
-        <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Skills</h3>
-          <Skills skills={skillsToShow} />
-        </div>
-      )}
+
+      {/* Skills Section */}
+        {skillsToShow.length > 0 && (
+          <div className="space-y-4">
+            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+              Skills
+            </h3>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+              <Skills skills={skillsToShow} />
+            </div>
+          </div>
+        )}
 
       {/* Projects */}
       {projectsToShow.length > 0 && (
         <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Projects</h3>
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>Projects</h3>
           <Projects projects={projectsToShow} />
         </div>
       )}
@@ -94,7 +103,7 @@ const Template6 = ({ primaryColor = "orange" }) => {
       {/* Work History */}
       {experienceToShow.length > 0 && (
         <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Work History</h3>
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>Work History</h3>
           <Work experience={experienceToShow} />
         </div>
       )}

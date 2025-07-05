@@ -63,7 +63,7 @@ const Template3 = ({ primaryColor = "blue" }) => {
           <img
             src={uploadedImage || profileImage}
             alt="Profile"
-            className={`w-20 h-20 rounded-full object-cover border-4 ${colors.text} shadow`}
+            className={`w-28 h-28 rounded-full object-cover border-4 ${colors.text} shadow`}
           />
         </div>
       </aside>
@@ -76,28 +76,28 @@ const Template3 = ({ primaryColor = "blue" }) => {
 
         {skillsToShow.length > 0 && (
           <div>
-            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-0.5`}>Skills</h3>
+            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-3`}>Skills</h3>
             <Skills skills={skillsToShow} />
           </div>
         )}
 
         {projectsToShow.length > 0 && (
           <div>
-            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-0.5`}>Projects</h3>
+            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-3`}>Projects</h3>
             <Projects projects={projectsToShow} />
           </div>
         )}
 
         {experienceToShow.length > 0 && (
           <div>
-            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-0.5`}>Work History</h3>
+            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-3`}>Work History</h3>
             <Work experience={experienceToShow} />
           </div>
         )}
 
         {educationToShow.length > 0 && (
           <div>
-            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-0.5`}>Education</h3>
+            <h3 className={`text-lg font-semibold ${colors.text} border-b pb-3`}>Education</h3>
             <Education education={educationToShow} />
           </div>
         )}

@@ -75,20 +75,21 @@ const Template2 = ({ primaryColor = "purple" }) => {
         </div>
       </div>
 
-      {/* Skills */}
-      {skillsToShow && skillsToShow.length > 0 && (
-        <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>
-            Skills
-          </h3>
-          <Skills skills={skillsToShow} />
-        </div>
-      )}
-
+      {/* Skills Section */}
+        {skillsToShow.length > 0 && (
+          <div className="space-y-4">
+            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+              Skills
+            </h3>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+              <Skills skills={skillsToShow} />
+            </div>
+          </div>
+        )}
       {/* Projects */}
       {projectsToShow && projectsToShow.length > 0 && (
         <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
             Projects
           </h3>
           <Projects projects={projectsToShow} />
@@ -98,7 +99,7 @@ const Template2 = ({ primaryColor = "purple" }) => {
       {/* Work History */}
       {experienceToShow && experienceToShow.length > 0 && (
         <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
             Work History
           </h3>
           <Work experience={experienceToShow} />
@@ -108,7 +109,7 @@ const Template2 = ({ primaryColor = "purple" }) => {
       {/* Education */}
       {educationToShow && educationToShow.length > 0 && (
         <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
             Education
           </h3>
           <Education education={educationToShow} />
