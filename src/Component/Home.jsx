@@ -1,3 +1,4 @@
+import UseAuth from "./AdminRoutes/UseAuth";
 import Ai from "./Ai";
 import Banner from "./Banner";
 import Card from "./Card";
@@ -7,6 +8,9 @@ import PdfImage from "./PdfImage";
 import Resume from "./Resume";
 
 const Home = () => {
+
+    const { user } = UseAuth();
+
     return (
         <div>
             <Banner></Banner>
@@ -32,7 +36,7 @@ const Home = () => {
             </section>
 
             <section id="contacts" className="scroll-mt-24">
-                <CtaSection></CtaSection>
+                {user?.email && <CtaSection user={user} />}
             </section>
         </div>
     );

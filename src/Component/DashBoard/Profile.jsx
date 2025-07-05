@@ -18,6 +18,9 @@ import {
 } from "recharts";
 import UseProfileStats from "../Provider/useProfileStats";
 import { useResumeProgress } from "../Provider/ResumeProgressContext";
+import { useEffect } from "react";
+import UseAxiosSecure from "../AdminRoutes/UseAxiosSecure";
+import UseAuth from "../AdminRoutes/UseAuth";
  // ঠিক path দিও
 
 const dummyGraphData = [
@@ -30,6 +33,17 @@ const dummyGraphData = [
 const Profile = () => {
   const { stats, isLoading } = UseProfileStats();
   const { progress } = useResumeProgress();
+   const { user } = UseAuth();
+   const axiosSecure = UseAxiosSecure();
+
+
+  useEffect(() => {
+  if (user?.email) {
+    axiosSecure.post('/track-view', { email: user.email }).catch(err => {
+      console.error("View tracking failed:", err.message);
+    });
+  }
+}, [user]);
 
   if (isLoading) {
     return <div className="text-center text-white py-10">Loading...</div>;
