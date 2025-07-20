@@ -111,7 +111,7 @@ const Template6 = ({ primaryColor = "orange" }) => {
       {/* Education */}
       {educationToShow.length > 0 && (
         <div className="space-y-2 mt-6">
-          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-1`}>Education</h3>
+          <h3 className={`text-xl font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>Education</h3>
           <Education education={educationToShow} />
         </div>
       )}

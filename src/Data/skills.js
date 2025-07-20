@@ -3,7 +3,7 @@ const skillsData = [
   "Node.js",
   "Java",
   "Python",
-  "State Management (Redux/Zustand)",
+  "State Management",
   "MongoDB",
   "Express.js",
   "HTML/CSS",

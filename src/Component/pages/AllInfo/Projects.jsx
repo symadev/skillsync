@@ -6,17 +6,17 @@ const Projects = ({ projects = [] }) => {
       {projects.map((project, index) => (
         <div key={index} className="rounded-lg space-y-1">
           {/* Title */}
-          <p className="text-[10px] font-semibold text-gray-700">
+          <p className="text-[14px] font-semibold text-gray-700">
             {project.title}
           </p>
 
           {/* Description */}
-          <p className="text-[10px] italic text-gray-600 mt-1">
+          <p className="text-[14px] italic text-gray-600 mt-1">
             {project.description}
           </p>
 
           {/* Links */}
-          <div className="mt-2 text-[10px] text-gray-700 space-x-2">
+          <div className="mt-2 text-[14px] text-gray-700 space-x-2">
             {project.githubLink && (
               <a
                 href={project.githubLink}

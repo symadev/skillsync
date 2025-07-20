@@ -72,24 +72,23 @@ const Users = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black p-6">
-      <div className="bg-gradient-to-br from-orange-500 via-orange-700 to-black p-6 rounded-xl shadow-lg max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-6"> Manage Users</h2>
+    <div className="min-h-screen bg-black p-4 md:p-6">
+      <div className="bg-gradient-to-br from-orange-500 via-orange-700 to-black p-4 md:p-6 rounded-xl shadow-lg max-w-7xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">Manage Users</h2>
 
         {/* Controls */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-          
           <input
             type="text"
             placeholder="Search by name or email"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="bg-gradient-to-r from-orange-700 to-orange-400 w-80 px-2 py-2 rounded hover:bg-orange-400"
+            className="bg-gradient-to-r from-orange-700 to-orange-400 w-full md:w-80 px-4 py-2 rounded text-white placeholder-white focus:outline-none"
           />
           <select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value)}
-            className="px-4 py-2 bg-gradient-to-r from-orange-700 to-orange-400 text-white rounded hover:bg-orange-400"
+            className="px-4 py-2 bg-gradient-to-r from-orange-700 to-orange-400 text-white rounded w-full md:w-auto"
           >
             <option value="">All Roles</option>
             <option value="admin">Admin</option>
@@ -104,49 +103,51 @@ const Users = () => {
         ) : filteredUsers.length === 0 ? (
           <p className="text-center text-white">No users found.</p>
         ) : (
-          <table className="w-full text-left border-separate border-spacing-y-2">
-            <thead>
-              <tr className="text-white text-sm md:text-base border-b border-orange-400">
-                <th className="px-4 py-2">#</th>
-                <th className="px-4 py-2">Name</th>
-                <th className="px-4 py-2">Email</th>
-                <th className="px-4 py-2">Role</th>
-                <th className="px-4 py-2">Change Role</th>
-                <th className="px-4 py-2">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredUsers.map((user, index) => (
-                <tr key={user._id} className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white transition">
-                  <td className="px-4 py-2">{index + 1}</td>
-                  <td className="px-4 py-2">{user.name}</td>
-                  <td className="px-4 py-2">{user.email}</td>
-                  <td className="px-4 py-2 capitalize flex items-center gap-1">
-                    {user.role === "admin" && <FaUserShield />}
-                    {user.role === "user" && <FaUser />}
-                    {user.role === "premium" && <FaCrown />}
-                    {user.role}
-                  </td>
-                  <td className="px-4 py-2">
-                    <button
-                      onClick={() => openRoleModal(user)}
-                      className="bg-orange-400 px-3 py-1 rounded text-white font-semibold hover:bg-orange-600"
-                    >
-                      Change Role
-                    </button>
-                  </td>
-                  <td className="px-4 py-2">
-                    <button
-                      onClick={() => deleteUser(user._id)}
-                      className="bg-red-600 px-3 py-1 rounded text-white hover:bg-red-700 flex items-center gap-1"
-                    >
-                      <FaTrash /> Delete
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-separate border-spacing-y-2 min-w-[700px]">
+              <thead>
+                <tr className="text-white text-sm md:text-base border-b border-orange-400">
+                  <th className="px-4 py-2">#</th>
+                  <th className="px-4 py-2">Name</th>
+                  <th className="px-4 py-2">Email</th>
+                  <th className="px-4 py-2">Role</th>
+                  <th className="px-4 py-2">Change Role</th>
+                  <th className="px-4 py-2">Delete</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filteredUsers.map((user, index) => (
+                  <tr key={user._id} className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white transition">
+                    <td className="px-4 py-2">{index + 1}</td>
+                    <td className="px-4 py-2">{user.name}</td>
+                    <td className="px-4 py-2">{user.email}</td>
+                    <td className="px-4 py-2 capitalize flex items-center gap-1">
+                      {user.role === "admin" && <FaUserShield />}
+                      {user.role === "user" && <FaUser />}
+                      {user.role === "premium" && <FaCrown />}
+                      {user.role}
+                    </td>
+                    <td className="px-4 py-2">
+                      <button
+                        onClick={() => openRoleModal(user)}
+                        className="bg-orange-400 px-3 py-1 rounded text-white font-semibold hover:bg-orange-600"
+                      >
+                        Change Role
+                      </button>
+                    </td>
+                    <td className="px-4 py-2">
+                      <button
+                        onClick={() => deleteUser(user._id)}
+                        className="bg-red-600 px-3 py-1 rounded text-white hover:bg-red-700 flex items-center gap-1"
+                      >
+                        <FaTrash /> Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
 
         {/* Modal */}
@@ -157,7 +158,9 @@ const Users = () => {
           overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
           <h2 className="text-2xl font-bold mb-4 text-center">Change User Role</h2>
-          <p className="text-center mb-4">Changing role for <span className="font-semibold">{selectedUser?.name}</span></p>
+          <p className="text-center mb-4">
+            Changing role for <span className="font-semibold">{selectedUser?.name}</span>
+          </p>
           <select
             value={newRole}
             onChange={(e) => setNewRole(e.target.value)}

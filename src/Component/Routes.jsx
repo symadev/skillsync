@@ -12,7 +12,7 @@ import Profile from "./DashBoard/Profile";
 
 
 import AiAssistant from "./DashBoard/AiAssistant";
-import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
+
 
 import HomeMain from "./pages/HomeMain";
 import Templates from "./pages/Templates";
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     
       {
         path: "dashboard",
-        element:<AdminRoutes><Dashboard></Dashboard></AdminRoutes>,
+        element:<Dashboard></Dashboard>,
          children: [
         {
        

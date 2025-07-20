@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/resume.icon.png';
 import { AuthContext } from './Provider/AuthContext';
 import { useContext } from 'react';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
