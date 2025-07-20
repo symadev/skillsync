@@ -7,7 +7,7 @@ const ResumeForm3 = () => {
   const { templateId, primaryColor, formData: globalFormData, setFormData: setGlobalFormData } = useResume();
   const navigate = useNavigate();
   const [currentStep] = useState(3);
-  const totalSteps = 6;
+  const totalSteps = 5;
 
   const [projects, setProjects] = useState(globalFormData.projects || []);
   const [profileImage, setProfileImage] = useState(globalFormData.profileImage || null);

@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const ResumeForm4 = () => {
   const { templateId, primaryColor, formData: globalFormData, setFormData: setGlobalFormData } = useResume();
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState(3);
-  const totalSteps = 6;
+  const [currentStep, setCurrentStep] = useState(4);
+  const totalSteps = 5;
 
   const [localFormData, setLocalFormData] = useState({
     ...globalFormData,

@@ -9,7 +9,7 @@ const ResumeForm2 = () => {
   const { templateId, primaryColor, formData, setFormData } = useResume();
   const navigate = useNavigate();
   const currentStep = 2;
-  const totalSteps = 6;
+  const totalSteps = 5;
 
   // Additional skills to be merged with skillsData
   const additionalSkills = [

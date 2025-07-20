@@ -20,7 +20,7 @@ const ResumeForm5 = () => {
   const navigate = useNavigate();
   const [currentStep] = useState(5);
   const axiosSecure = UseAxiosSecure();
-  const totalSteps = 6;
+  const totalSteps = 5;
 
   const [localFormData, setLocalFormData] = useState({
     ...globalFormData,

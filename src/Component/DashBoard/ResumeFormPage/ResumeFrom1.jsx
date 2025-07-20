@@ -8,7 +8,7 @@ const ResumeForm1 = () => {
   const { templateId, primaryColor, formData: globalFormData, setFormData: setGlobalFormData } = useResume();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 6;
+  const totalSteps = 5;
 
   // Inside ResumeForm1 component
 const { setProgress } = useResumeProgress();

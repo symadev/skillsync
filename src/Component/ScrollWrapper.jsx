@@ -1,7 +1,7 @@
 import useLenis from "../Data/useLenis";
 
 const ScrollWrapper = ({ children }) => {
-  useLenis(); // 🔄 Lenis init
+  useLenis(); 
 
   return <>{children}</>;
 };

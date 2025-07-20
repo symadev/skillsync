@@ -38,7 +38,7 @@ const Register = () => {
       })
       .catch(() => {
         toast.error('Error', 'Something went wrong during registration', 'error');
-      });
+      } );
   };
 
   return (
