@@ -25,5 +25,3 @@ return [isAdmin,isAdminLoading];
 
 export default UseAdmin;
 
-
-// React এর একটি কাস্টম হুক UseAdmin, যা ব্যবহারকারীর অ্যাডমিন কিনা তা যাচাই করে। 

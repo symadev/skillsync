@@ -27,10 +27,9 @@ const ResumeProvider = ({ children }) => {
     country: "",
     summary: "",
     profileImage: "",
-    education: [],     // ✅ FIXED: must be array
-    experience: [],    // ✅ FIXED: must be array
-    skills: [],
-    projects: [],      // ✅ FIXED: must be array
+    education: [],     //  FIXED: must be array
+    experience: [],    
+    projects: [],     
   });
 
   useEffect(() => {

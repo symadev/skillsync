@@ -28,7 +28,7 @@ const TemplateCard = ({ template }) => {
       </div>
 
       {/* ✅ Title */}
-      <div className="px-4 py-2 text-lg font-bold text-center text-gray-700 border-t">
+      <div className="px-4 py-2 text-lg font-bold text-center text-gray-800 border-t">
         {template.title}
       </div>
 

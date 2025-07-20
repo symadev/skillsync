@@ -10,7 +10,7 @@ const CtaSection = ({ user }) => {
 
   const shareLink = `https://skillsync.com/share/${user?.email}`;
    if (!user || !user.email) {
-  return null; // বা fallback UI দেখাও
+  return null; 
 }
 console.log(user);
 

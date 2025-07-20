@@ -106,19 +106,7 @@ const Register = () => {
             Register
           </button>
 
-          {/* Divider & Socials */}
-          <div className="text-gray-400 text-sm text-center mt-5">Or sign up with</div>
-          <div className="flex justify-center gap-4 mt-3">
-            <button className="btn btn-circle bg-orange-500 text-white hover:bg-orange-600">
-              <FaFacebookF />
-            </button>
-            <button className="btn btn-circle bg-orange-500 text-white hover:bg-orange-600">
-              <FaGoogle />
-            </button>
-            <button className="btn btn-circle bg-orange-500 text-white hover:bg-orange-600">
-              <FaGithub />
-            </button>
-          </div>
+         
         </form>
 
         {/* Redirect to Login */}
