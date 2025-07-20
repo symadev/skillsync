@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/resume.icon.png';
+import { AuthContext } from './Provider/AuthContext';
+import { useContext } from 'react';
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+
+
+   const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logged out successfully");
+        navigate("/");
+      })
+      .catch((err) => toast.error("Logout failed"));
+  };
   return (
     <div className="navbar bg-black text-white px-4 sticky top-0 z-50 h-24">
       {/* Navbar Start */}
@@ -29,7 +42,14 @@ const Navbar = () => {
             <li><a href="#ai-tools">AI Tools</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contacts">Contact</a></li>
-            <li><Link to="/login">Login/Sign Up</Link></li>
+            {user ? (
+              <>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><button onClick={handleLogOut}>Logout</button></li>
+              </>
+            ) : (
+              <li><Link to="/login">Login/Sign Up</Link></li>
+            )}
           </ul>
         </div>
         {/* Logo */}
@@ -47,13 +67,20 @@ const Navbar = () => {
           <li><a href="#ai-tools">AI Tools</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contacts">Contact</a></li>
-          <li><Link to="/login">Login/Sign Up</Link></li>
+         {user ? (
+              <>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><button onClick={handleLogOut}>Logout</button></li>
+              </>
+            ) : (
+              <li><Link to="/login">Login/Sign Up</Link></li>
+            )}
         </ul>
       </div>
 
       {/* Navbar End */}
       <div className="navbar-end">
-        <Link to="/dashboard">
+        <Link to={user ? "/dashboard" : "/login"}>
           <button className="btn btn-outline hover:bg-orange-400 rounded-full shadow-lg">
             Build Your Resume
           </button>
