@@ -56,6 +56,12 @@ const Dashboard = () => {
             text="Resume Builder"
             closeSidebar={() => setIsSidebarOpen(false)}
           />
+          <SidebarLink
+            to="/dashboard/aiAssistant"
+            icon={<FaFileAlt />}
+            text="Ai Assistant"
+            closeSidebar={() => setIsSidebarOpen(false)}
+          />
           
           
           <SidebarLink

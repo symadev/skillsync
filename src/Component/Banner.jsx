@@ -9,7 +9,7 @@ const Banner = () => {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: [ "Job-Winning", "Professional", "Smart"],
+      strings: [ "Job-Winning", "Ai-Powered", "Professional", "Smart"],
       typeSpeed: 80,
       backSpeed: 40,
       backDelay: 1500,

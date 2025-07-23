@@ -22,6 +22,7 @@ import ResumeForm3 from "./DashBoard/ResumeFormPage/ResumeFrom3";
 import ResumeForm4 from "./DashBoard/ResumeFormPage/ResumeFrom4";
 import ResumeForm5 from "./DashBoard/ResumeFormPage/ResumeForm5";
 import Users from "./pages/ResumeTemplates/Users";
+import AiAssistant from "./AiAssistant";
 
 
 
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
         {
         path: "resume",
         element:<HomeMain></HomeMain>,
+         
+      },
+        {
+        path: "aiAssistant",
+        element:<AiAssistant></AiAssistant>,
          
       },
 
