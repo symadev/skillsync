@@ -12,7 +12,7 @@ import workData from "../../../Data/workData";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
-const Template2 = ({ primaryColor = "purple" }) => {
+const Template2 = ({ primaryColor = "black" }) => {
   const { formData } = useResume();
 
   // Destructure formData
@@ -58,6 +58,11 @@ const Template2 = ({ primaryColor = "purple" }) => {
       headerBg: "bg-orange-600",
       text: "text-orange-600",
       border: "border-orange-600",
+    },
+    black: {
+      headerBg: "bg-black",
+      text: "text-black",
+      border: "border-black",
     },
   };
 

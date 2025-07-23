@@ -9,7 +9,7 @@ const PdfImage = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="hero min-h-[400px] bg-black px-4 lg:px-8">
+    <div className="hero min-h-[500px] bg-black px-4 lg:px-8">
       <div className="hero-content flex-col lg:flex-row gap-16 items-center">
         {/* Image on the left */}
         <motion.img

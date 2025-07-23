@@ -11,7 +11,7 @@ import workData from "../../../Data/workData";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
-const Template5 = ({ primaryColor = "green" }) => {
+const Template5 = ({ primaryColor = "black" }) => {
   const { formData } = useResume();
   const {
     name = "",
@@ -59,9 +59,16 @@ const Template5 = ({ primaryColor = "green" }) => {
       border: "border-orange-600",
       underline: "border-orange-600",
     },
+    black: {
+      headerBg: "bg-black",
+      accentBg: "bg-black",
+      text: "text-black",
+      border: "border-black",
+      underline: "border-black",
+    },
   };
 
-  const colors = colorStyles[primaryColor] || colorStyles.green;
+  const colors = colorStyles[primaryColor] || colorStyles.black;
 
   // Fallback demo data logic
   const personalInfoToShow =

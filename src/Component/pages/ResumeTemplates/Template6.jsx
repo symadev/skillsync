@@ -14,7 +14,7 @@ import skillsData from "../../../Data/skills";
 
 import defaultProfileImage from "../../../assets/images/image.png";
 
-const Template6 = ({ primaryColor = "orange" }) => {
+const Template6 = ({ primaryColor = "black" }) => {
   const { formData } = useResume();
 
   // Destructure formData with fallback values
@@ -56,9 +56,14 @@ const Template6 = ({ primaryColor = "orange" }) => {
       text: "text-orange-600",
       border: "border-orange-600",
     },
+    black: {
+      headerBg: "bg-black",
+      text: "text-black",
+      border: "border-black",
+    },
   };
 
-  const colors = colorStyles[primaryColor] || colorStyles.orange;
+  const colors = colorStyles[primaryColor] || colorStyles.black;
 
   return (
     <div className="max-w-4xl mx-auto bg-white text-black p-6 shadow-lg" id="resume-output">

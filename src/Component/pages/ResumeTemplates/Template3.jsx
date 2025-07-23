@@ -13,7 +13,7 @@ import skillsData from "../../../Data/skills";
 import projectData from "../../../Data/projectData";
 import workData from "../../../Data/workData";
 
-const Template3 = ({ primaryColor = "blue" }) => {
+const Template3 = ({ primaryColor = "black" }) => {
   const { formData } = useResume();
   const {
     name = '',
@@ -37,10 +37,10 @@ const Template3 = ({ primaryColor = "blue" }) => {
     green: { headerBg: "bg-green-700", text: "text-green-700" },
     blue: { headerBg: "bg-blue-700", text: "text-blue-700" },
     orange: { headerBg: "bg-orange-600", text: "text-orange-600" },
-    gray: { headerBg: "bg-gray-600", text: "text-gray-600" },
+    black: { headerBg: "bg-black", text: "text-black" },
   };
 
-  const colors = colorStyles[primaryColor] || colorStyles.blue;
+  const colors = colorStyles[primaryColor] || colorStyles.black;
 
   // Use form data if available, otherwise fallback
   const personalInfoToShow = name || email || phone

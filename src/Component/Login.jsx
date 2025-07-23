@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 
 const Login = () => {
-  const { signIn ,logOut, } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -26,13 +26,7 @@ const Login = () => {
         toast.error("Login Failed", error.message, "error");
       });
 
-         const handlelogOut = () => {
-        if (user) {
-            navigate('/game'); //  go to game if logged in
-        } else {
-            setShowLoginModal(true); // open login modal if not logged in
-        }
-    };
+         
 
 
 

@@ -12,7 +12,7 @@ import skillsData from "../../../Data/skills";
 
 import profileImage from "../../../assets/images/image.png";
 
-const Template4 = ({ primaryColor = "purple" }) => {
+const Template4 = ({ primaryColor = "black" }) => {
     const { formData } = useResume();
     const {
         name = "",
@@ -53,9 +53,15 @@ const Template4 = ({ primaryColor = "purple" }) => {
             text: "text-orange-600",
             border: "border-orange-600",
         },
+        black: {
+            leftBg: "bg-black",
+            headerBg: "bg-black",
+            text: "text-black",
+            border: "border-black",
+        },
     };
 
-    const colors = colorStyles[primaryColor] || colorStyles.purple;
+    const colors = colorStyles[primaryColor] || colorStyles.black;
 
     // Use fallback personal info if formData fields are empty
     const finalName = name || personalInfo.name;

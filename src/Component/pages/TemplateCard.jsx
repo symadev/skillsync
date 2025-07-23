@@ -17,7 +17,7 @@ const TemplateCard = ({ template }) => {
 
   return (
     <div className="w-[350px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-300">
-      {/* ✅ Preview Area */}
+      {/*  Preview Area */}
       <div className="relative h-[300px] overflow-hidden">
         <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded font-semibold">
           RECOMMENDED
@@ -27,25 +27,25 @@ const TemplateCard = ({ template }) => {
         </div>
       </div>
 
-      {/* ✅ Title */}
+      {/* Title */}
       <div className="px-4 py-2 text-lg font-bold text-center text-gray-800 border-t">
         {template.title}
       </div>
 
-      {/* 🎨 Color Picker */}
+       {/* Color Picker  */}
       <div className="px-4 py-2 flex justify-center gap-2 border-t">
-        {["blue", "green", "purple", "orange", "gray"].map((color) => (
+        {["blue", "green", "purple", "orange", "black"].map((color) => (
           <span
             key={color}
             className={`w-5 h-5 rounded-full cursor-pointer border-2 ${
-              selectedColor === color ? "border-black" : "border-transparent"
+              selectedColor === color ? "border-white" : "border-transparent"
             } ${getColorClass(color)}`}
             onClick={() => setSelectedColor(color)}
           />
         ))}
       </div>
 
-      {/* 🟠 Action Button */}
+      {/*  Action Button */}
       <button
         className="w-full bg-orange-600 hover:bg-black transition text-white py-2 rounded-b"
         onClick={handleApply}
@@ -56,14 +56,14 @@ const TemplateCard = ({ template }) => {
   );
 };
 
-// ✅ Color Helper
+// Color Helper
 const getColorClass = (color) => {
   const colors = {
     blue: "bg-blue-600",
     green: "bg-green-600",
     purple: "bg-purple-600",
     orange: "bg-orange-600",
-    gray: "bg-gray-600",
+    black: "bg-black",
   };
   return colors[color] || "bg-gray-300";
 };

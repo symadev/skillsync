@@ -3,7 +3,7 @@ import Skills from "../AllInfo/Skills";
 import Projects from "../AllInfo/Projects";
 import Work from "../AllInfo/Work";
 
-const Template1 = ({ primaryColor = "purple", formData = {}, isForATS = false }) => {
+const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) => {
   const {
     name = '',
     surname = '',
@@ -26,6 +26,7 @@ const Template1 = ({ primaryColor = "purple", formData = {}, isForATS = false })
     green: "text-green-700",
     blue: "text-blue-700",
     orange: "text-orange-600",
+    black: "text-black",
   }[primaryColor] || "text-purple-700";
 
   const colorBorder = {
@@ -33,7 +34,8 @@ const Template1 = ({ primaryColor = "purple", formData = {}, isForATS = false })
     green: "border-green-700",
     blue: "border-blue-700",
     orange: "border-orange-600",
-  }[primaryColor] || "border-purple-700";
+    black: "border-black",
+  }[primaryColor] || "border-black";
 
   console.log("[Template1] formData:", {
     name, surname, postcode, email, phone, city, Motivation, country,
