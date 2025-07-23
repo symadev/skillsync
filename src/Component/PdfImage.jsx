@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import image from "../assets/images/Resume folder-rafiki.png";
+import { useContext } from "react";
+import { AuthContext } from "./Provider/AuthContext";
 
 const PdfImage = () => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   return (
-    <div className="hero min-h-screen bg-black px-6 lg:px-24">
+    <div className="hero min-h-[400px] bg-black px-4 lg:px-8">
       <div className="hero-content flex-col lg:flex-row gap-16 items-center">
         {/* Image on the left */}
         <motion.img
@@ -34,11 +37,12 @@ const PdfImage = () => {
           </p>
 
           <button
-            onClick={() => navigate("/dashboard/templates")}
+            onClick={() => navigate(user ? "/dashboard" : "/login")}
             className="px-6 py-3 bg-gradient-to-r from-orange-500 via-red-500 text-white font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out rounded-2xl flex items-center justify-center gap-2"
           >
             Choose Template →
           </button>
+
         </div>
       </div>
     </div>
@@ -46,3 +50,5 @@ const PdfImage = () => {
 };
 
 export default PdfImage;
+
+

@@ -5,14 +5,14 @@ import UseAdmin from "./UseAdmin";
 
 const AdminRoutes = ({ children }) => {
     const { user, loading: isLoading } = UseAuth();
-    const [isAdmin,isAdminLoading] = UseAdmin()
+    // const [isAdmin,isAdminLoading] = UseAdmin()
     const location = useLocation()
     
-    if(isLoading ||isAdminLoading){
+    if(isLoading ){
         return <progress className="progress w-56"></progress>
     }
 
-    if(user && isAdmin){
+    if(user ){
         return children;
     }
     return <Navigate to = '/login' state={{ from: location }} replace ></Navigate>

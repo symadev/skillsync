@@ -1,13 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Typed from "typed.js";
+import { AuthContext } from "./Provider/AuthContext";
 
 const Banner = () => {
   const typedRef = useRef(null);
+   const {  user } = useContext(AuthContext);
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["AI-Powered", "Job-Winning", "Professional", "Smart"],
+      strings: [ "Job-Winning", "Professional", "Smart"],
       typeSpeed: 80,
       backSpeed: 40,
       backDelay: 1500,
@@ -35,12 +37,11 @@ const Banner = () => {
       </p>
 
       {/* CTA Button */}
-      <Link
-        to="/dashboard/resume"
-        className="bg-gradient-to-r from-orange-600 to-orange-400 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
-      >
-        Build Your Resume
-      </Link>
+     <Link to={user ? "/dashboard" : "/login"}>
+          <button className="bg-gradient-to-r from-orange-600 to-orange-400 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+            Build Your Resume
+          </button>
+        </Link>
     </div>
   );
 };

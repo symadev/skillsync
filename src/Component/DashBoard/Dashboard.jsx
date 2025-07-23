@@ -56,12 +56,8 @@ const Dashboard = () => {
             text="Resume Builder"
             closeSidebar={() => setIsSidebarOpen(false)}
           />
-          <SidebarLink
-            to="/dashboard/ai-coach"
-            icon={<FaRobot />}
-            text="AI Assistant"
-            closeSidebar={() => setIsSidebarOpen(false)}
-          />
+          
+          
           <SidebarLink
             to="/dashboard/userAdmin"
             icon={<FaUser />}

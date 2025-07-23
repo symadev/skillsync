@@ -1,5 +1,5 @@
 import UseAuth from "./AdminRoutes/UseAuth";
-import Ai from "./Ai";
+
 import Banner from "./Banner";
 import Card from "./Card";
 import CardOfTestimonial from "./CardOfTestimonial";
@@ -19,17 +19,14 @@ const Home = () => {
                 <Resume></Resume>
             </section>
 
+             <section id="features" className="scroll-mt-24">
+                <Card></Card>
+            </section>
+
             <section id="pdf-image">
                 <PdfImage></PdfImage>
             </section>
 
-            <section id="features" className="scroll-mt-24">
-                <Card></Card>
-            </section>
-
-            <section id="ai-tools" className="scroll-mt-24">
-                <Ai></Ai>
-            </section>
 
             <section id="testimonials" className="scroll-mt-24">
                 <CardOfTestimonial></CardOfTestimonial>

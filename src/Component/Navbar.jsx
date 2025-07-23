@@ -40,7 +40,7 @@ const Navbar = () => {
           >
             <li><a href="/">Home</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#ai-tools">AI Tools</a></li>
+           
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contacts">Contact</a></li>
             {user ? (
@@ -65,7 +65,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-[16px] font-semibold">
           <li><a href="/">Home</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#ai-tools">AI Tools</a></li>
+         
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contacts">Contact</a></li>
          {user ? (

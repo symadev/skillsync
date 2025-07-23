@@ -14,16 +14,16 @@ const Resume = () => {
     return (
         <div className="bg-black text-white py-16 px-4 md:px-12 relative overflow-hidden">
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 leading-tight">
                     <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                        Build a Resume Online.
+                        Build a Resume Online
                     </span>
                     <br />
                     <span className="bg-orange-500 bg-clip-text text-transparent animate-pulse">
                         Start by Picking 
                     </span>
                     <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent ml-2">
-                        a Template.
+                        a Template
                     </span>
                 </h2>
 
