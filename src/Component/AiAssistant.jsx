@@ -15,8 +15,9 @@ const AIAssistant = () => {
 
     try {
       // Replace with your actual API call
-      const res = await axios.post("http://localhost:5000/api/ai", { prompt });
-    const aiMessage = { role: "ai", content: res.data.reply };
+      const res = await axios.post("http://localhost:5000/api/ai", { message: prompt });
+
+      const aiMessage = { role: "ai", content: res.data.reply };
 
       setMessages((prev) => [...prev, aiMessage]);
     } catch (err) {

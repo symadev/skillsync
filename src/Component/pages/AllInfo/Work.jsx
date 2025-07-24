@@ -14,9 +14,11 @@ const Work = ({ experience = [] }) => {
           </p>
 
           <ul className="mt-2 list-disc list-outside space-y-1 text-[14px] text-gray-700 leading-tight pl-5">
-            {job.responsibilities?.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
+            {job.responsibilities
+              ?.filter(item => item.trim() !== "") //  this is filter out empty bullets
+              .map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
           </ul>
         </div>
       ))}
