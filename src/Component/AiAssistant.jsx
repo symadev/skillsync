@@ -15,7 +15,7 @@ const AIAssistant = () => {
 
     try {
       // Replace with your actual API call
-      const res = await axios.post("http://localhost:5000/api/ai", { message: prompt });
+      const res = await axios.post("https://resume-builder-server-nu.vercel.app/api/ai", { message: prompt });
 
       const aiMessage = { role: "ai", content: res.data.reply };
 

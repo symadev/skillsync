@@ -32,7 +32,7 @@ const TemplateCard = ({ template }) => {
         {template.title}
       </div>
 
-       {/* Color Picker  */}
+       {/*  the color picker  */}
       <div className="px-4 py-2 flex justify-center gap-2 border-t">
         {["blue", "green", "purple", "orange", "black"].map((color) => (
           <span

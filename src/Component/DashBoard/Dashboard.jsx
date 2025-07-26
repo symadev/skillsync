@@ -1,4 +1,4 @@
-// Dashboard.jsx
+
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import {
@@ -8,7 +8,7 @@ import {
   FaRobot,
   FaBars,
 } from "react-icons/fa";
-import logo from "../../assets/images/resume.icon.png"; // Your SkillSync logo
+
 //added the mobile hambarger menu 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -19,7 +19,7 @@ const Dashboard = () => {
       {/* Mobile Top Bar */}
       <div className="md:hidden flex items-center justify-between bg-black text-white p-4 shadow">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="w-8 h-8" />
+          <img src="/assets/resume.icon.png" className="w-8 h-8" />
           <span className="text-xl font-bold text-orange-500">SkillSync</span>
         </div>
         <button
@@ -38,11 +38,10 @@ const Dashboard = () => {
       >
         {/* Logo */}
         <div className="flex items-center gap-2 px-6 py-6">
-          <img src={logo} alt="Logo" className="w-8 h-8" />
+          <img src="/assets/resume.icon.png" alt="Logo" className="w-8 h-8" />
           <span className="text-xl font-bold text-orange-500">SkillSync</span>
         </div>
 
-        {/* Navigation Links */}
         <ul className="flex flex-col text-2xl font-semibold gap-1 mt-4">
           <SidebarLink
             to="/dashboard/profile"

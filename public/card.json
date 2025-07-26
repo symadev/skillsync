@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "logo": "/src/assets/images/cloud-computing_5993857.png",
+    "logo": "/assets/cloud-computing_5993857.png",
     "title": "Instant Downloads",
     "description": "Download your professionally crafted resume in various formats like PDF and Word, ready for any application."
   },
   {
     "id": 2,
-    "logo": "/src/assets/images/formating.png",
+    "logo": "/assets/formating.png",
     "title": "Smart Formatting Options",
     "description": "Customize layouts, colors, and sections to perfectly match your personal brand and job preferences."
   },
   {
     "id": 3,
-    "logo": "/src/assets/images/curriculum-vitae_17892910.png",
+    "logo": "/assets/curriculum-vitae_17892910.png",
     "title": "Stunning ATS Friendly Resume Showcase",
     "description": "Easily integrate and showcase your online portfolio, projects, and achievements to impress recruiters."
   }

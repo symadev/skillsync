@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/resume.icon.png';
+
 import { AuthContext } from './Provider/AuthContext';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 ml-2">
-          <img className="w-8 h-8 object-cover" src={logo} alt="Logo" />
+          <img className="w-8 h-8 object-cover" src="/assets/resume.icon.png" alt="Logo" />
           <span className="text-xl font-bold">SkillSync</span>
         </Link>
       </div>

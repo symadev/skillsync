@@ -1,5 +1,7 @@
 import { useResume } from "../../Provider/ResumeContext";
-import profileImage from "../../../assets/images/image.png";
+
+
+
 
 import Education from "../AllInfo/Education";
 import Skills from "../AllInfo/Skills";
@@ -61,7 +63,7 @@ const Template3 = ({ primaryColor = "black" }) => {
       <aside className="w-full md:w-1/3 bg-gray-100 rounded-md p-3">
         <div className="flex justify-center">
           <img
-            src={uploadedImage || profileImage}
+            src={uploadedImage || "/assets/image.png"}
             alt="Profile"
             className={`w-28 h-28 rounded-full object-cover border-4 ${colors.text} shadow`}
           />

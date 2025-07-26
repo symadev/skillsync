@@ -1,5 +1,6 @@
 import TestimonialCard from "./TestimonialCard ";
 import { useEffect, useState } from "react";
+// (src/assets/Ellipse 92.png)--> this is not usable because the firebase dist do not support it 
 
 
 

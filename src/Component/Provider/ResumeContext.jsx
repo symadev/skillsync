@@ -1,6 +1,6 @@
 // src/context/ResumeContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
-import profileImage from "../../assets/images/image.png";
+
 
 // Import demo data for now
 import personalInfo from "../../Data/PersonalInfoData";
@@ -27,7 +27,7 @@ const ResumeProvider = ({ children }) => {
     country: "",
     summary: "",
     profileImage: "",
-    education: [],     //  FIXED: must be array
+    education: [],     // must be array
     experience: [],    
     projects: [],     
   });
@@ -40,7 +40,7 @@ const ResumeProvider = ({ children }) => {
       experience: workData,
       skills: skillsData,
       projects: projectData,
-      profileImage: profileImage,
+     profileImage: "/assets/image.png",
       summary: "Motivated Sales Associate with 5 years of experience boosting sales and customer loyalty.",
     }));
   }, []);

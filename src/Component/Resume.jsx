@@ -3,12 +3,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
-import slide1 from "../assets/images/1.png";
-import slide2 from "../assets/images/2.png";
-import slide3 from "../assets/images/3.png";
-import slide4 from "../assets/images/4.png";
-import slide5 from "../assets/images/5.png";
-import slide6 from "../assets/images/6.png";
+import slide1 from "../assets/1.png";
+import slide2 from "../assets/2.png";
+import slide3 from "../assets/3.png";
+import slide4 from "../assets/4.png";
+import slide5 from "../assets/5.png";
+import slide6 from "../assets/6.png";
 
 const Resume = () => {
     return (

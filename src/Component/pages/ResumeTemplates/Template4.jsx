@@ -10,7 +10,8 @@ import workData from "../../../Data/workData";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
-import profileImage from "../../../assets/images/image.png";
+
+
 
 const Template4 = ({ primaryColor = "black" }) => {
     const { formData } = useResume();
@@ -81,7 +82,7 @@ const Template4 = ({ primaryColor = "black" }) => {
                 <div className={`${colors.leftBg} w-1/3 p-6 space-y-6`}>
                     <div className="grid grid-cols-1 gap-2 justify-items-center text-center">
                         <img
-                            src={uploadedImage ? uploadedImage : profileImage}
+                            src={uploadedImage || "/assets/image.png"}
                             alt="Profile"
                             className={`w-28 h-28 rounded-full object-cover border-4 ${colors.text} shadow`}
                         />

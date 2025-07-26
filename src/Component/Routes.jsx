@@ -12,7 +12,7 @@ import Profile from "./DashBoard/Profile";
 
 
 
-// import AdminRoutes from "../Component/AdminRoutes/AdminRoutes"
+
 
 import HomeMain from "./pages/HomeMain";
 import Templates from "./pages/Templates";

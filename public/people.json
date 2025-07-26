@@ -1,23 +1,23 @@
 [
   {
     "id": 1,
-    "name": "Sarah Ahmed",
-    "role": "Junior Web Developer",
-    "photo": "/src/assets/Ellipse 90.png",
-    "review": "This resume builder is a game-changer! The templates are clean, professional, and easy to customize. I landed 3 interviews within a week of using it."
+    "name": "John Doe",
+    "role": "Software Engineer",
+    "photo": "/assets/Ellipse 90.png",
+    "review": "This platform helped me create a stunning resume effortlessly!"
   },
   {
     "id": 2,
-    "name": "Jamal Uddin",
-    "role": "CSE Graduate",
-    "photo": "/src/assets/Ellipse 91.png",
-    "review": "I loved how simple the tool was to use. The AI suggestions really helped improve my resume for ATS systems. Highly recommended for freshers!"
+    "name": "Jane Smith",
+    "role": "Product Designer",
+    "photo": "/assets/Ellipse 91.png",
+    "review": "I loved how easy and intuitive the builder was."
   },
   {
     "id": 3,
-    "name": "Amina Rahman",
-    "role": "UX Designer",
-    "photo": "/src/assets/Ellipse 92.png",
-    "review": "The portfolio integration is perfect for showcasing my work. Recruiters complimented how visually impressive my resume looked."
+    "name": "Michael Brown",
+    "role": "Data Analyst",
+    "photo": "/assets/Ellipse 92.png",
+    "review": "Got my first interview call after using this. Highly recommend!"
   }
 ]

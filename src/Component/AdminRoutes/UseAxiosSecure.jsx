@@ -5,7 +5,7 @@ import UseAuth from "./UseAuth";
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: 'https://resume-builder-server-nu.vercel.app'
 });
 
 const UseAxiosSecure = () => {

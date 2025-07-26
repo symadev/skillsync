@@ -3,12 +3,12 @@ import CardDetails from "./CardDetails";
 
 
 const Card = () => {
-      const [cards, cardDetails ]= useState([]);
+      const [cards, setCards ]= useState([]);
 
     useEffect(()=>{
         fetch('./card.json')
         .then(res=>res.json())
-        .then(data=>cardDetails(data))
+        .then(data=>setCards(data))
     
     },[]);
     return (

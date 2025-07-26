@@ -21,7 +21,7 @@ import { useResumeProgress } from "../Provider/ResumeProgressContext";
 import { useEffect } from "react";
 import UseAxiosSecure from "../AdminRoutes/UseAxiosSecure";
 import UseAuth from "../AdminRoutes/UseAuth";
- // ঠিক path দিও
+
 
 const dummyGraphData = [
   { name: "Week 1", score: 70 },

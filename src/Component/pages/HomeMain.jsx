@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import image from "../../assets/images/first-page.png";
+
+
 
 const HomeMain = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const HomeMain = () => {
     <div className="hero min-h-screen bg-black px-6 lg:px-24">
       <div className="hero-content flex-col-reverse lg:flex-row-reverse gap-10 items-center">
         <motion.img
-          src={image}
+          src="/assets/first-page.png"
           alt="Resume Builder Illustration"
           className="max-w-sm w-full rounded-lg shadow-2xl"
           animate={{ y: [0, -10, 0] }}

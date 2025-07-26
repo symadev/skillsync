@@ -12,14 +12,15 @@ import workData from "../../../Data/workData";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
-import defaultProfileImage from "../../../assets/images/image.png";
+
+
 
 const Template6 = ({ primaryColor = "black" }) => {
   const { formData } = useResume();
 
   // Destructure formData with fallback values
   const {
-    profileImage = defaultProfileImage,
+   profileImage: uploadedImage,// for render the uploded image 
     name = "",
     email = "",
     phone = "",
@@ -72,7 +73,7 @@ const Template6 = ({ primaryColor = "black" }) => {
         {/* Profile Image */}
         <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
           <img
-            src={profileImage}
+            src={uploadedImage || "/assets/image.png"}
             alt="Profile"
             className="w-full h-full object-cover"
           />

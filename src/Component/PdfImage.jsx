@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import image from "../assets/images/Resume folder-rafiki.png";
+
 import { useContext } from "react";
 import { AuthContext } from "./Provider/AuthContext";
 
@@ -13,7 +13,7 @@ const PdfImage = () => {
       <div className="hero-content flex-col lg:flex-row gap-16 items-center">
         {/* Image on the left */}
         <motion.img
-          src={image}
+          src="/assets/Resume folder-rafiki.png"
           alt="Resume Builder Illustration"
           className="max-w-sm w-full rounded-lg shadow-2xl"
           animate={{ y: [0, -10, 0] }}
