@@ -34,13 +34,8 @@
 
 ---
 
-## ⚡ Quick Start
 
-### 📋 Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn package manager
-
-### 🚀 Installation
+###  Installation
 
 1. **Clone the repository**
 ```
@@ -154,9 +149,6 @@ We welcome contributions from the community! Here's how you can help make SkillS
 
 
 
----
-
----
 
 ## 🌟 Show Your Support
 
@@ -181,12 +173,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 
-
-<div align="center">
-  <p>Made with ❤️ by the SkillSync team</p>
-  <p>
-    <a href="https://github.com/symadev/skillsync">🌟 Star on GitHub</a> • 
-    <a href="https://github.com/symadev/skillsync/issues">🐛 Report Bug</a> • 
-    <a href="https://github.com/symadev/skillsync/issues">💡 Request Feature</a>
-  </p>
-</div>
