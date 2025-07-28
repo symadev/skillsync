@@ -3,7 +3,7 @@
 
 
 <p align="center">
-  <img src="screenshots/banner.png" alt="SkillSync Banner" width="100%" />
+  <img src="Screenshots/banner.png" alt="SkillSync Banner" width="100%" />
 </p>
 
 ---
@@ -43,38 +43,38 @@
 ### 🚀 Installation
 
 1. **Clone the repository**
-     ```
-   git clone https://github.com/symadev/skillsync.git
-   ```
+```
+git clone https://github.com/symadev/skillsync.git
+```
 
 2. **Navigate to project directory**
 ```
 cd skillsync
- ```
+```
 
 
 3. **Install dependencies**
- ```
-   npm install
- ```
-   # or
- ```
-   yarn install
- ```
+```
+npm install
+```
+  
+```
+yarn install
+```
 
 4. **Start development server**
-    ``` 
-   npm run dev
-     ```
-   # or
-    ```
-   yarn dev
-   ```
+``` 
+npm run dev
+```
+ 
+```
+yarn dev
+```
 
 6. **Open your browser**
-   ```
-   Navigate to http://localhost:5173
-   ```
+ ```
+ Navigate to http://localhost:5173
+ ```
 
 ---
 
@@ -82,7 +82,7 @@ cd skillsync
 
 
 <p align="center">
-  <img src="screenshots/banner-1.png" alt="SkillSync Banner" width="100%" />
+  <img src="Screenshots/banner-1.png" alt="SkillSync Banner" width="100%" />
 </p>
 
 
