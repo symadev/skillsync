@@ -43,30 +43,35 @@
 ### 🚀 Installation
 
 1. **Clone the repository**
-   
+     ```
    git clone https://github.com/symadev/skillsync.git
    ```
 
 2. **Navigate to project directory**
-```bash
+```
 cd skillsync
+ ```
 
 
 3. **Install dependencies**
-   
+ ```
    npm install
+ ```
    # or
+ ```
    yarn install
-   ```
+ ```
 
 4. **Start development server**
-   
+    ``` 
    npm run dev
+     ```
    # or
+    ```
    yarn dev
    ```
 
-5. **Open your browser**
+6. **Open your browser**
    ```
    Navigate to http://localhost:5173
    ```
