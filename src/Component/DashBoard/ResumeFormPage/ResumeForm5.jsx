@@ -82,7 +82,7 @@ const ResumeForm5 = () => {
 
   const handleGoBack = () => navigate(-1);
 
-  //  Fix unsupported `oklch()`  for color styles
+  //  Fix unsupported `oklch()`  for color styles//its help to get the unique colors
   const fixGlobalOKLCH = () => {
     const elements = document.querySelectorAll("*");
     elements.forEach((el) => {
