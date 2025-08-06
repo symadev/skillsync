@@ -20,11 +20,11 @@ const Template2 = ({ primaryColor = "black" }) => {
     name = "",
     email = "",
     phone = "",
-    city = "",
-    postcode = "",
-    country = "",
-    summary = "",
-    profileImage = "",
+    // city = "",
+    // postcode = "",
+    // country = "",
+    // summary = "",
+    // profileImage = "",
     skills = [],
     projects = [],
     experience = [],
@@ -59,10 +59,10 @@ const Template2 = ({ primaryColor = "black" }) => {
       text: "text-orange-600",
       border: "border-orange-600",
     },
-    black: {
-      headerBg: "bg-black",
-      text: "text-black",
-      border: "border-black",
+    red: {
+      headerBg: "bg-red-400",
+      text: "text-red-500",
+      border: "border-red-500",
     },
   };
 

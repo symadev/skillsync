@@ -26,7 +26,7 @@ const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) 
     green: "text-green-700",
     blue: "text-blue-700",
     orange: "text-orange-600",
-    black: "text-black",
+    red: "text-red-500",
   }[primaryColor] || "text-purple-700";
 
   const colorBorder = {
@@ -34,7 +34,7 @@ const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) 
     green: "border-green-700",
     blue: "border-blue-700",
     orange: "border-orange-600",
-    black: "border-black",
+    red: "border-red-500",
   }[primaryColor] || "border-black";
 
   console.log("[Template1] formData:", {
@@ -52,7 +52,7 @@ const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) 
         <h1 className="text-2xl font-bold" style={{ color: primaryColor || '#007BFF' }}>
           {name} {surname}
         </h1>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-900 text-sm">
           {city}, {postcode} {country} | {phone} | {email}
         </p>
       </header>
@@ -63,7 +63,7 @@ const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) 
           <h3 id="summary-heading" className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
             Summary
           </h3>
-          <p className="text-justify text-gray-600 text-sm leading-relaxed">
+          <p className="text-justify text-gray-900 text-sm leading-relaxed">
             {Motivation}
           </p>
         </section>

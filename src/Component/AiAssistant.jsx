@@ -23,7 +23,7 @@ const AIAssistant = () => {
     } catch (err) {
       setMessages((prev) => [
         ...prev,
-        { role: "ai", content: " AI response failed!" },
+        { role: "ai", content: "AI response failed!" },
       ]);
     } finally {
       setLoading(false);
@@ -35,30 +35,19 @@ const AIAssistant = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-gradient-to-br from-orange-500 via-orange-700 to-black rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+    
      
-      {/* Animated background elements */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full -translate-x-16 -translate-y-16 animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-white/5 rounded-full translate-x-12 translate-y-12 animate-pulse delay-700"></div>
-
+     
+      <div className="relative w-full  min-h-[500px]  rounded-2xl overflow-hidden shadow-2xl flex flex-col">
       <div className="relative z-10 p-6 h-full flex flex-col">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">
-            Ask the AI Coach
-          </h2>
-          <p className="text-white/80 text-sm">
-            Get personalized fitness, nutrition & sleep advice
-          </p>
-        </div>
+      
 
         {/* Messages Container */}
         <div className="flex-1 mb-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-inner overflow-y-auto max-h-[400px]">
           <div className="p-4 space-y-3 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
             {messages.length === 0 && (
               <div className="text-center text-white/60 mt-16">
-                <div className="text-4xl mb-4">💬</div>
-                <p>Start a conversation with your AI Assistant!</p>
+                <p>Start a conversation with your AI Resume Assistant!</p>
               </div>
             )}
 
@@ -73,7 +62,7 @@ const AIAssistant = () => {
                 <div
                   className={`max-w-xs p-4 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 ${
                     msg.role === "user"
-                      ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white rounded-br-md"
+                      ? "bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-br-md"
                       : "bg-white/95 text-gray-800 rounded-bl-md backdrop-blur-sm"
                   }`}
                 >
@@ -112,7 +101,7 @@ const AIAssistant = () => {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask about improvement or suggestions..."
+                placeholder="Ask about resume improvement or career suggestions..."
                 className="w-full bg-white/20 backdrop-blur-md border border-white/30 text-white placeholder-white/70 p-4 pr-12 rounded-2xl focus:outline-none focus:ring-2 focus:ring-white/50 focus:bg-white/25 transition-all duration-300 text-sm font-medium shadow-lg"
                 disabled={loading}
               />
@@ -124,7 +113,7 @@ const AIAssistant = () => {
             <button
               onClick={sendMessage}
               disabled={loading || !prompt.trim()}
-              className="group relative bg-gradient-to-r from-emerald-400 to-cyan-400 text-white p-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
+              className="group relative bg-gradient-to-r from-orange-400 to-yellow-400 text-white p-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
             >
               <div className="flex items-center justify-center w-6 h-6">
                 {loading ? (
@@ -142,23 +131,6 @@ const AIAssistant = () => {
             </button>
           </div>
 
-          {/* Quick suggestions */}
-          <div className="flex flex-wrap gap-2 mt-3">
-            {[" Skills gap analysis", " interview preparation", "😴 Check ATS Friendly"].map(
-              (suggestion, idx) => (
-                <button
-                  key={idx}
-                  onClick={() =>
-                    setPrompt(suggestion.split(" ").slice(1).join(" "))
-                  }
-                  className="text-xs bg-white/10 backdrop-blur-sm text-white/80 px-3 py-1.5 rounded-full border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-200 transform hover:scale-105"
-                  disabled={loading}
-                >
-                  {suggestion}
-                </button>
-              )
-            )}
-          </div>
         </div>
       </div>
 

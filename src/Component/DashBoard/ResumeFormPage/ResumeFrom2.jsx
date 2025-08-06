@@ -4,6 +4,7 @@ import { useResume } from "../../Provider/ResumeContext";
 import { useNavigate } from "react-router-dom";
 import skillsData from "../../../Data/skills";
 import templateData from "../../../Data/templateData";
+import AIAssistant from "../../AiAssistant";
 
 const ResumeForm2 = () => {
   const { templateId, primaryColor, formData, setFormData } = useResume();
@@ -36,7 +37,7 @@ const ResumeForm2 = () => {
   };
 
   const handleNext = () => {
-    navigate("/dashboard/templates/from3");
+    navigate("/resume/templates/from3");
   };
 
   const handleSkillClick = (skill) => {
@@ -186,6 +187,12 @@ const ResumeForm2 = () => {
           >
             Next: Projects Section
           </button>
+
+
+           <div className="mt-6">
+              <h2 className="text-xl font-bold  text-orange-400">Added your skills with Ai</h2>
+            <AIAssistant />
+          </div>
         </div>
 
         {/* Live Preview */}

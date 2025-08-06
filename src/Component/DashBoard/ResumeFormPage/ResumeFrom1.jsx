@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useResume } from "../../Provider/ResumeContext";
 import templateData from "../../../Data/templateData";
+import AiAssistant from "../../AiAssistant";
 import { useNavigate } from "react-router-dom";
 import { useResumeProgress } from '../../Provider/ResumeProgressContext';
 
@@ -15,7 +16,7 @@ const { setProgress } = useResumeProgress();
 
 useEffect(() => {
   const calculated = (currentStep / totalSteps) * 100;
-  setProgress(calculated); // set in global context
+  setProgress(calculated); 
 }, [currentStep, totalSteps]);
 
   const [localFormData, setLocalFormData] = useState(globalFormData);
@@ -53,7 +54,7 @@ useEffect(() => {
   };
 
   const handleNext = () => {
-    navigate("/dashboard/templates/from2");
+    navigate("/resume/templates/from2");
   };
 
   const handlePreview = () => {
@@ -63,7 +64,7 @@ useEffect(() => {
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
+    <div className="min-h-screen  w-full bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
       {/* Header & Progress */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-4 p-6">
         <button
@@ -151,6 +152,12 @@ useEffect(() => {
               Next
             </button>
 
+          </div>
+
+
+           <div className="mt-6">
+              <h2 className="text-xl font-bold  text-orange-400">Get The Suggestions from Ai</h2>
+            <AiAssistant />
           </div>
         </div>
 

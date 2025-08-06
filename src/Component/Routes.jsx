@@ -6,9 +6,6 @@ import MainLayout from "./MainLayout";
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
-import Dashboard from "./DashBoard/Dashboard";
-
-import Profile from "./DashBoard/Profile";
 
 
 
@@ -21,8 +18,6 @@ import ResumeForm2 from "./DashBoard/ResumeFormPage/ResumeFrom2";
 import ResumeForm3 from "./DashBoard/ResumeFormPage/ResumeFrom3";
 import ResumeForm4 from "./DashBoard/ResumeFormPage/ResumeFrom4";
 import ResumeForm5 from "./DashBoard/ResumeFormPage/ResumeForm5";
-import Users from "./pages/ResumeTemplates/Users";
-import AiAssistant from "./AiAssistant";
 
 
 
@@ -47,31 +42,25 @@ const router = createBrowserRouter([
       },
     
       {
-        path: "dashboard",
-        element:<Dashboard></Dashboard>,
-         children: [
-        {
-       
-        index: true, //  This makes DashboardHome the default
-        element:<Profile></Profile>
-      },
-      {
-        path: "profile",
-        element:<Profile></Profile>
-      },
-    
-        {
         path: "resume",
         element:<HomeMain></HomeMain>,
+         children: [
+      //   {
+       
+      //   index: true, //  This makes DashboardHome the default
+      //   element:<Profile></Profile>
+      // },
+    
+    
+     
+      //   {
+      //   path: "aiAssistant",
+      //   element:<AiAssistant></AiAssistant>,
          
-      },
-        {
-        path: "aiAssistant",
-        element:<AiAssistant></AiAssistant>,
-         
-      },
+      // },
 
       {
+        index: true,
       path: "templates",
       element: <Templates/> 
     },
@@ -95,11 +84,7 @@ const router = createBrowserRouter([
       path: "templates/from5",
       element: <ResumeForm5></ResumeForm5>
     },
-        
-        {
-        path: "userAdmin",
-        element:<Users></Users>
-      },
+       
       ],
         
       },

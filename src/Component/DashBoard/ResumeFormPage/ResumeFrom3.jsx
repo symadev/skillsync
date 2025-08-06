@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useResume } from "../../Provider/ResumeContext";
 import templateData from "../../../Data/templateData";
 import { useNavigate } from "react-router-dom";
+import AIAssistant from '../../AiAssistant';
 
 const ResumeForm3 = () => {
   const { templateId, primaryColor, formData: globalFormData, setFormData: setGlobalFormData } = useResume();
@@ -45,7 +46,7 @@ const ResumeForm3 = () => {
   };
 
   const handleNext = () => {
-   navigate("/dashboard/templates/from4");
+    navigate("/resume/templates/from4");
   };
 
   const progressPercentage = (currentStep / totalSteps) * 100;
@@ -124,6 +125,7 @@ const ResumeForm3 = () => {
               >
                 Remove Project
               </button>
+
             </div>
           ))}
 
@@ -140,6 +142,10 @@ const ResumeForm3 = () => {
           >
             Next
           </button>
+          <div className="mt-6">
+            <h2 className="text-xl font-bold  text-orange-400">Make a unique description</h2>
+            <AIAssistant />
+          </div>
         </div>
 
         {/* Live Preview */}

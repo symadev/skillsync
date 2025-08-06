@@ -13,7 +13,7 @@ const CardOfTestimonial = () => {
       .then((data) => setCards(data));
   }, []);
     return (
-        <div className="min-h-[400px] bg-black py-10 px-4">
+        <div className="min-h-[400px] bg-black py-10 px-8">
       <h2 className="text-4xl font-bold text-center text-white mb-8">
         What Our Users Say
       </h2>

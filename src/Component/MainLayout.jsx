@@ -9,7 +9,7 @@ const MainLayout = () => {
 
   const noHeaderFooter = location.pathname.includes('login') ||
     location.pathname.includes('register')||
-      location.pathname.includes('dashboard');
+      location.pathname.includes('resume');
   return (
     <div className="relative">
       {noHeaderFooter || <Navbar></Navbar>}

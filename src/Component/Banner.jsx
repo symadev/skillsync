@@ -37,7 +37,7 @@ const Banner = () => {
       </p>
 
       {/* CTA Button */}
-     <Link to={user ? "/dashboard" : "/login"}>
+     <Link to={user ? "/resume" : "/login"}>
           <button className="bg-gradient-to-r from-orange-600 to-orange-400 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
             Build Your Resume
           </button>

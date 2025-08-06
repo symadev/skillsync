@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <ResumeProgressProvider>
-        <ResumeProvider> {/* 🆕 এই ResumeProvider দিয়ে wrap করো */}
+        <ResumeProvider> {/* wrap with this provider  */}
           <RouterProvider router={router} />
           <ToastContainer position="top-right" autoClose={3000} theme="dark" />
         </ResumeProvider>

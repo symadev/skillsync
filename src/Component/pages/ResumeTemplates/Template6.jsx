@@ -20,7 +20,7 @@ const Template6 = ({ primaryColor = "black" }) => {
 
   // Destructure formData with fallback values
   const {
-   profileImage: uploadedImage,// for render the uploded image 
+    profileImage: uploadedImage,// for render the uploded image 
     name = "",
     email = "",
     phone = "",
@@ -58,9 +58,9 @@ const Template6 = ({ primaryColor = "black" }) => {
       border: "border-orange-600",
     },
     black: {
-      headerBg: "bg-black",
-      text: "text-black",
-      border: "border-black",
+      headerBg: "bg-red-500",
+      text: "text-red-500",
+      border: "border-red-500",
     },
   };
 
@@ -69,9 +69,9 @@ const Template6 = ({ primaryColor = "black" }) => {
   return (
     <div className="max-w-4xl mx-auto bg-white text-black p-6 shadow-lg" id="resume-output">
       {/* Header Section */}
-      <div className="bg-gray-100 text-black rounded-md p-4 flex items-center gap-3">
+      <div className="bg-gray-100 text-black rounded-md p-4 flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
         {/* Profile Image */}
-        <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
+        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
           <img
             src={uploadedImage || "/assets/image.png"}
             alt="Profile"
@@ -80,23 +80,24 @@ const Template6 = ({ primaryColor = "black" }) => {
         </div>
 
         {/* Personal Info */}
-        <div className="flex-1">
+        <div className="flex-1 text-center sm:text-left">
           <PersonalInfoCard {...personalInfoToShow} primaryColor={primaryColor} />
         </div>
       </div>
 
 
+
       {/* Skills Section */}
-        {skillsToShow.length > 0 && (
-          <div className="space-y-4">
-            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
-              Skills
-            </h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-              <Skills skills={skillsToShow} />
-            </div>
+      {skillsToShow.length > 0 && (
+        <div className="space-y-4">
+          <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+            Skills
+          </h3>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+            <Skills skills={skillsToShow} />
           </div>
-        )}
+        </div>
+      )}
 
       {/* Projects */}
       {projectsToShow.length > 0 && (

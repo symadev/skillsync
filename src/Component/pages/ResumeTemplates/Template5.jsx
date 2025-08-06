@@ -11,19 +11,19 @@ import workData from "../../../Data/workData";
 import educationInfo from "../../../Data/educationInfo";
 import skillsData from "../../../Data/skills";
 
-const Template5 = ({ primaryColor = "black" }) => {
+const Template5 = ({ primaryColor = "white" }) => {
   const { formData } = useResume();
   const {
     name = "",
     surname = "",
     phone = "",
     email = "",
-    postcode = "",
-    country = "",
-    city = "",
-    summary = "",
-    Motivation = "",
-    profileImage = "",
+    // postcode = "",
+    // country = "",
+    // city = "",
+    // summary = "",
+    // Motivation = "",
+    // profileImage = "",
     skills = [],
     projects = [],
     experience = [],
@@ -59,16 +59,16 @@ const Template5 = ({ primaryColor = "black" }) => {
       border: "border-orange-600",
       underline: "border-orange-600",
     },
-    black: {
-      headerBg: "bg-black",
-      accentBg: "bg-black",
-      text: "text-black",
-      border: "border-black",
-      underline: "border-black",
+    red: {
+      headerBg: "bg-red-400",
+      accentBg: "bg-red-400",
+      text: "text-red-500",
+      border: "border-red-500",
+      underline: "border-red-500",
     },
   };
 
-  const colors = colorStyles[primaryColor] || colorStyles.black;
+  const colors = colorStyles[primaryColor] || colorStyles.white;
 
   // Fallback demo data logic
   const personalInfoToShow =
@@ -81,7 +81,7 @@ const Template5 = ({ primaryColor = "black" }) => {
   return (
     <div className="max-w-4xl mx-auto bg-white text-black shadow-lg" id="resume-output">
      {/* Header */}
-      <div className={`${colors.headerBg} text-white p-6 rounded-md`}>
+      <div className={`${colors.headerBg} text-white p-6 `}>
         <div className="flex justify-between items-start text-start">
           {/* Personal Info */}
           <div className="space-y-1 text-white">

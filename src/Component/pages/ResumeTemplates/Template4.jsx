@@ -54,11 +54,11 @@ const Template4 = ({ primaryColor = "black" }) => {
             text: "text-orange-600",
             border: "border-orange-600",
         },
-        black: {
-            leftBg: "bg-black",
-            headerBg: "bg-black",
-            text: "text-black",
-            border: "border-black",
+        red: {
+            leftBg: "bg-red-200",
+            headerBg: "bg-red-500",
+            text: "text-red-500",
+            border: "border-red-500",
         },
     };
 
@@ -86,13 +86,13 @@ const Template4 = ({ primaryColor = "black" }) => {
                             alt="Profile"
                             className={`w-28 h-28 rounded-full object-cover border-4 ${colors.text} shadow`}
                         />
-                        <h1 className={`font-bold text-sm ${colors.text}`}>{`${finalName} ${finalSurname}`}</h1>
-                        <p className="text-[10px] text-black">Phone: {finalPhone}</p>
+                        <h1 className={`font-bold text-md ${colors.text}`}>{`${finalName} ${finalSurname}`}</h1>
+                        <p className="text-[11px] text-gray-900">Phone: {finalPhone}</p>
 
                         {/* City, Postcode, Country */}
-                        <div className="text-[10px] text-black space-y-1">
+                        <div className="text-[11px] text-gray-900 space-y-1">
                             {/* City, Postcode, Country in one line */}
-                            <p className="text-[10px] text-black">
+                            <p className="text-[11px] text-gray-900">
                                 {[city, postcode, country].filter(Boolean).join(", ")}
                             </p>
 
@@ -101,7 +101,7 @@ const Template4 = ({ primaryColor = "black" }) => {
 
                     {/* Skills */}
                     {skillsToShow.length > 0 && (
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             <h3 className={`text-lg font-bold ${colors.text} border-b-2 ${colors.border} pb-3`}>
                                 Skills
                             </h3>

@@ -10,7 +10,7 @@ const Templates = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6 md:p-10 bg-gradient-to-br from-black via-gray-800 to-orange-900 rounded-xl shadow-md">
+    <div className="p-4 sm:p-6 md:p-8 bg-gradient-to-br from-black via-gray-950 to-orange-900 rounded-xl w-full  shadow-md">
       
       {/* Go Back Button */}
       <div className="mb-6">
@@ -50,7 +50,7 @@ const Templates = () => {
         {templateData.map((template) => (
           <div
             key={template.id}
-            className="transition-transform transform hover:-translate-y-1 hover:shadow-xl duration-300"
+            className="transition-transform transform hover:-translate-y-1 hover:shadow-black duration-300"
           >
             <TemplateCard template={template} />
           </div>

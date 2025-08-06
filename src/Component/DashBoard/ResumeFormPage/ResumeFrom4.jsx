@@ -46,7 +46,7 @@ const ResumeForm4 = () => {
 
   const handleGoBack = () => navigate(-1);
 
-  const handleNext = () => navigate("/dashboard/templates/from5");
+  const handleNext = () => navigate("/resume/templates/from5");
 
   const handlePreview = () => console.log('Preview resume');
 

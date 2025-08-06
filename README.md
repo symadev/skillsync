@@ -1,7 +1,5 @@
 # 💼 SkillSync – Professional Resume Builder
 
-
-
 <p align="center">
   <img src="Screenshots/banner.png" alt="SkillSync Banner" width="100%" />
 </p>
@@ -13,14 +11,13 @@
 **SkillSync** is a cutting-edge resume builder web application designed to help job seekers create professional, ATS-optimized resumes effortlessly. With its intuitive interface and real-time preview, users can craft compelling resumes that stand out to both hiring managers and applicant tracking systems.
 
 ### 🎯 Why Choose SkillSync?
--  **Lightning Fast** - Built with modern web technologies for optimal performance
--  **Beautiful Templates** - Multiple professionally designed layouts
--  **Fully Responsive** - Works seamlessly on all devices
--  **ATS-Friendly** - Optimized for applicant tracking systems
--  **Real-time Preview** - See changes instantly as you type
+-  **Lightning Fast** - Built with modern web technologies for optimal performance  
+-  **Beautiful Templates** - Multiple professionally designed layouts  
+-  **Fully Responsive** - Works seamlessly on all devices  
+-  **ATS-Friendly** - Optimized for applicant tracking systems  
+-  **Real-time Preview** - See changes instantly as you type  
 
 ---
-
 
 ## 🛠️ Tech Stack
 
@@ -32,55 +29,50 @@
   <img src="https://img.shields.io/badge/-OpenAI_API-412991?style=for-the-badge&logo=openai&logoColor=white" />
 </p>
 
-
 ---
 
-
-###  Installation
+## ⚙️ Installation
 
 1. **Clone the repository**
-```
-git clone https://github.com/symadev/skillsync.git
-```
+   ```bash
+   git clone https://github.com/symadev/skillsync.git
+   ```
 
-2. **Navigate to project directory**
-```
-cd skillsync
-```
-
+2. **Navigate to the project directory**
+   ```bash
+   cd skillsync
+   ```
 
 3. **Install dependencies**
-```
-npm install
-```
-  
-```
-yarn install
-```
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
 
 4. **Start development server**
-``` 
-npm run dev
-```
- 
-```
-yarn dev
-```
+   ```bash
+   npm run dev
+   ```
+   or
+   ```bash
+   yarn dev
+   ```
 
 5. **Open your browser**
- ```
- Navigate to http://localhost:5173
- ```
+   ```
+   http://localhost:5173
+   ```
 
 ---
-
-
-
 
 <p align="center">
   <img src="Screenshots/banner-1.png" alt="SkillSync Banner" width="100%" />
 </p>
 
+---
 
 ## 🎯 How to Use
 
@@ -111,15 +103,15 @@ Use the intuitive form interface to add your:
 
 We welcome contributions from the community! Here's how you can help make SkillSync even better:
 
-### 🔧 **Development Setup**
+### 🔧 Development Setup
 
 1. **Fork the repository**
-   ```
+   ```bash
    git fork https://github.com/symadev/skillsync.git
    ```
 
 2. **Create a feature branch**
-   ```
+   ```bash
    git checkout -b feature/amazing-feature
    ```
 
@@ -129,12 +121,12 @@ We welcome contributions from the community! Here's how you can help make SkillS
    - Test your changes thoroughly
 
 4. **Commit your changes**
-   ```
+   ```bash
    git commit -m "✨ Add amazing feature"
    ```
 
 5. **Push to your fork**
-   ```
+   ```bash
    git push origin feature/amazing-feature
    ```
 
@@ -143,13 +135,12 @@ We welcome contributions from the community! Here's how you can help make SkillS
    - Include screenshots if applicable
    - Reference any related issues
 
-### 🐛 **Found a Bug?**
+### 🐛 Found a Bug?
 - Check existing issues first
 - Create a detailed bug report
 - Include steps to reproduce
 
-
-
+---
 
 ## 🌟 Show Your Support
 
@@ -163,14 +154,10 @@ If you find SkillSync helpful, please consider:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 👥 Authors
 
-- **@symadev** - *Initial work* - [GitHub Profile](https://github.com/symadev)
-
----
-
-
+- **@symadev** – *Initial work* – [GitHub Profile](https://github.com/symadev)

@@ -39,10 +39,10 @@ const Template3 = ({ primaryColor = "black" }) => {
     green: { headerBg: "bg-green-700", text: "text-green-700" },
     blue: { headerBg: "bg-blue-700", text: "text-blue-700" },
     orange: { headerBg: "bg-orange-600", text: "text-orange-600" },
-    black: { headerBg: "bg-black", text: "text-black" },
+    red: { headerBg: "bg-red-500", text: "text-red-500" },
   };
 
-  const colors = colorStyles[primaryColor] || colorStyles.black;
+  const colors = colorStyles[primaryColor] || colorStyles.red;
 
   // Use form data if available, otherwise fallback
   const personalInfoToShow = name || email || phone

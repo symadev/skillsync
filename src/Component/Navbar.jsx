@@ -81,7 +81,7 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end">
-        <Link to={user ? "/dashboard" : "/login"}>
+        <Link to={user ? "/resume" : "/login"}>
           <button className="btn btn-outline hover:bg-orange-400 rounded-full shadow-lg">
             Build Your Resume
           </button>
