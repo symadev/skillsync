@@ -13,7 +13,7 @@ const Work = ({ experience = [] }) => {
             <span className="float-right not-italic">{job.dateRange}</span>
           </p>
 
-          <ul className="mt-2 list-disc list-outside space-y-1 text-[14px] text-gray-700 leading-tight pl-5">
+          <ul className="list-disc list-outside space-y-1 text-[14px] text-gray-700 leading-tight pl-5">
             {job.responsibilities
               ?.filter(item => item.trim() !== "") //  this is filter out empty bullets
               .map((item, idx) => (

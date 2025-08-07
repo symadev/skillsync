@@ -46,7 +46,7 @@ const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) 
     <div
       className={`w-full bg-white text-black ${!isForATS ? `border-4 ${colorBorder}` : ''} px-4 py-4 space-y-3`}
       id="resume-output"
-      style={{ minHeight: "600px", width: "100%" }}
+      style={{ minHeight: "700px", width: "100%" }}
     >
       <header className="text-center space-y-3 px-4">
         <h1 className="text-2xl font-bold" style={{ color: primaryColor || '#007BFF' }}>
