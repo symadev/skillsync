@@ -4,7 +4,7 @@ const educationInfo = [
     degree: "BSc",
     field: "Engineering",
     location: "Khulna",
-    graduationDate: "2025",
+    graduationDate: "2022-2025",
   }
 ];
 

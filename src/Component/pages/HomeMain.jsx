@@ -56,7 +56,7 @@ const HomeMain = () => {
       )}
 
       {/* Child Routes Render Here */}
-      <div className="mt-10 w-full max-w-8xl flex justify-center">
+      <div className="mt-10 w-full max-w-8xl flex   flex-col justify-center">
        
           <Outlet />
       
