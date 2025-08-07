@@ -53,7 +53,7 @@ const ResumeForm4 = () => {
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
+    <div className="min-h-screen  w-full bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
       {/* Header & Progress */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-4 p-6">
         <button
@@ -66,7 +66,7 @@ const ResumeForm4 = () => {
           Go Back
         </button>
 
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-1/3">
           <div className="mb-2 flex justify-between text-sm font-medium">
             <span>Step {currentStep} of {totalSteps}</span>
             <span>{Math.round(progressPercentage)}% Complete</span>

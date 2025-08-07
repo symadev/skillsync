@@ -18,12 +18,12 @@ const Template5 = ({ primaryColor = "white" }) => {
     surname = "",
     phone = "",
     email = "",
-    // postcode = "",
-    // country = "",
-    // city = "",
-    // summary = "",
-    // Motivation = "",
-    // profileImage = "",
+    postcode = "",
+    country = "",
+    city = "",
+    summary = "",
+    Motivation = "",
+    profileImage = "",
     skills = [],
     projects = [],
     experience = [],
@@ -107,7 +107,7 @@ const Template5 = ({ primaryColor = "white" }) => {
         {/* Skills Section */}
         {skillsToShow.length > 0 && (
           <div className="space-y-4">
-            <h3 className={`text-2xl font-bold ${colors.text} pb-2`}>
+            <h3 className={`text-xl font-bold ${colors.text} pb-2`}>
               Skills
             </h3>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2">

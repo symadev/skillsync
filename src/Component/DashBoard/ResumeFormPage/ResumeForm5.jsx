@@ -69,16 +69,7 @@ const ResumeForm5 = () => {
     }));
   };
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        setProfileImage(ev.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+
 
   const handleGoBack = () => navigate(-1);
 
@@ -165,7 +156,7 @@ const handleDownload = async () => {
           Go Back
         </button>
 
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-1/3">
           <div className="mb-2 flex justify-between text-sm font-medium">
             <span>
               Step {currentStep} of {totalSteps}
@@ -235,12 +226,7 @@ const handleDownload = async () => {
             + Add Another Education
           </button>
 
-          <input
-            type="file"
-            onChange={handleImageUpload}
-            className="mt-6 text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-orange-600 file:text-white hover:file:bg-orange-700"
-            accept="image/*"
-          />
+      
 
           <button
             onClick={handleDownload}

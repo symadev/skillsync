@@ -77,7 +77,7 @@ useEffect(() => {
           Go Back
         </button>
 
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-1/3">
           <div className="mb-2 flex justify-between text-sm font-medium">
             <span>Step {currentStep} of {totalSteps}</span>
             <span>{Math.round(progressPercentage)}% Complete</span>

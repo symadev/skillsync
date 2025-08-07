@@ -10,7 +10,7 @@ const HomeMain = () => {
 
   return (
     <div className="min-h-screen bg-black px-6 lg:px-24 py-12 text-white flex flex-col items-center justify-center">
-      
+
       {/*  Back to Home button — Always visible */}
       <div className="mb-6 w-full max-w-6xl">
         <button
@@ -56,9 +56,12 @@ const HomeMain = () => {
       )}
 
       {/* Child Routes Render Here */}
-      <div className="mt-12 w-full max-w-8xl flex justify-center">
-        <Outlet />
+      <div className="mt-10 w-full max-w-8xl flex justify-center">
+       
+          <Outlet />
+      
       </div>
+
     </div>
   );
 };

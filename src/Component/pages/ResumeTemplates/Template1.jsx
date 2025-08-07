@@ -72,7 +72,7 @@ const Template1 = ({ primaryColor = "black", formData = {}, isForATS = false }) 
       {/* Skills */}
       {Array.isArray(skills) && skills.length > 0 && (
         <section aria-labelledby="skills-heading" className="space-y-2">
-          <h3 id="skills-heading" className={`text-xl font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
+          <h3 id="skills-heading" className={`text-lg font-bold ${colorText} border-b-2 ${colorBorder} pb-3`}>
             Skills
           </h3>
           <Skills skills={skills} />

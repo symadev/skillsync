@@ -5,7 +5,7 @@ const PersonalInfoCard = ({ name, surname, email, phone, city, postcode, country
     blue: "text-blue-700",
     orange: "text-orange-600",
     red: "text-red-500",
-    black: "text-white",
+    white: "text-white",
   };
 
   const textColorClass = textColor[primaryColor?.toLowerCase()] || "text-white";
