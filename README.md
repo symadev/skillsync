@@ -1,4 +1,4 @@
-# 💼 SkillSync –Real-Time Customizable Resume Builder
+# 💼 SkillSync – Ai Powered Customizable Resume Builder
 
 <p align="center">
   <img src="Screenshots/banner.png" alt="SkillSync Banner" width="100%" />
@@ -70,6 +70,7 @@
 
 <p align="center">
   <img src="Screenshots/banner-1.png" alt="SkillSync Banner" width="100%" />
+  <img src="Screenshots/banner-2.png" alt="SkillSync Banner" width="100%" />
 </p>
 
 ---
