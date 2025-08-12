@@ -69,7 +69,7 @@
 ---
 
 <p align="center">
-  <img src="Screenshots/banner-1.png" alt="SkillSync Banner" width="100%" />
+  <img src="Screenshots/banner-main.png" alt="SkillSync Banner" width="100%" />
   <img src="Screenshots/banner-2.png" alt="SkillSync Banner" width="100%" />
 </p>
 
