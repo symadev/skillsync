@@ -14,16 +14,17 @@ const AIAssistant = () => {
     setLoading(true);
 
     try {
-      // Replace with your actual API call
-      const res = await axios.post("https://resume-builder-server-nu.vercel.app/api/ai", { message: prompt });
+      const res = await axios.post(
+        "https://resume-builder-server-nu.vercel.app/api/ai",
+        { message: prompt }
+      );
 
       const aiMessage = { role: "ai", content: res.data.reply };
-
       setMessages((prev) => [...prev, aiMessage]);
     } catch (err) {
       setMessages((prev) => [
         ...prev,
-        { role: "ai", content: "AI response failed!" },
+        { role: "ai", content: "⚠️ AI response failed!" },
       ]);
     } finally {
       setLoading(false);
@@ -35,19 +36,17 @@ const AIAssistant = () => {
   };
 
   return (
-    
+    <div className="relative w-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl flex flex-col bg-gradient-to-br from-gray-900 to-gray-900">
      
-     
-      <div className="relative w-full  min-h-[500px]  rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-      <div className="relative z-10 p-6 h-full flex flex-col">
-      
 
-        {/* Messages Container */}
+      {/* Chat Content */}
+      <div className="relative z-10 p-6 h-full flex flex-col">
+        {/* Messages */}
         <div className="flex-1 mb-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-inner overflow-y-auto max-h-[400px]">
-          <div className="p-4 space-y-3 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
+          <div className="p-4 space-y-4 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
             {messages.length === 0 && (
-              <div className="text-center text-white/60 mt-16">
-                <p>Start a conversation with your AI Resume Assistant!</p>
+              <div className="text-center text-white/50 mt-16">
+                <p>💬 Start a conversation with your AI Resume Assistant!</p>
               </div>
             )}
 
@@ -60,10 +59,10 @@ const AIAssistant = () => {
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <div
-                  className={`max-w-xs p-4 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 ${
+                  className={`max-w-xs p-4 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-[1.02] ${
                     msg.role === "user"
-                      ? "bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-br-md"
-                      : "bg-white/95 text-gray-800 rounded-bl-md backdrop-blur-sm"
+                      ? "bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-orange-500/30"
+                      : "bg-white/95 text-gray-800 backdrop-blur-sm shadow-gray-400/20"
                   }`}
                 >
                   <div className="text-sm font-medium whitespace-pre-line leading-relaxed">
@@ -75,24 +74,22 @@ const AIAssistant = () => {
 
             {loading && (
               <div className="flex justify-start animate-fade-in">
-                <div className="bg-white/95 backdrop-blur-sm p-4 rounded-2xl rounded-bl-md shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-100"></div>
-                      <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-200"></div>
-                    </div>
-                    <span className="text-sm text-gray-600 font-medium">
-                      AI is thinking...
-                    </span>
+                <div className="bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-lg flex items-center space-x-3">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-100"></div>
+                    <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-200"></div>
                   </div>
+                  <span className="text-sm text-gray-600 font-medium">
+                    AI is thinking...
+                  </span>
                 </div>
               </div>
             )}
           </div>
         </div>
 
-        {/* Input Section */}
+        {/* Input */}
         <div className="mt-auto">
           <div className="flex gap-3 items-end">
             <div className="flex-1 relative">
@@ -102,7 +99,7 @@ const AIAssistant = () => {
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask about resume improvement or career suggestions..."
-                className="w-full bg-white/20 backdrop-blur-md border border-white/30 text-white placeholder-white/70 p-4 pr-12 rounded-2xl focus:outline-none focus:ring-2 focus:ring-white/50 focus:bg-white/25 transition-all duration-300 text-sm font-medium shadow-lg"
+                className="w-full bg-white/20 backdrop-blur-md border border-white/30 text-white placeholder-white/70 p-4 pr-12 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-400 focus:bg-white/25 transition-all duration-300 text-sm font-medium shadow-lg"
                 disabled={loading}
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50">
@@ -130,38 +127,16 @@ const AIAssistant = () => {
               </div>
             </button>
           </div>
-
         </div>
       </div>
 
-      <style jsx>{`
+      {/* Animations */}
+      <style>{`
         @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-out forwards;
-        }
-
-        .scrollbar-thin::-webkit-scrollbar {
-          width: 4px;
-        }
-
-        .scrollbar-thumb-white\\/30::-webkit-scrollbar-thumb {
-          background-color: rgba(255, 255, 255, 0.3);
-          border-radius: 2px;
-        }
-
-        .scrollbar-track-transparent::-webkit-scrollbar-track {
-          background: transparent;
-        }
+        .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
       `}</style>
     </div>
   );

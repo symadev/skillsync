@@ -61,7 +61,7 @@ const ResumeForm2 = () => {
       setAllSkills(updatedSkills);
       setNewSkill("");
       setShowAddSkill(false);
-      // Automatically select the newly added skill
+      // Automatically select here  the newly added skill
       handleSkillClick(newSkill.trim());
     }
   };
@@ -74,8 +74,20 @@ const ResumeForm2 = () => {
 
   const progressPercentage = (currentStep / totalSteps) * 100;
 
+// Right panel tabs
+  const [rightTab, setRightTab] = useState("preview"); // "preview" | "assistant"
+  const currentSection = "skills";
+
+  const openAssistantForSection = () => setRightTab("assistant");
+
+  // Apply AI changes back to formData
+  const handleApplyFromAI = (patch) => {
+    if (!patch || typeof patch !== "object") return;
+    setFormData(prev => ({ ...prev, ...patch }));
+  };
+  
   return (
-    <div className="min-h-screen  w-full bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
+    <div className="min-h-screen  w-full bg-gradient-to-br from-black via-gray-950 to-orange-700 text-white">
       {/* Header & Progress */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-4 p-6">
         <button
@@ -105,11 +117,25 @@ const ResumeForm2 = () => {
       {/* Skill Selection */}
       <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-orange-400">Select Your Skills</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold mb-6 text-orange-400">Select Your Skills</h2>
+
+            {/* NEW: Tiny inline button to open Assistant tab */}
+            <button
+              type="button"
+              onClick={openAssistantForSection}
+              className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-800/60 hover:bg-gray-800 border border-orange-600/40 text-sm"
+              title="Get AI suggestions for this section"
+            >
+              <span className="text-lg leading-none">✨</span>
+              <span className="hidden sm:block">Suggest</span>
+            </button>
+          </div>
+
           <p className="text-gray-300 mb-4 text-sm">
             Click on the plus icon to add skills to your resume. Selected skills: {formData.skills.length}
           </p>
-          
+
           {/* Add New Skill Section */}
           <div className="mb-6">
             {!showAddSkill ? (
@@ -151,7 +177,7 @@ const ResumeForm2 = () => {
               </div>
             )}
           </div>
-          
+
           <div className="space-y-3 max-h-80 overflow-y-auto">
             {allSkills.map((skill) => (
               <div
@@ -188,23 +214,56 @@ const ResumeForm2 = () => {
             Next: Projects Section
           </button>
 
-
-           <div className="mt-6">
-              <h2 className="text-xl font-bold  text-orange-400">Added your skills with Ai</h2>
-            <AIAssistant />
-          </div>
         </div>
 
-        {/* Live Preview */}
-        <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
-          <h2 className="text-xl font-bold mb-6 text-orange-400">Live Preview</h2>
-          {TemplateComponent ? (
-            <TemplateComponent primaryColor={primaryColor} formData={formData} />
-          ) : (
-            <p className="text-gray-300">No template selected yet.</p>
-          )}
-          <div className="mt-4 text-sm text-gray-400">
-            Preview updates automatically as you select skills
+        {/* Right panel  for Live Preview and  Assistant */}
+        <div className="bg-gray-950 p-0 rounded-2xl border border-orange-600 shadow-lg overflow-hidden">
+          {/* Tabs header */}
+          <div className="flex">
+            <button
+              className={`flex-1 py-3 text-center text-sm font-semibold transition ${
+                rightTab === "preview" ? "bg-gray-900 text-orange-400" : "bg-gray-800 text-gray-200 hover:text-white"
+              }`}
+              onClick={() => setRightTab("preview")}
+            >
+              Live Preview
+            </button>
+            <button
+              className={`flex-1 py-3 text-center text-sm font-semibold transition ${
+                rightTab === "assistant" ? "bg-gray-900 text-orange-400" : "bg-gray-800 text-gray-200 hover:text-white"
+              }`}
+              onClick={() => setRightTab("assistant")}
+            >
+              Assistant
+            </button>
+          </div>
+
+          {/* Tab content */}
+          <div className="p-8">
+            {rightTab === "preview" ? (
+              <>
+                <h2 className="text-xl font-bold mb-6 text-orange-400">Live Preview</h2>
+                {TemplateComponent ? (
+                  <TemplateComponent primaryColor={primaryColor} formData={formData} />
+                ) : (
+                  <p className="text-gray-300">No template selected yet.</p>
+                )}
+                <div className="mt-4 text-sm text-gray-400">
+                  Preview updates automatically as you select skills
+                </div>
+              </>
+            ) : (
+              <div className="min-h-[420px]">
+                <AIAssistant
+                  section={currentSection}
+                  data={formData}
+                  onApply={handleApplyFromAI}
+                />
+                <p className="mt-3 text-xs text-orange-400">
+                  Try: “Generate 8 ATS-friendly skills”, “Merge duplicates”, “Reorder by relevance”.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

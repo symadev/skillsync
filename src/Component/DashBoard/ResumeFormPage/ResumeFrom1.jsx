@@ -12,20 +12,20 @@ const ResumeForm1 = () => {
   const totalSteps = 5;
 
   // Inside ResumeForm1 component
-const { setProgress } = useResumeProgress();
+  const { setProgress } = useResumeProgress();
 
-useEffect(() => {
-  const calculated = (currentStep / totalSteps) * 100;
-  setProgress(calculated); 
-}, [currentStep, totalSteps]);
+  useEffect(() => {
+    const calculated = (currentStep / totalSteps) * 100;
+    setProgress(calculated);
+  }, [currentStep, totalSteps, setProgress]);
 
   const [localFormData, setLocalFormData] = useState(globalFormData);
   const [profileImage, setProfileImage] = useState(globalFormData.profileImage || null);
 
-  // Sync local formData with global formData for live preview
+  //  formData for live preview
   useEffect(() => {
     setGlobalFormData({ ...localFormData, profileImage });
-  }, [localFormData, profileImage]);
+  }, [localFormData, profileImage, setGlobalFormData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -63,8 +63,29 @@ useEffect(() => {
 
   const progressPercentage = (currentStep / totalSteps) * 100;
 
+ 
+  // Right panel tabs
+  const [rightTab, setRightTab] = useState("preview"); // "preview" | "assistant"
+
+  
+  const currentSection = "contact";
+
+  // Open the assistant focused on this section
+  const openAssistantForSection = () => setRightTab("assistant");
+
+  // Apply AI changes here with his handle 
+  const handleApplyFromAI = (patch) => {
+    if (!patch || typeof patch !== "object") return;
+    setLocalFormData(prev => ({ ...prev, ...patch }));
+
+    //here prev means the previous formData
+    // If AI returns full formData object, we can directly set it
+    //that means it do not update the previous other states data just update the data under the prev
+  };
+  
+
   return (
-    <div className="min-h-screen  w-full bg-gradient-to-br from-black via-gray-900 to-orange-900 text-white">
+    <div className="min-h-screen  w-full bg-gradient-to-br from-black via-gray-950 to-orange-700 text-white">
       {/* Header & Progress */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-4 p-6">
         <button
@@ -95,7 +116,20 @@ useEffect(() => {
       <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Form Box */}
         <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-orange-400">Contact Information</h2>
+          {/* UPDATED header with tiny Suggest button */}
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold mb-6 text-orange-400">Contact Information</h2>
+            <button
+              type="button"
+              onClick={openAssistantForSection}
+              className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-800/60 hover:bg-gray-800 border border-orange-600/40 text-sm"
+              title="Get AI suggestions for this section"
+            >
+              <span className="text-lg leading-none">✨</span>
+              <span className="hidden sm:block">Suggest</span>
+            </button>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { name: "name", placeholder: "First Name" },
@@ -151,32 +185,60 @@ useEffect(() => {
             >
               Next
             </button>
-
           </div>
 
-
-           <div className="mt-6">
-              <h2 className="text-xl font-bold  text-orange-400">Get The Suggestions from Ai</h2>
-            <AiAssistant />
-          </div>
         </div>
 
-        {/* Live Preview Box */}
-        <div className="bg-gray-950 p-8 rounded-2xl border border-orange-600 shadow-lg">
-          <h2 className="text-xl font-bold mb-6 text-orange-400">Live Preview</h2>
-          {TemplateComponent ? (
-            <TemplateComponent
-              primaryColor={primaryColor}
-              formData={localFormData}
-              profileImage={profileImage}
-            />
-          ) : (
-            <p className="text-gray-300">No template selected yet.</p>
-          )}
+        {/* RIGHT PANEL: Tabs -> Live Preview | Assistant */}
+        <div className="bg-gray-950 p-0 rounded-2xl border border-orange-600 shadow-lg overflow-hidden">
+          {/* Tabs header */}
+          <div className="flex">
+            <button
+              className={`flex-1 py-3 text-center text-sm font-semibold transition ${
+                rightTab === "preview" ? "bg-gray-900 text-orange-400" : "bg-gray-800 text-gray-200 hover:text-white"
+              }`}
+              onClick={() => setRightTab("preview")}
+            >
+              Live Preview
+            </button>
+            <button
+              className={`flex-1 py-3 text-center text-sm font-semibold transition ${
+                rightTab === "assistant" ? "bg-gray-900 text-orange-400" : "bg-gray-800 text-gray-200 hover:text-white"
+              }`}
+              onClick={() => setRightTab("assistant")}
+            >
+              Assistant
+            </button>
+          </div>
+
+          {/* Tab content */}
+          <div className="p-8">
+            {rightTab === "preview" ? (
+              TemplateComponent ? (
+                <TemplateComponent
+                  primaryColor={primaryColor}
+                  formData={localFormData}
+                  profileImage={profileImage}
+                />
+              ) : (
+                <p className="text-gray-300">No template selected yet.</p>
+              )
+            ) : (
+              <div className="min-h-[420px]">
+                <AiAssistant
+                  section={currentSection}
+                  data={{ ...localFormData, profileImage }}
+                  onApply={handleApplyFromAI}
+                />
+                <p className="mt-3 text-xs text-orange-400">
+                  Try: “Shorten summary to 2 sentences”, “Add ATS keywords”, “Fix tone & grammar”.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
-
   );
 };
 
